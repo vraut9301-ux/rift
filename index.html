@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RIFT — The Ultimate Shadow Slave Companion App | Characters, Lore, Recaps</title>
+    <meta name="description"
+        content="RIFT is the ultimate free companion app for Shadow Slave by Guiltythree. Track characters, explore lore, get AI recaps, manage inventory, and view the world map. The #1 tool for Shadow Slave readers." />
+    <meta name="keywords"
+        content="Shadow Slave, RIFT, Shadow Slave characters, Shadow Slave recap, Shadow Slave lore, Sunny Shadow Slave, Nephis, Cassie, web novel tracker, progression fantasy, Guiltythree, Shadow Slave wiki, Shadow Slave guide" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="RIFT — The Ultimate Shadow Slave Companion App" />
+    <meta property="og:description"
+        content="Track characters, lore, inventory, and get AI recaps for Shadow Slave. Free forever." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://rift-shadowslave.netlify.app/" />
+    <meta property="og:image" content="https://rift-shadowslave.netlify.app/assets/icon-512.png" />
+    <meta property="og:site_name" content="RIFT" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="RIFT — Shadow Slave Companion App" />
+    <meta name="twitter:description"
+        content="The #1 free tool for Shadow Slave readers. Characters, lore, AI recaps, inventory & more." />
+    <meta name="twitter:image" content="https://rift-shadowslave.netlify.app/assets/icon-512.png" />
+
+    <!-- PWA -->
+    <link rel="manifest" href="manifest.json" />
+    <meta name="theme-color" content="#C41E3A" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <link rel="apple-touch-icon" href="assets/icon-192.png" />
+    <link rel="icon" type="image/png" href="assets/icon-192.png" />
+
+    <link rel="canonical" href="https://rift-shadowslave.netlify.app/" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=Inter:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- CANVAS BACKGROUND -->
+    <canvas id="bg-canvas"></canvas>
+
+    <!-- NAV -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-inner">
+            <a href="#" class="nav-logo">
+                <span class="logo-icon">⟁</span>
+                <span class="logo-text">RIFT</span>
+            </a>
+            <div class="nav-links">
+                <a href="characters.html">Characters</a>
+                <a href="recap.html">Recap</a>
+                <a href="lore.html">Lore</a>
+                <a href="inventory.html">Inventory</a>
+                <a href="map.html">World Map</a>
+                <a href="community.html">Community</a>
+            </div>
+            <a href="characters.html" class="nav-cta">Enter the Rift</a>
+            <button class="hamburger" id="hamburger">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+        <div class="mobile-menu" id="mobile-menu">
+            <a href="characters.html">Characters</a>
+            <a href="recap.html">Recap</a>
+            <a href="lore.html">Lore</a>
+            <a href="inventory.html">Inventory</a>
+            <a href="map.html">World Map</a>
+            <a href="community.html">Community</a>
+            <a href="characters.html" class="nav-cta">Enter the Rift</a>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+        <div class="hero-glow"></div>
+        <div class="hero-content">
+            <div class="hero-tag">
+                <span class="tag-dot"></span>
+                Now featuring Shadow Slave
+            </div>
+            <h1 class="hero-title">
+                Step Into<br />
+                <span class="gradient-text">Every World.</span>
+            </h1>
+            <p class="hero-sub">
+                The AI-powered companion for web novel readers.<br />
+                Track lore. Visualize characters. Never lose your place again.
+            </p>
+            <div class="hero-buttons">
+                <a href="characters.html" class="btn-primary">
+                    <span>Open the Rift</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                </a>
+                <a href="#features" class="btn-ghost">Explore Features</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-num">2,400+</span>
+                    <span class="stat-label">Chapters Tracked</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat">
+                    <span class="stat-num">300+</span>
+                    <span class="stat-label">Characters Listed</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat">
+                    <span class="stat-num">Free</span>
+                    <span class="stat-label">To Start</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="hero-card-wrap">
+                <div class="hero-card main-card reveal-card">
+                    <div class="card-inner">
+                        <div class="card-avatar">
+                            <div class="avatar-ring"></div>
+                            <div class="avatar-img sunny-avatar">☾</div>
+                        </div>
+                        <div class="card-info">
+                            <div class="card-novel-tag">Shadow Slave</div>
+                            <h3 class="card-name">Sunny</h3>
+                            <div class="card-title">The Dreamless</div>
+                            <div class="card-stats-row">
+                                <div class="mini-stat"><span class="ms-label">Echo</span><span class="ms-val">5</span>
+                                </div>
+                                <div class="mini-stat"><span class="ms-label">Soul Aspects</span><span
+                                        class="ms-val">7</span></div>
+                                <div class="mini-stat"><span class="ms-label">Rank</span><span
+                                        class="ms-val">Saint</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-glow"></div>
+                </div>
+                <div class="hero-card side-card reveal-card-delay">
+                    <div class="side-card-inner">
+                        <div class="side-avatar">✦</div>
+                        <div>
+                            <div class="card-name" style="font-size:0.95rem">Nephis</div>
+                            <div class="card-title" style="font-size:0.7rem">Star of Undying Flame</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-card side-card-2 reveal-card-delay2">
+                    <div class="side-card-inner">
+                        <div class="side-avatar" style="color:#7B2FBE">◈</div>
+                        <div>
+                            <div class="card-name" style="font-size:0.95rem">Cassie</div>
+                            <div class="card-title" style="font-size:0.7rem">Blind Seer</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ai-badge">
+                    <span class="ai-dot"></span> AI Portraits Active
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="features" id="features">
+        <div class="section-label">What We Offer</div>
+        <h2 class="section-title">Everything a Reader <span class="gradient-text">Actually Needs</span></h2>
+        <p class="section-sub">Built by a reader who was tired of forgetting who everyone was by chapter 800.</p>
+
+        <div class="features-grid">
+            <div class="feat-card feat-large">
+                <div class="feat-icon">🧠</div>
+                <h3>AI Chapter Recap</h3>
+                <p>Missed a week? Forgot what happened last arc? Get a smart, spoiler-controlled recap of any chapter
+                    range — in under 30 seconds.</p>
+                <div class="feat-demo-bar">
+                    <div class="demo-bar-inner">AI summarizing Chapter 1200–1250...</div>
+                </div>
+            </div>
+
+            <a href="portraits.html" class="feat-card" style="text-decoration:none;color:inherit;display:block">
+                <div class="feat-icon">🎨</div>
+                <h3>AI Character Portraits</h3>
+                <p>See your favorite characters the way the author described them — consistent, dark, stunning
+                    AI-generated art.</p>
+                <div
+                    style="margin-top:1rem;font-size:0.7rem;font-weight:700;color:var(--primary-light);letter-spacing:0.05em">
+                    View Gallery →</div>
+            </a>
+
+            <a href="inventory.html" class="feat-card" style="text-decoration:none;color:inherit;display:block">
+                <div class="feat-icon">🎮</div>
+                <h3>Character Inventory</h3>
+                <p>See every weapon, armor, and ability each character has — chapter by chapter. Equip items and see how
+                    they look. Just like a real RPG.</p>
+                <div
+                    style="margin-top:1rem;font-size:0.7rem;font-weight:700;color:var(--primary-light);letter-spacing:0.05em">
+                    Open Inventory →</div>
+            </a>
+
+            <div class="feat-card feat-medium">
+                <div class="feat-icon">📖</div>
+                <h3>Character Encyclopedia</h3>
+                <p>Every character. Every relationship. Every faction. Searchable, filterable, always up-to-date. Your
+                    novel's Wikipedia — but actually good.</p>
+            </div>
+
+            <div class="feat-card">
+                <div class="feat-icon">💬</div>
+                <h3>Chapter Discussions</h3>
+                <p>Talk about specific chapters without accidentally spoiling yourself. Inline reactions, per-chapter
+                    threads, theory tagging.</p>
+            </div>
+
+            <div class="feat-card">
+                <div class="feat-icon">🗺️</div>
+                <h3>Lore Bible</h3>
+                <p>The world map, power systems, nightmare ranks, faction trees — all in one place. Auto-generated from
+                    novel text.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CHARACTERS -->
+    <section class="characters-section" id="characters">
+        <div class="section-label">Character Encyclopedia</div>
+        <h2 class="section-title">Know Every <span class="gradient-text">Shadow</span></h2>
+        <div class="novel-selector">
+            <div class="novel-pill active">Shadow Slave</div>
+            <div class="novel-pill soon" title="Coming Soon">TBATE</div>
+            <div class="novel-pill soon" title="Coming Soon">Omniscient Reader</div>
+            <div class="novel-pill soon">More coming...</div>
+        </div>
+
+        <div class="char-grid">
+            <!-- Sunny -->
+            <div class="char-card" data-char="sunny">
+                <div class="char-portrait sunny-portrait">
+                    <div class="portrait-symbol">☾</div>
+                    <div class="portrait-glow red"></div>
+                </div>
+                <div class="char-details">
+                    <div class="char-novel-tag">Shadow Slave</div>
+                    <h3 class="char-name">Sunny</h3>
+                    <div class="char-epithet">The Dreamless · The Forsaken One</div>
+                    <div class="char-rank-badge">Saint</div>
+                    <div class="char-tags">
+                        <span class="tag">Protagonist</span>
+                        <span class="tag">Shadowborn</span>
+                        <span class="tag">Memory Weave</span>
+                    </div>
+                    <div class="char-powers">
+                        <div class="power-bar">
+                            <span class="pb-label">Shadow Aspect</span>
+                            <div class="pb-track">
+                                <div class="pb-fill" style="width:0%" data-width="95"></div>
+                            </div>
+                        </div>
+                        <div class="power-bar">
+                            <span class="pb-label">Soul Strength</span>
+                            <div class="pb-track">
+                                <div class="pb-fill" style="width:0%" data-width="80"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="characters.html?char=sunny" class="char-read-more">Full Profile →</a>
+                </div>
+            </div>
+
+            <!-- Nephis -->
+            <div class="char-card" data-char="nephis">
+                <div class="char-portrait nephis-portrait">
+                    <div class="portrait-symbol">✦</div>
+                    <div class="portrait-glow gold"></div>
+                </div>
+                <div class="char-details">
+                    <div class="char-novel-tag">Shadow Slave</div>
+                    <h3 class="char-name">Nephis</h3>
+                    <div class="char-epithet">Star of Undying Flame · Changing Star</div>
+                    <div class="char-rank-badge"
+                        style="background: rgba(255,165,0,0.15); color:#FFB347; border-color:rgba(255,165,0,0.3)">
+                        Transcendent</div>
+                    <div class="char-tags">
+                        <span class="tag">Flame Aspect</span>
+                        <span class="tag">Amnesia Arc</span>
+                        <span class="tag">Memory Lost</span>
+                    </div>
+                    <div class="char-powers">
+                        <div class="power-bar">
+                            <span class="pb-label">Flame Aspect</span>
+                            <div class="pb-track">
+                                <div class="pb-fill gold" style="width:0%" data-width="99"></div>
+                            </div>
+                        </div>
+                        <div class="power-bar">
+                            <span class="pb-label">Soul Strength</span>
+                            <div class="pb-track">
+                                <div class="pb-fill gold" style="width:0%" data-width="90"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="characters.html?char=nephis" class="char-read-more">Full Profile →</a>
+                </div>
+            </div>
+
+            <!-- Cassie -->
+            <div class="char-card" data-char="cassie">
+                <div class="char-portrait cassie-portrait">
+                    <div class="portrait-symbol">◈</div>
+                    <div class="portrait-glow purple"></div>
+                </div>
+                <div class="char-details">
+                    <div class="char-novel-tag">Shadow Slave</div>
+                    <h3 class="char-name">Cassie</h3>
+                    <div class="char-epithet">The Blind Seer · Prophet of Doom</div>
+                    <div class="char-rank-badge"
+                        style="background:rgba(123,47,190,0.15);color:#A855F7;border-color:rgba(123,47,190,0.3)">
+                        Awakened</div>
+                    <div class="char-tags">
+                        <span class="tag">Seer</span>
+                        <span class="tag">Prophetic Vision</span>
+                        <span class="tag">Blind</span>
+                    </div>
+                    <div class="char-powers">
+                        <div class="power-bar">
+                            <span class="pb-label">Prophecy Aspect</span>
+                            <div class="pb-track">
+                                <div class="pb-fill purple" style="width:0%" data-width="75"></div>
+                            </div>
+                        </div>
+                        <div class="power-bar">
+                            <span class="pb-label">Soul Strength</span>
+                            <div class="pb-track">
+                                <div class="pb-fill purple" style="width:0%" data-width="60"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="characters.html?char=cassie" class="char-read-more">Full Profile →</a>
+                </div>
+            </div>
+
+            <!-- Effie -->
+            <div class="char-card" data-char="effie">
+                <div class="char-portrait effie-portrait">
+                    <div class="portrait-symbol">⚔</div>
+                    <div class="portrait-glow teal"></div>
+                </div>
+                <div class="char-details">
+                    <div class="char-novel-tag">Shadow Slave</div>
+                    <h3 class="char-name">Effie</h3>
+                    <div class="char-epithet">The Beastmaster · Iron-Armed Hunter</div>
+                    <div class="char-rank-badge"
+                        style="background:rgba(0,188,188,0.15);color:#2DD4BF;border-color:rgba(0,188,188,0.3)">Master
+                    </div>
+                    <div class="char-tags">
+                        <span class="tag">Warrior</span>
+                        <span class="tag">Hunt Aspect</span>
+                        <span class="tag">Fearless</span>
+                    </div>
+                    <div class="char-powers">
+                        <div class="power-bar">
+                            <span class="pb-label">Physical Strength</span>
+                            <div class="pb-track">
+                                <div class="pb-fill teal" style="width:0%" data-width="88"></div>
+                            </div>
+                        </div>
+                        <div class="power-bar">
+                            <span class="pb-label">Hunt Aspect</span>
+                            <div class="pb-track">
+                                <div class="pb-fill teal" style="width:0%" data-width="72"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="characters.html?char=effie" class="char-read-more">Full Profile →</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="view-all-wrap">
+            <a href="characters.html" class="btn-ghost">View All Characters →</a>
+        </div>
+    </section>
+
+    <!-- RECAP SECTION -->
+    <section class="recap-section" id="recap">
+        <div class="recap-inner">
+            <div class="recap-left">
+                <div class="section-label">AI Recap Engine</div>
+                <h2 class="section-title" style="text-align:left">Catch Up in <span
+                        class="gradient-text">Minutes.</span></h2>
+                <p class="section-sub" style="text-align:left; max-width:400px">Select any chapter range. RIFT's AI
+                    reads it, extracts the key moments, deaths, power-ups, and plot twists — and delivers a perfect
+                    recap.</p>
+                <div class="recap-features-list">
+                    <div class="rfl-item">✓ Spoiler-controlled output</div>
+                    <div class="rfl-item">✓ Key deaths & power-ups highlighted</div>
+                    <div class="rfl-item">✓ Relationship changes tracked</div>
+                    <div class="rfl-item">✓ No fluff — pure signal</div>
+                </div>
+            </div>
+            <div class="recap-right">
+                <div class="recap-ui-demo">
+                    <div class="recap-header">
+                        <span class="recap-novel-badge">Shadow Slave</span>
+                        <span class="recap-status">AI Ready</span>
+                    </div>
+                    <div class="recap-input-row">
+                        <div class="recap-input-group">
+                            <label>From Chapter</label>
+                            <div class="recap-input-field" id="from-ch">1200</div>
+                        </div>
+                        <div class="recap-arrow">→</div>
+                        <div class="recap-input-group">
+                            <label>To Chapter</label>
+                            <div class="recap-input-field" id="to-ch">1250</div>
+                        </div>
+                    </div>
+                    <div class="recap-options">
+                        <div class="recap-opt active">Key Events</div>
+                        <div class="recap-opt active">Power-Ups</div>
+                        <div class="recap-opt">Deaths</div>
+                        <div class="recap-opt">Romance</div>
+                    </div>
+                    <button class="recap-btn" id="recap-btn">
+                        <span id="recap-btn-text">Generate Recap</span>
+                    </button>
+                    <div class="recap-result" id="recap-result">
+                        <div class="recap-result-title">📋 Summary: Ch. 1200–1250</div>
+                        <p class="recap-result-text">Sunny confronts the Transcendent-level nightmare creature near the
+                            Tomb of Ariel. Nephis's flame intensifies as her memories begin fragmenting further — a
+                            consequence of the Moonless Seal breaking. Effie achieves a critical breakthrough in her
+                            Hunt Aspect, pushing her to early Master rank. The shadow army expands, and a mysterious new
+                            Sovereign is hinted at the end of chapter 1248...</p>
+                        <div class="recap-tags-row">
+                            <span class="rtag power">⚡ Power-Up: Effie</span>
+                            <span class="rtag lore">📜 Lore: Moonless Seal</span>
+                            <span class="rtag warning">⚠ Major: New Sovereign</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- POWER SYSTEM -->
+    <section class="power-section" id="powers">
+        <div class="section-label">Lore Tracker</div>
+        <h2 class="section-title" style="text-align:center">The Nightmare <span class="gradient-text">Rank System</span>
+        </h2>
+        <div class="rank-ladder">
+            <div class="rank-item" data-rank="dormant">
+                <div class="rank-num">0</div>
+                <div class="rank-info">
+                    <div class="rank-name">Dormant</div>
+                    <div class="rank-desc">Before awakening. No aspects, no power.</div>
+                </div>
+                <div class="rank-indicator dormant-color"></div>
+            </div>
+            <div class="rank-connector"></div>
+            <div class="rank-item" data-rank="awakened">
+                <div class="rank-num">1</div>
+                <div class="rank-info">
+                    <div class="rank-name">Awakened</div>
+                    <div class="rank-desc">First Aspect granted. Enters First Nightmare.</div>
+                </div>
+                <div class="rank-indicator awakened-color"></div>
+            </div>
+            <div class="rank-connector"></div>
+            <div class="rank-item" data-rank="refined">
+                <div class="rank-num">2</div>
+                <div class="rank-info">
+                    <div class="rank-name">Refined</div>
+                    <div class="rank-desc">Soul refined through nightmare trials.</div>
+                </div>
+                <div class="rank-indicator refined-color"></div>
+            </div>
+            <div class="rank-connector"></div>
+            <div class="rank-item" data-rank="master">
+                <div class="rank-num">3</div>
+                <div class="rank-info">
+                    <div class="rank-name">Master</div>
+                    <div class="rank-desc">Commands lesser nightmare creatures.</div>
+                </div>
+                <div class="rank-indicator master-color"></div>
+            </div>
+            <div class="rank-connector"></div>
+            <div class="rank-item highlight-rank" data-rank="saint">
+                <div class="rank-num">4</div>
+                <div class="rank-info">
+                    <div class="rank-name">Saint ← Sunny is here</div>
+                    <div class="rank-desc">A being that transcends mortal limits.</div>
+                </div>
+                <div class="rank-indicator saint-color"></div>
+            </div>
+            <div class="rank-connector"></div>
+            <div class="rank-item" data-rank="transcendent">
+                <div class="rank-num">5</div>
+                <div class="rank-info">
+                    <div class="rank-name">Transcendent</div>
+                    <div class="rank-desc">Nephis, Song Shang. Forces of nature.</div>
+                </div>
+                <div class="rank-indicator transcendent-color"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COMMUNITY -->
+    <section class="community-section" id="community">
+        <div class="section-label">The Community</div>
+        <h2 class="section-title">Where Theories <span class="gradient-text">Come Alive</span></h2>
+        <div class="community-grid">
+            <div class="thread-card">
+                <div class="thread-header">
+                    <span class="thread-chap">Ch. 1248 Discussion</span>
+                    <span class="thread-hot">🔥 Hot</span>
+                </div>
+                <p class="thread-title">"The new Sovereign's identity — 3 theories that actually make sense"</p>
+                <div class="thread-footer">
+                    <span class="thread-user">@shadow_theorist</span>
+                    <span class="thread-meta">💬 847 · ❤ 2.1k</span>
+                </div>
+            </div>
+            <div class="thread-card">
+                <div class="thread-header">
+                    <span class="thread-chap">Power Prediction</span>
+                    <span class="thread-new">New</span>
+                </div>
+                <p class="thread-title">"Sunny's shadow army will reach 1000 shadows before the final arc — here's why"
+                </p>
+                <div class="thread-footer">
+                    <span class="thread-user">@lore_keeper</span>
+                    <span class="thread-meta">💬 312 · ❤ 941</span>
+                </div>
+            </div>
+            <div class="thread-card">
+                <div class="thread-header">
+                    <span class="thread-chap">Character Analysis</span>
+                    <span class="thread-trending">Trending</span>
+                </div>
+                <p class="thread-title">"Nephis's memory loss isn't accidental — the author foreshadowed this in chapter
+                    3"</p>
+                <div class="thread-footer">
+                    <span class="thread-user">@rift_analyst</span>
+                    <span class="thread-meta">💬 1.2k · ❤ 5.4k</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section" id="enter">
+        <div class="cta-glow"></div>
+        <div class="cta-inner">
+            <div class="cta-rift-symbol">⟁</div>
+            <h2 class="cta-title">Ready to Enter?</h2>
+            <p class="cta-sub">Free forever for core features. No account needed to explore.</p>
+            <div class="hero-buttons" style="justify-content:center">
+                <a href="characters.html" class="btn-primary">
+                    <span>Start Exploring</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                </a>
+                <a href="community.html" class="btn-ghost">Join Community</a>
+            </div>
+            <div class="cta-note">Currently featuring: Shadow Slave · More novels coming soon</div>
+        </div>
+    </section>
+
+    <!-- NEWSLETTER SIGNUP -->
+    <section class="newsletter-section" id="newsletter">
+        <div class="newsletter-inner">
+            <div class="newsletter-icon">📬</div>
+            <h2 class="newsletter-title">Never Miss a <span class="gradient-text">Shadow Update</span></h2>
+            <p class="newsletter-sub">Get weekly lore drops, chapter discussions, and RIFT feature updates — straight to
+                your inbox.</p>
+            <form class="newsletter-form" id="newsletter-form" onsubmit="return handleNewsletterSignup(event)">
+                <input type="email" id="newsletter-email" class="newsletter-input" placeholder="your@email.com"
+                    required />
+                <button type="submit" class="newsletter-btn">Subscribe Free</button>
+            </form>
+            <p class="newsletter-note" id="newsletter-note">Join 0 Shadow Slave readers. No spam, ever.</p>
+        </div>
+    </section>
+
+    <!-- SUPPORT SECTION -->
+    <section class="support-section">
+        <div class="support-inner">
+            <h3 class="support-title">📚 Read Shadow Slave</h3>
+            <p class="support-sub">Support the author Guiltythree — read the official novel</p>
+            <div class="support-links">
+                <a href="https://www.webnovel.com/book/shadow-slave_22324648105553005" target="_blank" rel="noopener"
+                    class="support-btn webnovel-btn">📖 Read on Webnovel</a>
+                <a href="https://www.amazon.com/s?k=shadow+slave+guiltythree" target="_blank" rel="noopener"
+                    class="support-btn amazon-btn">🛒 Get on Amazon</a>
+            </div>
+            <div class="support-divider"></div>
+            <p class="support-sub">Love RIFT? Help us keep it running</p>
+            <a href="#" id="donate-btn" class="support-btn donate-btn">☕ Buy Me a Coffee</a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-logo">
+                <span class="logo-icon">⟁</span>
+                <span class="logo-text">RIFT</span>
+            </div>
+            <div class="footer-tagline">Step Into Every World.</div>
+            <div class="footer-links">
+                <a href="characters.html">Characters</a>
+                <a href="recap.html">Recap</a>
+                <a href="lore.html">Lore</a>
+                <a href="inventory.html">Inventory</a>
+                <a href="map.html">World Map</a>
+                <a href="community.html">Community</a>
+            </div>
+            <div class="footer-copy">© 2026 RIFT. Built for readers, by readers. Not affiliated with Webnovel or
+                Guiltythree.</div>
+        </div>
+    </footer>
+
+    <!-- PWA Install Prompt -->
+    <div class="pwa-install-banner" id="pwa-install-banner" style="display:none">
+        <div class="pwa-install-inner">
+            <span class="pwa-install-icon">📱</span>
+            <div class="pwa-install-text">
+                <strong>Install RIFT App</strong>
+                <span>Get instant access + notifications</span>
+            </div>
+            <button class="pwa-install-btn" id="pwa-install-btn">Install</button>
+            <button class="pwa-dismiss-btn" id="pwa-dismiss-btn">✕</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+    <script>
+        // PWA Service Worker Registration
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/sw.js').then(reg => {
+                console.log('RIFT Service Worker registered', reg.scope);
+            }).catch(err => console.log('SW registration failed:', err));
+        }
+
+        // PWA Install Prompt
+        let deferredPrompt;
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            const dismissed = localStorage.getItem('rift-pwa-dismissed');
+            if (!dismissed) {
+                document.getElementById('pwa-install-banner').style.display = 'flex';
+            }
+        });
+
+        document.getElementById('pwa-install-btn')?.addEventListener('click', async () => {
+            if (!deferredPrompt) return;
+            deferredPrompt.prompt();
+            const result = await deferredPrompt.userChoice;
+            deferredPrompt = null;
+            document.getElementById('pwa-install-banner').style.display = 'none';
+        });
+
+        document.getElementById('pwa-dismiss-btn')?.addEventListener('click', () => {
+            document.getElementById('pwa-install-banner').style.display = 'none';
+            localStorage.setItem('rift-pwa-dismissed', '1');
+        });
+
+        // Newsletter Signup
+        function handleNewsletterSignup(e) {
+            e.preventDefault();
+            const email = document.getElementById('newsletter-email').value;
+            const existing = JSON.parse(localStorage.getItem('rift-newsletter-emails') || '[]');
+            if (!existing.includes(email)) {
+                existing.push(email);
+                localStorage.setItem('rift-newsletter-emails', JSON.stringify(existing));
+            }
+            document.getElementById('newsletter-note').textContent = '✅ You\'re subscribed! Welcome to the RIFT community.';
+            document.getElementById('newsletter-note').style.color = '#2ECC71';
+            document.getElementById('newsletter-email').value = '';
+            return false;
+        }
+    </script>
+</body>
+
+</html>

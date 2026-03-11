@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shadow Slave Chapter Recap — AI-Powered Summaries | RIFT</title>
+    <meta name="description"
+        content="Get AI-powered chapter recaps for Shadow Slave. Never lose your place in the story. Spoiler-controlled summaries for any chapter range." />
+    <meta name="keywords"
+        content="Shadow Slave recap, Shadow Slave chapter summary, Shadow Slave spoilers, chapter recap, AI recap" />
+    <meta property="og:title" content="Shadow Slave Chapter Recap — AI Summaries | RIFT" />
+    <meta property="og:description"
+        content="AI-powered chapter recaps for Shadow Slave. Never lose your place again." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://rift-shadowslave.netlify.app/assets/icon-512.png" />
+    <meta name="twitter:card" content="summary" />
+    <link rel="manifest" href="manifest.json" />
+    <meta name="theme-color" content="#C41E3A" />
+    <link rel="icon" type="image/png" href="assets/icon-192.png" />
+    <link rel="apple-touch-icon" href="assets/icon-192.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="inner.css">
+</head>
+
+<body>
+    <canvas id="bg-canvas"></canvas>
+
+    <nav class="navbar scrolled" id="navbar">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo">
+                <span class="logo-icon">⟁</span><span class="logo-text">RIFT</span>
+            </a>
+            <div class="nav-links">
+                <a href="characters.html">Characters</a>
+                <a href="recap.html" class="active">Recap</a>
+                <a href="lore.html">Lore</a>
+                <a href="community.html">Community</a>
+            </div>
+            <a href="index.html#enter" class="nav-cta">Enter the Rift</a>
+            <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+        </div>
+        <div class="mobile-menu" id="mobile-menu">
+            <a href="characters.html">Characters</a>
+            <a href="recap.html">Recap</a>
+            <a href="lore.html">Lore</a>
+            <a href="community.html">Community</a>
+        </div>
+    </nav>
+
+    <main class="inner-main">
+        <div class="page-header">
+            <div class="page-header-inner">
+                <div class="page-breadcrumb"><a href="index.html">RIFT</a> <span>›</span> <span
+                        class="novel-crumb">Shadow Slave</span> <span>›</span> Recap</div>
+                <h1 class="page-title">AI Recap <span class="gradient-text">Engine</span></h1>
+                <p class="page-sub">Select a chapter range and get a smart, spoiler-controlled summary in seconds.</p>
+            </div>
+        </div>
+
+        <div class="recap-page-layout">
+            <!-- Left: Generator -->
+            <div class="recap-generator">
+                <div class="recap-card">
+                    <div class="recap-card-header">
+                        <span class="recap-novel-badge">Shadow Slave</span>
+                        <span class="recap-status"><span class="status-dot"></span>AI Ready</span>
+                    </div>
+
+                    <div class="rc-section-label">Chapter Range</div>
+                    <div class="rc-range-row">
+                        <div class="rc-input-group">
+                            <label>From</label>
+                            <input type="number" id="ch-from" class="rc-input" value="1" min="1" max="2400"
+                                placeholder="1" />
+                        </div>
+                        <div class="rc-arrow">→</div>
+                        <div class="rc-input-group">
+                            <label>To</label>
+                            <input type="number" id="ch-to" class="rc-input" value="50" min="1" max="2400"
+                                placeholder="50" />
+                        </div>
+                    </div>
+
+                    <!-- Quick Presets -->
+                    <div class="rc-section-label">Quick Presets</div>
+                    <div class="rc-presets">
+                        <button class="preset-btn" data-from="1" data-to="50">Ch. 1–50</button>
+                        <button class="preset-btn" data-from="51" data-to="100">Ch. 51–100</button>
+                        <button class="preset-btn" data-from="101" data-to="200">Ch. 101–200</button>
+                        <button class="preset-btn" data-from="201" data-to="400">Ch. 201–400</button>
+                        <button class="preset-btn" data-from="401" data-to="600">Ch. 401–600</button>
+                        <button class="preset-btn" data-from="601" data-to="900">Ch. 601–900</button>
+                        <button class="preset-btn" data-from="901" data-to="1100">Ch. 901–1100</button>
+                        <button class="preset-btn" data-from="1101" data-to="1250">Ch. 1101–1250</button>
+                    </div>
+
+                    <!-- Filters -->
+                    <div class="rc-section-label">Include In Recap</div>
+                    <div class="rc-toggles">
+                        <label class="rc-toggle">
+                            <input type="checkbox" checked id="tog-events" />
+                            <span class="toggle-track"></span>
+                            <span>Key Events</span>
+                        </label>
+                        <label class="rc-toggle">
+                            <input type="checkbox" checked id="tog-power" />
+                            <span class="toggle-track"></span>
+                            <span>Power-Ups</span>
+                        </label>
+                        <label class="rc-toggle">
+                            <input type="checkbox" id="tog-deaths" />
+                            <span class="toggle-track"></span>
+                            <span>Deaths</span>
+                        </label>
+                        <label class="rc-toggle">
+                            <input type="checkbox" id="tog-romance" />
+                            <span class="toggle-track"></span>
+                            <span>Romance</span>
+                        </label>
+                        <label class="rc-toggle">
+                            <input type="checkbox" checked id="tog-lore" />
+                            <span class="toggle-track"></span>
+                            <span>Lore Reveals</span>
+                        </label>
+                    </div>
+
+                    <!-- Spoiler Level -->
+                    <div class="rc-section-label">Spoiler Control</div>
+                    <div class="spoiler-slider-wrap">
+                        <input type="range" id="spoiler-level" min="1" max="3" value="2" class="spoiler-slider" />
+                        <div class="spoiler-labels">
+                            <span>Safe</span><span>Moderate</span><span>Full</span>
+                        </div>
+                    </div>
+                    <div class="spoiler-hint" id="spoiler-hint">Moderate — key events revealed, major twists hinted
+                    </div>
+
+                    <button class="rc-generate-btn" id="rc-generate-btn">
+                        <span id="rc-btn-text">⚡ Generate Recap</span>
+                    </button>
+                </div>
+
+                <!-- Progress Tracker -->
+                <div class="progress-tracker-card">
+                    <div class="ptc-header">📍 My Reading Progress</div>
+                    <div class="ptc-body">
+                        <div class="ptc-novel">Shadow Slave</div>
+                        <div class="ptc-input-row">
+                            <span class="ptc-label">Currently on chapter:</span>
+                            <input type="number" id="current-chapter" class="ptc-input" placeholder="e.g. 847" min="1"
+                                max="2400" />
+                        </div>
+                        <button class="ptc-save-btn" id="ptc-save">Save Progress</button>
+                        <div class="ptc-saved" id="ptc-saved" style="display:none">✓ Saved!</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right: Result -->
+            <div class="recap-result-area" id="recap-result-area">
+                <!-- Empty State -->
+                <div class="recap-empty" id="recap-empty">
+                    <div class="re-icon">⟁</div>
+                    <h3>Your recap will appear here</h3>
+                    <p>Select a chapter range and hit Generate. We'll summarize it in under 3 seconds.</p>
+                    <div class="re-features">
+                        <div class="re-feat">✓ Spoiler-controlled output</div>
+                        <div class="re-feat">✓ Power-ups highlighted</div>
+                        <div class="re-feat">✓ Lore reveals extracted</div>
+                        <div class="re-feat">✓ No fluff — pure signal</div>
+                    </div>
+                </div>
+
+                <!-- Result (hidden until generated) -->
+                <div class="recap-output" id="recap-output" style="display:none">
+                    <div class="ro-header">
+                        <div class="ro-title-row">
+                            <span class="ro-icon">📋</span>
+                            <h2 class="ro-title" id="ro-title">Summary</h2>
+                        </div>
+                        <div class="ro-actions">
+                            <button class="ro-action-btn" id="ro-copy-btn" title="Copy to clipboard">⧉ Copy</button>
+                            <button class="ro-action-btn" id="ro-bookmark-btn" title="Bookmark">⊕ Save</button>
+                        </div>
+                    </div>
+
+                    <!-- Summary Text -->
+                    <div class="ro-content" id="ro-content"></div>
+
+                    <!-- Tags -->
+                    <div class="ro-tags-row" id="ro-tags-row"></div>
+
+                    <!-- Key Events List -->
+                    <div class="ro-events" id="ro-events">
+                        <h4 class="ro-events-title">📌 Key Moments</h4>
+                        <div class="ro-events-list" id="ro-events-list"></div>
+                    </div>
+
+                    <!-- Power-Ups Section (toggle-driven) -->
+                    <div class="ro-events" id="ro-power-section" style="display:none">
+                        <h4 class="ro-events-title" style="color:var(--gold,#F59E0B)">⚡ Power-Ups & Rank Advancements
+                        </h4>
+                        <div class="ro-events-list" id="ro-power-list"></div>
+                    </div>
+
+                    <!-- Lore Reveals Section (toggle-driven) -->
+                    <div class="ro-events" id="ro-lore-section" style="display:none">
+                        <h4 class="ro-events-title" style="color:#A855F7">📜 Lore Reveals</h4>
+                        <div class="ro-events-list" id="ro-lore-list"></div>
+                    </div>
+
+                    <!-- Characters Appeared -->
+                    <div class="ro-chars" id="ro-chars">
+                        <h4 class="ro-chars-title">Characters Active</h4>
+                        <div class="ro-chars-list" id="ro-chars-list"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bookmarked Recaps -->
+        <div class="bookmarks-section" id="bookmarks-section" style="display:none">
+            <h3 class="bookmarks-title">⊕ Saved Recaps</h3>
+            <div class="bookmarks-list" id="bookmarks-list"></div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-logo"><span class="logo-icon">⟁</span><span class="logo-text">RIFT</span></div>
+            <div class="footer-tagline">Step Into Every World.</div>
+            <div class="footer-links">
+                <a href="index.html">Home</a><a href="characters.html">Characters</a><a href="lore.html">Lore</a><a
+                    href="community.html">Community</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+    <script src="recap.js"></script>
+</body>
+
+</html>

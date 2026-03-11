@@ -1,0 +1,1196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shadow Slave Inventory Tracker — Weapons, Armor & Items | RIFT</title>
+    <meta name="description"
+        content="Track every Shadow Slave character's weapons, armor and abilities. See items unlocked chapter-by-chapter. The ultimate RPG-style inventory for Shadow Slave readers." />
+    <meta name="keywords"
+        content="Shadow Slave inventory, Shadow Slave items, Shadow Slave weapons, Sunny items, character equipment, Shadow Slave RPG" />
+    <meta property="og:title" content="Shadow Slave Inventory Tracker | RIFT" />
+    <meta property="og:description"
+        content="Track every character's weapons, armor and abilities — unlocked by chapter. Like a real RPG." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://rift-shadowslave.netlify.app/assets/icon-512.png" />
+    <meta name="twitter:card" content="summary" />
+    <link rel="manifest" href="manifest.json" />
+    <meta name="theme-color" content="#C41E3A" />
+    <link rel="icon" type="image/png" href="assets/icon-192.png" />
+    <link rel="apple-touch-icon" href="assets/icon-192.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="inner.css">
+    <style>
+        /* ═══════════════════════════════════════════════════
+   INVENTORY PAGE — FULL CUSTOM STYLES
+═══════════════════════════════════════════════════ */
+
+        :root {
+            --rarity-common: #9CA3AF;
+            --rarity-uncommon: #4ADE80;
+            --rarity-rare: #60A5FA;
+            --rarity-legendary: #F59E0B;
+            --rarity-mythic: #C41E3A;
+        }
+
+        .inv-page {
+            min-height: 100vh;
+            padding: calc(var(--nav-h) + 2rem) 0 4rem;
+        }
+
+        /* ── BREADCRUMB ── */
+        .breadcrumb {
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .breadcrumb .bc-cur {
+            color: var(--primary-light);
+        }
+
+        /* ── HERO ── */
+        .inv-hero {
+            text-align: center;
+            padding: 3rem 2rem 2rem;
+        }
+
+        .inv-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(196, 30, 58, 0.1);
+            border: 1px solid rgba(196, 30, 58, 0.25);
+            border-radius: 100px;
+            padding: 0.35rem 1.2rem;
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            color: var(--primary-light);
+            margin-bottom: 1.2rem;
+            text-transform: uppercase;
+            animation: subtlePulse 2s infinite;
+        }
+
+        @keyframes subtlePulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(196, 30, 58, 0.4);
+            }
+
+            70% {
+                box-shadow: 0 0 0 15px rgba(196, 30, 58, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(196, 30, 58, 0);
+            }
+        }
+
+        .inv-title {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(2.2rem, 4vw, 3.2rem);
+            font-weight: 900;
+            background: linear-gradient(135deg, #fff 30%, var(--primary-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.75rem;
+            letter-spacing: -0.02em;
+            text-shadow: 0 0 40px rgba(196, 30, 58, 0.2);
+        }
+
+        .inv-sub {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            max-width: 550px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* ── CHAPTER CONTROL BAR ── */
+        .chapter-bar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.2rem;
+            padding: 1.2rem 2.5rem;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.02), transparent);
+            border-top: 1px solid rgba(255, 255, 255, 0.03);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        .chapter-bar-label {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--primary-light);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .chapter-input-group {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid var(--primary-glow);
+            border-radius: var(--radius-sm);
+            padding: 0.4rem 0.8rem;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        .chapter-input-group:focus-within {
+            border-color: var(--primary-light);
+            box-shadow: 0 0 15px rgba(196, 30, 58, 0.3), inset 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .chapter-input {
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 1.1rem;
+            font-weight: 800;
+            font-family: 'Cinzel', serif;
+            width: 80px;
+            text-align: center;
+            outline: none;
+        }
+
+        .chapter-input::-webkit-inner-spin-button {
+            display: none;
+        }
+
+        .chapter-apply-btn {
+            background: var(--primary);
+            border: none;
+            border-radius: 6px;
+            color: #fff;
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 0.4rem 0.9rem;
+            cursor: pointer;
+            letter-spacing: 0.07em;
+            text-transform: uppercase;
+            transition: all 0.2s;
+        }
+
+        .chapter-apply-btn:hover {
+            background: #a51830;
+        }
+
+        .chapter-unlock-info {
+            font-size: 0.7rem;
+            color: var(--primary-light);
+            font-weight: 600;
+        }
+
+        /* ── MAIN 3-PANEL LAYOUT ── */
+        .inv-layout {
+            display: grid;
+            grid-template-columns: 240px 1fr 340px;
+            grid-template-rows: auto;
+            gap: 1.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            align-items: start;
+        }
+
+        @media (max-width: 1024px) {
+            .inv-layout {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .inv-char-display {
+                grid-column: 1 / -1;
+                order: -1;
+                min-height: 400px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .inv-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ── LEFT: CHARACTER SELECT ── */
+        .inv-char-select {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: var(--radius);
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .inv-panel-label {
+            font-size: 0.6rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--text-dim);
+            margin-bottom: 0.4rem;
+            padding-bottom: 0.4rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .char-select-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            background: rgba(10, 5, 20, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 0.75rem 1rem;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+            text-align: left;
+            width: 100%;
+            color: var(--text-muted);
+            backdrop-filter: blur(8px);
+        }
+
+        .char-select-btn:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.15);
+            color: #fff;
+            transform: translateX(4px);
+        }
+
+        .char-select-btn.active {
+            background: linear-gradient(135deg, rgba(196, 30, 58, 0.15), rgba(0, 0, 0, 0.2));
+            border-color: var(--primary-light);
+            color: #fff;
+            box-shadow: inset 2px 0 0 var(--primary-light), 0 4px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .char-btn-symbol {
+            font-size: 1.4rem;
+            filter: drop-shadow(0 0 8px currentColor);
+            flex-shrink: 0;
+        }
+
+        .char-btn-info {
+            flex: 1;
+        }
+
+        .char-btn-name {
+            font-size: 0.82rem;
+            font-weight: 700;
+            font-family: 'Cinzel', serif;
+            line-height: 1.2;
+        }
+
+        .char-btn-rank {
+            font-size: 0.6rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            opacity: 0.6;
+            margin-top: 0.1rem;
+        }
+
+        .char-item-count {
+            font-size: 0.65rem;
+            font-weight: 700;
+            color: var(--primary-light);
+        }
+
+        /* ── CENTER: CHARACTER DISPLAY ── */
+        .inv-char-display {
+            background: radial-gradient(circle at center, rgba(30, 15, 45, 0.6), rgba(5, 5, 10, 0.95));
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            min-height: 550px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6), inset 0 0 40px rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(15px);
+        }
+
+        .char-portrait-area {
+            width: 100%;
+            flex: 1;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1rem 1rem;
+            min-height: 340px;
+        }
+
+        /* Animated bg gradient per character */
+        .char-portrait-bg {
+            position: absolute;
+            inset: 0;
+            transition: background 0.5s ease;
+        }
+
+        .char-portrait-radial {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            filter: blur(60px);
+            opacity: 0.2;
+            pointer-events: none;
+            transition: background 0.5s;
+        }
+
+        /* Character symbol */
+        .char-main-symbol {
+            font-size: 6rem;
+            position: relative;
+            z-index: 2;
+            filter: drop-shadow(0 0 30px var(--char-color, #C41E3A));
+            animation: inv-float 5s ease-in-out infinite;
+            transition: color 0.4s;
+        }
+
+        /* Rune ring */
+        .char-rune-ring {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 1px solid var(--char-color, #C41E3A);
+            opacity: 0.15;
+            animation: inv-spin 18s linear infinite;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        /* Equipped items floating overlay */
+        .equipped-overlay {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            z-index: 3;
+        }
+
+        .eq-item-badge {
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2px;
+            animation: eq-pop 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+        }
+
+        .eq-item-emoji {
+            font-size: 1.6rem;
+            filter: drop-shadow(0 0 10px var(--item-color));
+            animation: inv-float 4s ease-in-out infinite var(--delay, 0s);
+        }
+
+        .eq-item-label {
+            font-size: 0.48rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: rgba(255, 255, 255, 0.55);
+            white-space: nowrap;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 1px 4px;
+            border-radius: 3px;
+        }
+
+        /* Slot positions (absolute offsets on the portrait area) */
+        .eq-slot-weapon {
+            top: 30%;
+            left: 8%;
+        }
+
+        .eq-slot-offhand {
+            top: 30%;
+            right: 8%;
+        }
+
+        .eq-slot-armor {
+            bottom: 28%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .eq-slot-cloak {
+            top: 12%;
+            right: 10%;
+        }
+
+        .eq-slot-accessory {
+            bottom: 15%;
+            left: 10%;
+        }
+
+        .eq-slot-special {
+            bottom: 15%;
+            right: 10%;
+        }
+
+        /* Character info strip */
+        .char-info-strip {
+            width: 100%;
+            padding: 1rem 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            background: rgba(0, 0, 0, 0.2);
+            z-index: 4;
+        }
+
+        .char-strip-name {
+            font-family: 'Cinzel', serif;
+            font-size: 1.3rem;
+            font-weight: 900;
+            margin-bottom: 0.2rem;
+        }
+
+        .char-strip-rank {
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            opacity: 0.65;
+            margin-bottom: 0.6rem;
+        }
+
+        /* Equipped slots strip */
+        .equipped-slots-row {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .eq-slot-pill {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 100px;
+            padding: 0.25rem 0.65rem;
+            font-size: 0.64rem;
+            color: var(--text-muted);
+            transition: all 0.2s;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .eq-slot-pill.has-item {
+            border-color: var(--item-color, rgba(196, 30, 58, 0.3));
+            background: rgba(196, 30, 58, 0.06);
+            color: #fff;
+        }
+
+        .eq-slot-pill .eq-remove {
+            opacity: 0;
+            color: var(--primary);
+            font-size: 0.75rem;
+            transition: opacity 0.2s;
+        }
+
+        .eq-slot-pill.has-item:hover .eq-remove {
+            opacity: 1;
+        }
+
+        /* ── RIGHT: INVENTORY GRID ── */
+        .inv-grid-panel {
+            background: rgba(10, 5, 20, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 1.25rem;
+            display: flex;
+            flex-direction: column;
+            max-height: 700px;
+            overflow-y: auto;
+            backdrop-filter: blur(10px);
+            box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .inv-filter-row {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .slot-filter-btn {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 6px;
+            color: var(--text-muted);
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            padding: 0.35rem 0.75rem;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        .slot-filter-btn.active,
+        .slot-filter-btn:hover {
+            background: linear-gradient(135deg, rgba(196, 30, 58, 0.2), rgba(0, 0, 0, 0.4));
+            border-color: var(--primary-light);
+            color: #fff;
+            box-shadow: 0 2px 10px rgba(196, 30, 58, 0.2);
+            transform: translateY(-1px);
+        }
+
+        .inv-items-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 0.75rem;
+            flex: 1;
+            padding: 0.25rem;
+            /* Give shadow room to breathe */
+            align-content: start;
+        }
+
+        .inv-item-card {
+            background: linear-gradient(145deg, rgba(30, 20, 45, 0.75), rgba(15, 10, 25, 0.9));
+            border-radius: 12px;
+            padding: 2px;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5), inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+            isolation: isolate;
+            backdrop-filter: blur(8px);
+        }
+
+        .inv-item-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 12px;
+            padding: 1px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.02) 60%);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            z-index: 1;
+            transition: all 0.4s ease;
+        }
+
+        .item-card-bg-glow {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            opacity: 0.2;
+            transition: opacity 0.4s ease;
+            background: radial-gradient(circle at center, var(--item-color, rgba(196, 30, 58, 0.5)), transparent 70%);
+        }
+
+        .inv-item-card:hover .item-card-bg-glow {
+            opacity: 0.6;
+        }
+
+        .inv-item-card:not(.locked):hover {
+            transform: translateY(-6px) scale(1.03);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.7), 0 0 25px var(--item-color, rgba(196, 30, 58, 0.3));
+        }
+
+        .inv-item-card:not(.locked):hover::before {
+            background: linear-gradient(135deg, var(--item-color, rgba(255, 255, 255, 0.5)), transparent);
+        }
+
+        .item-card-inner {
+            background: rgba(15, 10, 25, 0.85);
+            border-radius: 10px;
+            padding: 0.85rem;
+            display: flex;
+            gap: 0.85rem;
+            align-items: center;
+            height: 100%;
+            z-index: 2;
+        }
+
+        .item-card-icon-container {
+            width: 55px;
+            height: 55px;
+            background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.1), transparent 80%);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-shrink: 0;
+            position: relative;
+            box-shadow: inset 0 2px 15px rgba(0, 0, 0, 0.6), 0 4px 10px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        .inv-item-card:hover .item-card-icon-container {
+            transform: scale(1.08) rotate(3deg);
+            border-color: rgba(255, 255, 255, 0.2);
+            box-shadow: inset 0 2px 15px rgba(0, 0, 0, 0.4), 0 8px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        .item-card-emoji {
+            font-size: 1.8rem;
+            line-height: 1;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+            transition: filter 0.3s ease;
+        }
+
+        .item-card-image {
+            width: 90%;
+            height: 90%;
+            object-fit: contain;
+            filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.8));
+            transition: filter 0.3s ease, transform 0.3s ease;
+        }
+
+        .inv-item-card:not(.locked):hover .item-card-emoji {
+            filter: drop-shadow(0 0 10px var(--item-color)) drop-shadow(0 0 20px var(--item-color));
+        }
+
+        .inv-item-card:not(.locked):hover .item-card-image {
+            filter: drop-shadow(0 0 8px var(--item-color)) drop-shadow(0 0 15px var(--item-color));
+            transform: scale(1.05);
+        }
+
+        .item-card-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+            min-width: 0;
+        }
+
+        .item-card-name {
+            font-size: 0.78rem;
+            font-weight: 800;
+            line-height: 1.25;
+            color: #fff;
+            margin-bottom: 0.4rem;
+            text-wrap: balance;
+            font-family: 'Cinzel', serif;
+            letter-spacing: 0.04em;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
+        }
+
+        .item-card-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+        }
+
+        .item-rarity-badge {
+            font-size: 0.45rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 0.15rem 0.35rem;
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid;
+            border-radius: 3px;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 1);
+        }
+
+        .item-card-ch {
+            font-size: 0.55rem;
+            font-weight: 700;
+            color: var(--text-dim);
+            letter-spacing: 0.05em;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 0.15rem 0.3rem;
+            border-radius: 3px;
+        }
+
+        /* Status Indicators */
+        .item-equipped-indicator,
+        .item-locked-indicator {
+            position: absolute;
+            top: -4px;
+            right: -4px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+            z-index: 5;
+        }
+
+        .item-equipped-indicator {
+            background: linear-gradient(135deg, #10b981, #047857);
+            border: 1.5px solid #064e3b;
+        }
+
+        .item-equipped-indicator svg {
+            width: 12px;
+            height: 12px;
+            color: white;
+            filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.3));
+        }
+
+        .item-locked-indicator {
+            background: linear-gradient(135deg, #4b5563, #374151);
+            border: 1.5px solid #1f2937;
+        }
+
+        .item-locked-indicator svg {
+            width: 10px;
+            height: 10px;
+            color: #9ca3af;
+        }
+
+        .inv-item-card.equipped-active {
+            box-shadow: 0 0 0 1px var(--item-color, #10b981), 0 4px 15px rgba(0, 0, 0, 0.4), inset 0 0 20px rgba(16, 185, 129, 0.1);
+        }
+
+        .inv-item-card.equipped-active::before {
+            background: linear-gradient(to bottom, var(--item-color, #10b981), transparent);
+            opacity: 0.8;
+        }
+
+        .inv-item-card.locked {
+            opacity: 0.6;
+            cursor: not-allowed;
+            filter: grayscale(0.6) brightness(0.7);
+        }
+
+        .inv-item-card.locked:hover {
+            transform: none;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            filter: grayscale(0.5) brightness(0.8);
+        }
+
+        .inv-item-card.locked:hover::before {
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.02));
+        }
+
+        /* Shine Effect Array */
+        .item-card-shine {
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.1) 50%, transparent);
+            transform: skewX(-20deg);
+            z-index: 10;
+            pointer-events: none;
+            transition: none;
+        }
+
+        .inv-item-card:hover .item-card-shine {
+            animation: shine-sweep 0.7s ease-out forwards;
+        }
+
+        @keyframes shine-sweep {
+            100% {
+                left: 200%;
+            }
+        }
+
+        .inv-item-card:not(.locked).slot-match-active {
+            border-color: rgba(74, 222, 128, 0.4);
+            animation: slot-pulse 1s ease-in-out infinite;
+        }
+
+        /* ── ITEM DETAIL TOOLTIP ── */
+        .item-detail-panel {
+            position: fixed;
+            width: 340px;
+            background: linear-gradient(145deg, rgba(25, 15, 35, 0.98), rgba(10, 5, 20, 0.99));
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 14px;
+            padding: 1.75rem;
+            z-index: 9999;
+            pointer-events: none;
+            opacity: 0;
+            transform: translateY(15px) scale(0.96);
+            transition: opacity 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9), inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+            isolation: isolate;
+        }
+
+        .item-detail-panel::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: radial-gradient(ellipse at top, var(--rarity-color, rgba(196, 30, 58, 0.2)), transparent 70%);
+            opacity: 0.6;
+            z-index: -1;
+            pointer-events: none;
+            border-radius: 12px 12px 0 0;
+        }
+
+        .item-detail-panel.show {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            pointer-events: auto;
+        }
+
+        .idp-emoji {
+            font-size: 2.2rem;
+            line-height: 1;
+            margin-bottom: 0.6rem;
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* New rules specifically for controlling the giant AI images inside the panel */
+        .idp-emoji img {
+            max-height: 15rem;
+            width: 100%;
+            object-fit: contain;
+            border-radius: 8px;
+            margin-bottom: 0.5rem;
+        }
+
+        .idp-rarity {
+            font-size: 0.6rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            margin-bottom: 0.2rem;
+        }
+
+        .idp-name {
+            font-family: 'Cinzel', serif;
+            font-size: 0.95rem;
+            font-weight: 900;
+            margin-bottom: 0.15rem;
+        }
+
+        .idp-slot {
+            font-size: 0.62rem;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.75rem;
+        }
+
+        .idp-desc {
+            font-size: 0.74rem;
+            color: var(--text-muted);
+            line-height: 1.65;
+            margin-bottom: 0.75rem;
+        }
+
+        .idp-stat {
+            font-size: 0.66rem;
+            font-weight: 600;
+            color: #4ade80;
+            font-variant-numeric: tabular-nums;
+            margin-bottom: 0.75rem;
+            line-height: 1.6;
+        }
+
+        .idp-ch {
+            font-size: 0.6rem;
+            color: var(--text-dim);
+        }
+
+        .idp-locked-msg {
+            font-size: 0.68rem;
+            color: var(--primary-light);
+            font-weight: 600;
+            margin-top: 0.5rem;
+        }
+
+        .idp-equip-btn {
+            width: 100%;
+            margin-top: 0.75rem;
+            padding: 0.5rem;
+            background: rgba(196, 30, 58, 0.15);
+            border: 1px solid rgba(196, 30, 58, 0.35);
+            border-radius: 6px;
+            color: var(--primary-light);
+            font-size: 0.72rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: 'Inter', sans-serif;
+            pointer-events: auto;
+        }
+
+        .idp-equip-btn:hover {
+            background: rgba(196, 30, 58, 0.25);
+            color: #fff;
+        }
+
+        .idp-equip-btn.unequip {
+            color: #4ade80;
+            border-color: rgba(74, 222, 128, 0.3);
+            background: rgba(74, 222, 128, 0.05);
+        }
+
+        /* ── ANIMATIONS ── */
+        @keyframes inv-float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes inv-spin {
+            from {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+
+            to {
+                transform: translate(-50%, -50%) rotate(360deg);
+            }
+        }
+
+        @keyframes eq-pop {
+            from {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes slot-pulse {
+
+            0%,
+            100% {
+                box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.3);
+            }
+
+            50% {
+                box-shadow: 0 0 10px 3px rgba(74, 222, 128, 0.15);
+            }
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .inv-layout {
+            animation: fadeUp 0.5s ease;
+        }
+
+        /* Scrollbar */
+        .inv-grid-panel::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        .inv-grid-panel::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .inv-grid-panel::-webkit-scrollbar-thumb {
+            background: rgba(196, 30, 58, 0.3);
+            border-radius: 2px;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="bg-canvas"></canvas>
+
+    <!-- NAV -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo">
+                <span class="logo-icon">⟁</span>
+                <span class="logo-text">RIFT</span>
+            </a>
+            <div class="nav-links">
+                <a href="characters.html">Characters</a>
+                <a href="recap.html">Recap</a>
+                <a href="lore.html">Lore</a>
+                <a href="inventory.html">Inventory</a>
+                <a href="community.html">Community</a>
+            </div>
+            <a href="characters.html" class="nav-cta">Enter the Rift</a>
+            <button class="hamburger" id="hamburger">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+        <div class="mobile-menu" id="mobile-menu">
+            <a href="characters.html">Characters</a>
+            <a href="recap.html">Recap</a>
+            <a href="lore.html">Lore</a>
+            <a href="inventory.html">Inventory</a>
+            <a href="community.html">Community</a>
+            <a href="characters.html" class="nav-cta">Enter the Rift</a>
+        </div>
+    </nav>
+
+    <main class="inv-page page-main">
+        <!-- BREADCRUMB -->
+        <div class="breadcrumb">
+            <span>RIFT</span>
+            <span class="bc-sep">›</span>
+            <span class="bc-cur">Inventory</span>
+        </div>
+
+        <!-- HERO -->
+        <div class="inv-hero" style="position: relative; z-index: 1;">
+            <div class="hero-glow"
+                style="top: -50%; left: 50%; transform: translateX(-50%); width: 800px; height: 400px; opacity: 0.7; z-index: -1;">
+            </div>
+            <div class="inv-badge">🎮 RPG INVENTORY</div>
+            <h1 class="inv-title">Character Inventory</h1>
+            <p class="inv-sub">Explore every weapon, armor and ability — unlocked chapter by chapter. Equip items to see
+                how your character looks.</p>
+        </div>
+
+        <!-- CHAPTER CONTROL BAR -->
+        <div class="chapter-bar">
+            <span class="chapter-bar-label">📍 You're on Chapter</span>
+            <div class="chapter-input-group">
+                <span style="color:var(--text-dim);font-size:0.8rem">#</span>
+                <input type="number" class="chapter-input" id="user-chapter-input" value="50" min="1" max="1300" />
+            </div>
+            <button class="chapter-apply-btn" id="apply-chapter-btn">Update Inventory</button>
+            <span class="chapter-unlock-info" id="unlock-info"></span>
+        </div>
+
+        <!-- 3-PANEL LAYOUT -->
+        <div class="inv-layout">
+
+            <!-- LEFT: Character Select -->
+            <div class="inv-char-select">
+                <div class="inv-panel-label">Select Character</div>
+                <div id="char-select-list">
+                    <!-- Populated by JS -->
+                </div>
+            </div>
+
+            <!-- CENTER: Character Display -->
+            <div class="inv-char-display" id="inv-char-display">
+                <div class="char-portrait-area" id="char-portrait-area">
+                    <div class="char-portrait-bg" id="char-portrait-bg"></div>
+                    <div class="char-portrait-radial" id="char-portrait-radial"></div>
+                    <div class="char-rune-ring" id="char-rune-ring"></div>
+                    <div class="char-main-symbol" id="char-main-symbol">☾</div>
+                    <!-- Equipped items overlay injected here by JS -->
+                    <div class="equipped-overlay" id="equipped-overlay"></div>
+                </div>
+
+                <div class="char-info-strip">
+                    <div class="char-strip-name" id="char-strip-name">SUNNY</div>
+                    <div class="char-strip-rank" id="char-strip-rank">SAINT • Main Protagonist</div>
+                    <!-- Equipped slots quick-view -->
+                    <div class="equipped-slots-row" id="equipped-slots-row">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT: Inventory Grid -->
+            <div class="inv-grid-panel">
+                <div class="inv-panel-label">Inventory</div>
+                <!-- Slot filter -->
+                <div class="inv-filter-row" id="inv-filter-row">
+                    <button class="slot-filter-btn active" data-slot="all">All</button>
+                    <button class="slot-filter-btn" data-slot="weapon">⚔ Weapon</button>
+                    <button class="slot-filter-btn" data-slot="armor">🛡 Armor</button>
+                    <button class="slot-filter-btn" data-slot="cloak">🌑 Cloak</button>
+                    <button class="slot-filter-btn" data-slot="offhand">🤚 Off-Hand</button>
+                    <button class="slot-filter-btn" data-slot="accessory">💍 Accessory</button>
+                    <button class="slot-filter-btn" data-slot="special">⭐ Special</button>
+                </div>
+                <div class="inv-items-grid" id="inv-items-grid">
+                    <!-- Populated by JS -->
+                </div>
+            </div>
+
+        </div><!-- /.inv-layout -->
+    </main>
+
+    <!-- ITEM DETAIL PANEL (floating tooltip) -->
+    <div class="item-detail-panel" id="item-detail-panel">
+        <div class="idp-emoji" id="idp-emoji">🗡️</div>
+        <div class="idp-rarity" id="idp-rarity">LEGENDARY</div>
+        <div class="idp-name" id="idp-name">Item Name</div>
+        <div class="idp-slot" id="idp-slot">WEAPON SLOT</div>
+        <div class="idp-desc" id="idp-desc"></div>
+        <div class="idp-stat" id="idp-stat"></div>
+        <div class="idp-ch" id="idp-ch"></div>
+        <div class="idp-locked-msg" id="idp-locked-msg" style="display:none"></div>
+        <button class="idp-equip-btn" id="idp-equip-btn" style="display:none">⚔ Equip</button>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-logo">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                    <polygon points="12,2 22,20 2,20" stroke="var(--primary)" stroke-width="2" fill="none" />
+                </svg>
+                <span class="logo-text" style="font-size:.9rem">RIFT</span>
+            </div>
+            <p class="footer-tagline">Step Into Every World.</p>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="characters.html">Characters</a>
+                <a href="recap.html">Recap</a>
+                <a href="lore.html">Lore</a>
+                <a href="community.html">Community</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        document.write('<script src="data.js?v=' + Date.now() + '"><\/script>');
+        document.write('<script src="inventory.js?v=' + Date.now() + '"><\/script>');
+    </script>
+</body>
+
+</html>

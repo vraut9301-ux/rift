@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shadow Slave AI Character Portraits — Dark Fantasy Art | RIFT</title>
+    <meta name="description"
+        content="See Shadow Slave characters through stunning AI-generated art. Dark, cinematic portraits true to lore for Sunny, Nephis, Cassie, Effie and more." />
+    <meta name="keywords"
+        content="Shadow Slave art, Shadow Slave portraits, Shadow Slave fan art, Sunny portrait, Nephis art, AI character art" />
+    <meta property="og:title" content="Shadow Slave AI Character Portraits | RIFT" />
+    <meta property="og:description"
+        content="Stunning AI-generated character portraits. Dark, cinematic, true to Shadow Slave lore." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://rift-shadowslave.netlify.app/assets/icon-512.png" />
+    <meta name="twitter:card" content="summary" />
+    <link rel="manifest" href="manifest.json" />
+    <meta name="theme-color" content="#C41E3A" />
+    <link rel="icon" type="image/png" href="assets/icon-192.png" />
+    <link rel="apple-touch-icon" href="assets/icon-192.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="inner.css">
+    <style>
+        /* ===== PORTRAITS PAGE SPECIFIC ===== */
+        .portraits-hero {
+            text-align: center;
+            padding: 4rem 2rem 3rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .portraits-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(196, 30, 58, 0.1);
+            border: 1px solid rgba(196, 30, 58, 0.25);
+            border-radius: 100px;
+            padding: 0.3rem 1rem;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--primary-light);
+            margin-bottom: 1.25rem;
+        }
+
+        .ai-dot-live {
+            width: 6px;
+            height: 6px;
+            background: #4ade80;
+            border-radius: 50%;
+            animation: blink 1.5s ease-in-out infinite;
+        }
+
+        .portraits-title {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 900;
+            margin-bottom: 0.75rem;
+            background: linear-gradient(135deg, #fff 40%, var(--primary-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .portraits-sub {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* ===== PORTRAIT GALLERY ===== */
+        .portrait-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto 4rem;
+            padding: 0 2rem;
+        }
+
+        .portrait-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: var(--radius);
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            animation: fadeUp 0.6s ease both;
+        }
+
+        .portrait-card:hover {
+            transform: translateY(-8px) scale(1.01);
+            border-color: rgba(196, 30, 58, 0.3);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        /* ===== AI PORTRAIT ART ===== */
+        .portrait-art {
+            height: 380px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .portrait-canvas {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        /* Background gradient layer */
+        .pa-bg {
+            position: absolute;
+            inset: 0;
+        }
+
+        /* Atmospheric glow sphere */
+        .pa-sphere {
+            position: absolute;
+            width: 260px;
+            height: 260px;
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -60%);
+            filter: blur(50px);
+            opacity: 0.35;
+        }
+
+        /* Central character symbol — large and centered */
+        .pa-symbol {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -55%);
+            font-size: 7rem;
+            z-index: 3;
+            filter: drop-shadow(0 0 30px currentColor) drop-shadow(0 0 60px currentColor);
+            animation: portrait-float 6s ease-in-out infinite;
+        }
+
+        /* Rune ring around symbol */
+        .pa-ring {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -55%);
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            border: 1px solid;
+            opacity: 0.2;
+            animation: portrait-spin 20s linear infinite;
+            z-index: 2;
+        }
+
+        .pa-ring-2 {
+            width: 160px;
+            height: 160px;
+            animation-duration: 15s;
+            animation-direction: reverse;
+            opacity: 0.15;
+        }
+
+        /* Particle dots */
+        .pa-particle {
+            position: absolute;
+            border-radius: 50%;
+            animation: particle-drift linear infinite;
+        }
+
+        /* Silhouette shape */
+        .pa-silhouette {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 140px;
+            height: 200px;
+            opacity: 0.07;
+            z-index: 1;
+        }
+
+        /* Bottom fade overlay */
+        .pa-fade {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 120px;
+            background: linear-gradient(transparent, var(--card-bg));
+            z-index: 5;
+        }
+
+        /* Scan lines effect */
+        .pa-scanlines {
+            position: absolute;
+            inset: 0;
+            background: repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0, 0, 0, 0.04) 3px, rgba(0, 0, 0, 0.04) 4px);
+            z-index: 4;
+            pointer-events: none;
+        }
+
+        /* AI watermark */
+        .pa-watermark {
+            position: absolute;
+            top: 0.75rem;
+            right: 0.75rem;
+            background: rgba(0, 0, 0, 0.55);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            padding: 0.2rem 0.5rem;
+            font-size: 0.6rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.5);
+            z-index: 6;
+        }
+
+        /* Character-specific portrait styles */
+
+        /* SUNNY — Dark shadow, crimson */
+        .portrait-sunny .pa-bg {
+            background: radial-gradient(ellipse at 50% 30%, #1A0008 0%, #0A0A15 50%, #050510 100%);
+        }
+
+        .portrait-sunny .pa-sphere {
+            background: radial-gradient(circle, #C41E3A, #600010);
+        }
+
+        .portrait-sunny .pa-symbol {
+            color: #C41E3A;
+        }
+
+        .portrait-sunny .pa-ring {
+            border-color: #C41E3A;
+        }
+
+        .portrait-sunny .pa-particle {
+            background: #C41E3A;
+        }
+
+        /* NEPHIS — Gold flame, warm white */
+        .portrait-nephis .pa-bg {
+            background: radial-gradient(ellipse at 50% 30%, #1A1200 0%, #0A0A15 50%, #050510 100%);
+        }
+
+        .portrait-nephis .pa-sphere {
+            background: radial-gradient(circle, #F59E0B, #A06000);
+        }
+
+        .portrait-nephis .pa-symbol {
+            color: #F59E0B;
+        }
+
+        .portrait-nephis .pa-ring {
+            border-color: #F59E0B;
+        }
+
+        .portrait-nephis .pa-particle {
+            background: #F59E0B;
+        }
+
+        /* CASSIE — Purple prophet, oracle mist */
+        .portrait-cassie .pa-bg {
+            background: radial-gradient(ellipse at 50% 30%, #12001A 0%, #0A0A15 50%, #050510 100%);
+        }
+
+        .portrait-cassie .pa-sphere {
+            background: radial-gradient(circle, #8B5CF6, #400080);
+        }
+
+        .portrait-cassie .pa-symbol {
+            color: #8B5CF6;
+        }
+
+        .portrait-cassie .pa-ring {
+            border-color: #8B5CF6;
+        }
+
+        .portrait-cassie .pa-particle {
+            background: #8B5CF6;
+        }
+
+        /* EFFIE — Teal hunter, beast aura */
+        .portrait-effie .pa-bg {
+            background: radial-gradient(ellipse at 50% 30%, #001A18 0%, #0A0A15 50%, #050510 100%);
+        }
+
+        .portrait-effie .pa-sphere {
+            background: radial-gradient(circle, #2DD4BF, #006060);
+        }
+
+        .portrait-effie .pa-symbol {
+            color: #2DD4BF;
+        }
+
+        .portrait-effie .pa-ring {
+            border-color: #2DD4BF;
+        }
+
+        .portrait-effie .pa-particle {
+            background: #2DD4BF;
+        }
+
+        /* KAI — Blue arrow, precise */
+        .portrait-kai .pa-bg {
+            background: radial-gradient(ellipse at 50% 30%, #00081A 0%, #0A0A15 50%, #050510 100%);
+        }
+
+        .portrait-kai .pa-sphere {
+            background: radial-gradient(circle, #60A5FA, #003080);
+        }
+
+        .portrait-kai .pa-symbol {
+            color: #60A5FA;
+        }
+
+        .portrait-kai .pa-ring {
+            border-color: #60A5FA;
+        }
+
+        .portrait-kai .pa-particle {
+            background: #60A5FA;
+        }
+
+        /* MORGAN — Dark blood, corrupted */
+        .portrait-morgans .pa-bg {
+            background: radial-gradient(ellipse at 50% 30%, #1A0A00 0%, #0A0A15 50%, #050510 100%);
+        }
+
+        .portrait-morgans .pa-sphere {
+            background: radial-gradient(circle, #DC2626, #600000);
+        }
+
+        .portrait-morgans .pa-symbol {
+            color: #DC2626;
+        }
+
+        .portrait-morgans .pa-ring {
+            border-color: #DC2626;
+        }
+
+        .portrait-morgans .pa-particle {
+            background: #DC2626;
+        }
+
+        /* ===== PORTRAIT INFO ===== */
+        .portrait-info {
+            padding: 1.25rem 1.5rem;
+        }
+
+        .portrait-novel-tag {
+            font-size: 0.6rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--primary);
+            margin-bottom: 0.3rem;
+        }
+
+        .portrait-char-name {
+            font-family: 'Cinzel', serif;
+            font-size: 1.4rem;
+            font-weight: 900;
+            margin-bottom: 0.2rem;
+        }
+
+        .portrait-char-title {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            font-style: italic;
+            margin-bottom: 0.85rem;
+        }
+
+        .portrait-meta-row {
+            display: flex;
+            gap: 0.75rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .portrait-rank-pill {
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 0.2rem 0.65rem;
+            border-radius: 100px;
+            border: 1px solid;
+        }
+
+        .portrait-aspect-tag {
+            font-size: 0.68rem;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .portrait-view-btn {
+            margin-left: auto;
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: var(--primary-light);
+            text-decoration: none;
+            letter-spacing: 0.05em;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .portrait-view-btn:hover {
+            color: #fff;
+            gap: 0.5rem;
+        }
+
+        /* ===== LIGHTBOX MODAL ===== */
+        .portrait-lightbox {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.92);
+            z-index: 9999;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .portrait-lightbox.open {
+            display: flex;
+        }
+
+        .lightbox-inner {
+            background: var(--card-bg);
+            border: 1px solid rgba(196, 30, 58, 0.2);
+            border-radius: var(--radius);
+            width: 100%;
+            max-width: 900px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            overflow: hidden;
+            animation: fadeUp 0.4s ease;
+            position: relative;
+        }
+
+        @media(max-width: 700px) {
+            .lightbox-inner {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .lightbox-art {
+            height: 500px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        @media(max-width: 700px) {
+            .lightbox-art {
+                height: 280px;
+            }
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            width: 36px;
+            height: 36px;
+            cursor: pointer;
+            font-size: 1rem;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+            z-index: 10;
+        }
+
+        .lightbox-close:hover {
+            background: rgba(196, 30, 58, 0.2);
+            color: #fff;
+        }
+
+        .lightbox-info {
+            padding: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            overflow-y: auto;
+        }
+
+        .lb-novel {
+            font-size: 0.6rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--primary);
+            margin-bottom: 0.4rem;
+        }
+
+        .lb-name {
+            font-family: 'Cinzel', serif;
+            font-size: 2rem;
+            font-weight: 900;
+            margin-bottom: 0.25rem;
+            line-height: 1.1;
+        }
+
+        .lb-epithet {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            font-style: italic;
+            margin-bottom: 1.25rem;
+        }
+
+        .lb-rank {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 0.3rem 0.9rem;
+            border-radius: 100px;
+            margin-bottom: 1.25rem;
+        }
+
+        .lb-desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.75;
+            margin-bottom: 1.5rem;
+        }
+
+        .lb-abilities {
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .lb-ability-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            margin-bottom: 0.2rem;
+        }
+
+        .lb-bar-track {
+            height: 3px;
+            background: rgba(255, 255, 255, 0.06);
+            border-radius: 100px;
+            overflow: hidden;
+        }
+
+        .lb-bar-fill {
+            height: 100%;
+            border-radius: 100px;
+            transition: width 1s ease 0.3s;
+        }
+
+        .lb-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(196, 30, 58, 0.12);
+            border: 1px solid rgba(196, 30, 58, 0.3);
+            border-radius: var(--radius-sm);
+            color: var(--primary-light);
+            padding: 0.6rem 1.2rem;
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.2s;
+            width: fit-content;
+        }
+
+        .lb-cta:hover {
+            background: rgba(196, 30, 58, 0.2);
+            color: #fff;
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes portrait-float {
+
+            0%,
+            100% {
+                transform: translate(-50%, -55%) scale(1);
+            }
+
+            50% {
+                transform: translate(-50%, -63%) scale(1.05);
+            }
+        }
+
+        @keyframes portrait-spin {
+            from {
+                transform: translate(-50%, -55%) rotate(0deg);
+            }
+
+            to {
+                transform: translate(-50%, -55%) rotate(360deg);
+            }
+        }
+
+        @keyframes particle-drift {
+            0% {
+                transform: translateY(0) translateX(0) scale(1);
+                opacity: 0.8;
+            }
+
+            100% {
+                transform: translateY(-300px) translateX(var(--drift-x)) scale(0);
+                opacity: 0;
+            }
+        }
+
+        @keyframes blink {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.3;
+            }
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(24px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="bg-canvas"></canvas>
+
+    <!-- NAV -->
+    <nav class="nav" id="nav">
+        <div class="nav-inner">
+            <a href="index.html" class="logo">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <polygon points="12,2 22,20 2,20" stroke="var(--primary)" stroke-width="2" fill="none" />
+                    <polygon points="12,7 18,18 6,18" fill="var(--primary)" opacity="0.3" />
+                </svg>
+                <span class="logo-text">RIFT</span>
+            </a>
+            <div class="nav-links">
+                <a href="characters.html">Characters</a>
+                <a href="recap.html">Recap</a>
+                <a href="lore.html">Lore</a>
+                <a href="community.html">Community</a>
+            </div>
+            <a href="characters.html" class="nav-cta">Enter the Rift</a>
+        </div>
+    </nav>
+
+    <!-- MAIN -->
+    <main class="page-main">
+
+        <!-- BREADCRUMB -->
+        <div class="breadcrumb">
+            <span>RIFT</span>
+            <span class="bc-sep">›</span>
+            <span class="bc-cur">AI Portraits</span>
+        </div>
+
+        <!-- HERO -->
+        <div class="portraits-hero">
+            <div class="portraits-badge">
+                <div class="ai-dot-live"></div>
+                AI GENERATED ART
+            </div>
+            <h1 class="portraits-title">Character Portraits</h1>
+            <p class="portraits-sub">See every character the way the author envisioned them — dark, cinematic, and true
+                to the Shadow Slave lore. Click any portrait to explore their full profile.</p>
+        </div>
+
+        <!-- GALLERY -->
+        <div class="portrait-gallery" id="portrait-gallery">
+            <!-- Portraits injected by JS -->
+        </div>
+
+    </main>
+
+    <!-- LIGHTBOX -->
+    <div class="portrait-lightbox" id="portrait-lightbox">
+        <div class="lightbox-inner" id="lightbox-inner">
+            <button class="lightbox-close" id="lightbox-close">✕</button>
+            <div class="lightbox-art" id="lightbox-art"></div>
+            <div class="lightbox-info" id="lightbox-info"></div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-logo">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                    <polygon points="12,2 22,20 2,20" stroke="var(--primary)" stroke-width="2" fill="none" />
+                </svg>
+                <span class="logo-text" style="font-size:0.9rem">RIFT</span>
+            </div>
+            <p class="footer-tagline">Step Into Every World.</p>
+            <div class="footer-links">
+                <a href="index.html">Home</a><a href="characters.html">Characters</a><a href="recap.html">Recap</a><a
+                    href="lore.html">Lore</a><a href="community.html">Community</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+    <script src="portraits.js"></script>
+</body>
+
+</html>

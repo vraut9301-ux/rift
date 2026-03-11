@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shadow Slave Characters — Full Profiles, Abilities & Ranks | RIFT</title>
+    <meta name="description"
+        content="Explore every Shadow Slave character. Full profiles for Sunny, Nephis, Cassie, Effie, Kai, Morgan and more. Abilities, ranks, relationships and power levels." />
+    <meta name="keywords"
+        content="Shadow Slave characters, Sunny Shadow Slave, Nephis, Cassie blind seer, Effie, Kai, Shadow Slave wiki, character profiles" />
+    <meta property="og:title" content="Shadow Slave Characters — Complete Encyclopedia | RIFT" />
+    <meta property="og:description"
+        content="Every Shadow Slave character. Full profiles, abilities, power bars, and relationships." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://rift-shadowslave.netlify.app/assets/icon-512.png" />
+    <meta name="twitter:card" content="summary" />
+    <link rel="manifest" href="manifest.json" />
+    <meta name="theme-color" content="#C41E3A" />
+    <link rel="icon" type="image/png" href="assets/icon-192.png" />
+    <link rel="apple-touch-icon" href="assets/icon-192.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="inner.css">
+</head>
+
+<body>
+    <canvas id="bg-canvas"></canvas>
+
+    <nav class="navbar scrolled" id="navbar">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo">
+                <span class="logo-icon">⟁</span>
+                <span class="logo-text">RIFT</span>
+            </a>
+            <div class="nav-links">
+                <a href="characters.html" class="active">Characters</a>
+                <a href="recap.html">Recap</a>
+                <a href="lore.html">Lore</a>
+                <a href="community.html">Community</a>
+            </div>
+            <a href="index.html#enter" class="nav-cta">Enter the Rift</a>
+            <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+        </div>
+        <div class="mobile-menu" id="mobile-menu">
+            <a href="characters.html">Characters</a>
+            <a href="recap.html">Recap</a>
+            <a href="lore.html">Lore</a>
+            <a href="community.html">Community</a>
+        </div>
+    </nav>
+
+    <main class="inner-main">
+        <!-- Page Header -->
+        <div class="page-header">
+            <div class="page-header-inner">
+                <div class="page-breadcrumb">
+                    <a href="index.html">RIFT</a> <span>›</span>
+                    <span class="novel-crumb">Shadow Slave</span> <span>›</span>
+                    Characters
+                </div>
+                <h1 class="page-title">Character <span class="gradient-text">Encyclopedia</span></h1>
+                <p class="page-sub">Every character, every ability, every relationship — all in one place.</p>
+            </div>
+        </div>
+
+        <!-- Controls -->
+        <div class="controls-bar">
+            <div class="search-wrap">
+                <span class="search-icon">⌕</span>
+                <input type="text" id="search-input" class="search-input"
+                    placeholder="Search characters, abilities, epithets..." />
+                <button class="search-clear" id="search-clear" style="display:none">✕</button>
+            </div>
+            <div class="filter-group">
+                <span class="filter-label">Rank:</span>
+                <button class="filter-btn active" data-filter="rank" data-val="all">All</button>
+                <button class="filter-btn" data-filter="rank" data-val="1">Awakened</button>
+                <button class="filter-btn" data-filter="rank" data-val="2">Refined</button>
+                <button class="filter-btn" data-filter="rank" data-val="3">Master</button>
+                <button class="filter-btn" data-filter="rank" data-val="4">Saint</button>
+                <button class="filter-btn" data-filter="rank" data-val="5">Transcendent</button>
+            </div>
+            <div class="filter-group">
+                <span class="filter-label">Role:</span>
+                <button class="filter-btn active" data-filter="role" data-val="all">All</button>
+                <button class="filter-btn" data-filter="role" data-val="Protagonist">Protagonist</button>
+                <button class="filter-btn" data-filter="role" data-val="Supporting Lead">Allies</button>
+                <button class="filter-btn" data-filter="role" data-val="Antagonist">Antagonist</button>
+            </div>
+            <div class="view-toggle">
+                <button class="view-btn active" id="grid-view" title="Grid">⊞</button>
+                <button class="view-btn" id="list-view" title="List">☰</button>
+            </div>
+        </div>
+
+        <div class="results-count" id="results-count">Showing 6 characters</div>
+
+        <!-- Character Grid -->
+        <div class="char-grid-full" id="char-container"></div>
+
+        <!-- No Results -->
+        <div class="no-results" id="no-results" style="display:none">
+            <div class="no-results-icon">🌑</div>
+            <h3>No characters found</h3>
+            <p>Try a different search term or clear your filters.</p>
+            <button class="btn-ghost" onclick="clearAll()">Clear All Filters</button>
+        </div>
+    </main>
+
+    <!-- Character Detail Modal -->
+    <div class="modal-overlay" id="modal-overlay">
+        <div class="modal" id="char-modal">
+            <button class="modal-close" id="modal-close">✕</button>
+            <div class="modal-body" id="modal-body"><!-- dynamically filled --></div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-logo"><span class="logo-icon">⟁</span><span class="logo-text">RIFT</span></div>
+            <div class="footer-tagline">Step Into Every World.</div>
+            <div class="footer-links">
+                <a href="index.html">Home</a><a href="recap.html">Recap</a><a href="lore.html">Lore</a><a
+                    href="community.html">Community</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+    <script src="characters.js"></script>
+</body>
+
+</html>

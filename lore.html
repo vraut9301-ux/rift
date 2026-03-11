@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shadow Slave Lore — Power System, Ranks & World Guide | RIFT</title>
+    <meta name="description"
+        content="Complete Shadow Slave lore guide. Nightmare rank system explained, power systems, soul aspects, factions, and world lore. The ultimate Shadow Slave wiki." />
+    <meta name="keywords"
+        content="Shadow Slave lore, Shadow Slave rank system, nightmare ranks, soul aspects, Shadow Slave power system, Shadow Slave factions, Shadow Slave guide" />
+    <meta property="og:title" content="Shadow Slave Lore Bible — Complete Guide | RIFT" />
+    <meta property="og:description"
+        content="The complete Shadow Slave knowledge base. Rank system, power mechanics, factions, and world lore." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://rift-shadowslave.netlify.app/assets/icon-512.png" />
+    <meta name="twitter:card" content="summary" />
+    <link rel="manifest" href="manifest.json" />
+    <meta name="theme-color" content="#C41E3A" />
+    <link rel="icon" type="image/png" href="assets/icon-192.png" />
+    <link rel="apple-touch-icon" href="assets/icon-192.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="inner.css">
+</head>
+
+<body>
+    <canvas id="bg-canvas"></canvas>
+    <nav class="navbar scrolled" id="navbar">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo"><span class="logo-icon">⟁</span><span
+                    class="logo-text">RIFT</span></a>
+            <div class="nav-links">
+                <a href="characters.html">Characters</a>
+                <a href="recap.html">Recap</a>
+                <a href="lore.html" class="active">Lore</a>
+                <a href="community.html">Community</a>
+            </div>
+            <a href="index.html#enter" class="nav-cta">Enter the Rift</a>
+            <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+        </div>
+        <div class="mobile-menu" id="mobile-menu">
+            <a href="characters.html">Characters</a><a href="recap.html">Recap</a><a href="lore.html">Lore</a><a
+                href="community.html">Community</a>
+        </div>
+    </nav>
+
+    <main class="inner-main">
+        <div class="page-header">
+            <div class="page-header-inner">
+                <div class="page-breadcrumb"><a href="index.html">RIFT</a> <span>›</span> <span
+                        class="novel-crumb">Shadow Slave</span> <span>›</span> Lore</div>
+                <h1 class="page-title">Lore <span class="gradient-text">Bible</span></h1>
+                <p class="page-sub">The complete knowledge base — rank system, power mechanics, factions, and world
+                    lore.</p>
+            </div>
+        </div>
+
+        <!-- Tabs -->
+        <div class="lore-tabs">
+            <button class="lore-tab active" data-tab="ranks">Rank System</button>
+            <button class="lore-tab" data-tab="systems">Power Systems</button>
+            <button class="lore-tab" data-tab="world">World & Factions</button>
+        </div>
+
+        <!-- Rank System Tab -->
+        <div class="lore-tab-content active" id="tab-ranks">
+            <div class="lore-intro">
+                <h2 class="lore-section-title">The Nightmare <span class="gradient-text">Rank System</span></h2>
+                <p class="lore-section-sub">Awakened are classified by their Soul rank. Each rank represents a quantum
+                    leap in power. Click any rank to expand details.</p>
+            </div>
+            <div class="rank-cards-full" id="rank-cards"></div>
+        </div>
+
+        <!-- Power Systems Tab -->
+        <div class="lore-tab-content" id="tab-systems">
+            <div class="lore-intro">
+                <h2 class="lore-section-title">Power <span class="gradient-text">Systems</span></h2>
+                <p class="lore-section-sub">Shadow Slave has one of the most complex power systems in web novel history.
+                    Here's everything broken down.</p>
+            </div>
+            <div class="lore-cards-grid" id="lore-systems-cards"></div>
+        </div>
+
+        <!-- World & Factions Tab -->
+        <div class="lore-tab-content" id="tab-world">
+            <div class="lore-intro">
+                <h2 class="lore-section-title">World & <span class="gradient-text">Factions</span></h2>
+                <p class="lore-section-sub">The world of Shadow Slave is vast and politically complex. Major factions
+                    shape every character's destiny.</p>
+            </div>
+            <div class="lore-cards-grid" id="lore-world-cards"></div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-logo"><span class="logo-icon">⟁</span><span class="logo-text">RIFT</span></div>
+            <div class="footer-tagline">Step Into Every World.</div>
+            <div class="footer-links">
+                <a href="index.html">Home</a><a href="characters.html">Characters</a><a href="recap.html">Recap</a><a
+                    href="community.html">Community</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+    <script src="lore.js"></script>
+</body>
+
+</html>

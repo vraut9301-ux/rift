@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shadow Slave Community — Theories, Discussions & Fan Hub | RIFT</title>
+    <meta name="description"
+        content="Join the Shadow Slave community. Share theories, character analyses, chapter reactions, and predictions with fellow fans. Spoiler-safe discussions." />
+    <meta name="keywords"
+        content="Shadow Slave community, Shadow Slave theories, Shadow Slave predictions, Shadow Slave discussion, fan community" />
+    <meta property="og:title" content="Shadow Slave Community Hub | RIFT" />
+    <meta property="og:description"
+        content="Theories, discussions, analyses — all organized by chapter. Spoiler-safe." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://rift-shadowslave.netlify.app/assets/icon-512.png" />
+    <meta name="twitter:card" content="summary" />
+    <link rel="manifest" href="manifest.json" />
+    <meta name="theme-color" content="#C41E3A" />
+    <link rel="icon" type="image/png" href="assets/icon-192.png" />
+    <link rel="apple-touch-icon" href="assets/icon-192.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="inner.css">
+</head>
+
+<body>
+    <canvas id="bg-canvas"></canvas>
+    <nav class="navbar scrolled" id="navbar">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo"><span class="logo-icon">⟁</span><span
+                    class="logo-text">RIFT</span></a>
+            <div class="nav-links">
+                <a href="characters.html">Characters</a>
+                <a href="recap.html">Recap</a>
+                <a href="lore.html">Lore</a>
+                <a href="community.html" class="active">Community</a>
+            </div>
+            <a href="index.html#enter" class="nav-cta">Enter the Rift</a>
+            <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+        </div>
+        <div class="mobile-menu" id="mobile-menu">
+            <a href="characters.html">Characters</a><a href="recap.html">Recap</a><a href="lore.html">Lore</a><a
+                href="community.html">Community</a>
+        </div>
+    </nav>
+
+    <main class="inner-main">
+        <div class="page-header">
+            <div class="page-header-inner">
+                <div class="page-breadcrumb"><a href="index.html">RIFT</a> <span>›</span> <span
+                        class="novel-crumb">Shadow Slave</span> <span>›</span> Community</div>
+                <h1 class="page-title">Community <span class="gradient-text">Hub</span></h1>
+                <p class="page-sub">Theories, discussions, analyses — all organized by chapter. Spoiler-safe.</p>
+            </div>
+        </div>
+
+        <!-- Community Layout -->
+        <div class="community-layout">
+            <!-- Main Feed -->
+            <div class="community-feed">
+                <!-- Sort/Filter bar -->
+                <div class="feed-controls">
+                    <div class="feed-sort">
+                        <button class="sort-btn active" data-sort="hot">🔥 Hot</button>
+                        <button class="sort-btn" data-sort="new">✨ New</button>
+                        <button class="sort-btn" data-sort="top">👑 Top</button>
+                    </div>
+                    <div class="feed-filter">
+                        <select class="feed-select" id="tag-filter">
+                            <option value="all">All Topics</option>
+                            <option value="Theory">Theory</option>
+                            <option value="Lore">Lore</option>
+                            <option value="Character">Character</option>
+                            <option value="Prediction">Prediction</option>
+                            <option value="Hype">Hype</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Post Form -->
+                <div class="post-form-card" id="post-form-card">
+                    <div class="post-form-header">
+                        <div class="post-avatar">⟁</div>
+                        <input type="text" class="post-input" id="post-input"
+                            placeholder="Share a theory, analysis, or reaction..." />
+                    </div>
+                    <div class="post-form-footer" id="post-form-footer" style="display:none">
+                        <div class="post-type-btns">
+                            <button class="post-type-btn active" data-type="Theory">Theory</button>
+                            <button class="post-type-btn" data-type="Lore">Lore</button>
+                            <button class="post-type-btn" data-type="Prediction">Prediction</button>
+                            <button class="post-type-btn" data-type="Hype">Hype</button>
+                        </div>
+                        <div class="post-chapter-tag">
+                            <input type="text" class="post-chapter-input" id="post-chapter"
+                                placeholder="Chapter # (optional)" />
+                            <button class="post-submit-btn" id="post-submit">Post</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Thread List -->
+                <div class="thread-list" id="thread-list"></div>
+            </div>
+
+            <!-- Sidebar -->
+            <div class="community-sidebar">
+                <!-- Stats -->
+                <div class="sidebar-card">
+                    <h3 class="sidebar-title">Community Stats</h3>
+                    <div class="sidebar-stats">
+                        <div class="ss-item"><span class="ss-num">12,847</span><span class="ss-label">Members</span>
+                        </div>
+                        <div class="ss-item"><span class="ss-num">3,241</span><span class="ss-label">Discussions</span>
+                        </div>
+                        <div class="ss-item"><span class="ss-num">847</span><span class="ss-label">Active Today</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hot Topics -->
+                <div class="sidebar-card">
+                    <h3 class="sidebar-title">🔥 Hot Topics</h3>
+                    <div class="hot-topics-list">
+                        <div class="ht-item"><span class="ht-num">1</span><span class="ht-text">The new Sovereign</span>
+                        </div>
+                        <div class="ht-item"><span class="ht-num">2</span><span class="ht-text">Nephis memory
+                                loss</span></div>
+                        <div class="ht-item"><span class="ht-num">3</span><span class="ht-text">Sunny's echo
+                                count</span></div>
+                        <div class="ht-item"><span class="ht-num">4</span><span class="ht-text">Moonless Seal
+                                theory</span></div>
+                        <div class="ht-item"><span class="ht-num">5</span><span class="ht-text">Effie Master rank</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tags -->
+                <div class="sidebar-card">
+                    <h3 class="sidebar-title">Browse by Tag</h3>
+                    <div class="tag-cloud" id="tag-cloud"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-logo"><span class="logo-icon">⟁</span><span class="logo-text">RIFT</span></div>
+            <div class="footer-tagline">Step Into Every World.</div>
+            <div class="footer-links">
+                <a href="index.html">Home</a><a href="characters.html">Characters</a><a href="recap.html">Recap</a><a
+                    href="lore.html">Lore</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+    <script src="community.js"></script>
+</body>
+
+</html>
