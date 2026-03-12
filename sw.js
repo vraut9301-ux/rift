@@ -1,5 +1,5 @@
 /* RIFT Service Worker — PWA + Offline Cache */
-const CACHE_NAME = 'rift-v1';
+const CACHE_NAME = 'rift-v3';
 const ASSETS_TO_CACHE = [
     '/',
     '/index.html',

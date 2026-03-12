@@ -232,8 +232,22 @@ function buildHeadSVG(charId, art, cfg, accessItem) {
     // Face
     html += `<ellipse cx="140" cy="140" rx="${headW}" ry="${headH}" fill="url(#skin-g)"/>`;
 
-    if (showMask) {
-        // Mask of the Nameless - featureless dark mask
+    if (showMask && accessItem.id === 's13') {
+        html += `
+        <defs>
+            <radialGradient id="soft-mask-fade" cx="50%" cy="50%" r="50%">
+                <stop offset="65%" stop-color="white" stop-opacity="1"/>
+                <stop offset="100%" stop-color="white" stop-opacity="0"/>
+            </radialGradient>
+            <mask id="mask-soft">
+                <ellipse cx="140" cy="120" rx="60" ry="70" fill="url(#soft-mask-fade)" />
+            </mask>
+        </defs>
+        <!-- Use a larger image block so the horns and full face fit, blended nicely! -->
+        <image href="${accessItem.image}" x="80" y="50" width="120" height="140" preserveAspectRatio="xMidYMid slice" mask="url(#mask-soft)"/>
+        `;
+    } else if (showMask) {
+        // Fallback for any other masks
         html += `
         <ellipse cx="140" cy="140" rx="${headW + 2}" ry="${headH + 2}" fill="${accessItem.color}" opacity="0.92" filter="url(#glow)"/>
         <ellipse cx="140" cy="140" rx="${headW - 2}" ry="${headH - 2}" fill="none" stroke="${cfg.color}" stroke-width="1.5" opacity="0.5"/>

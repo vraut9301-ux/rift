@@ -612,8 +612,8 @@ const RIFT_DATA = {
                 image: 'assets/items/nightmare_leather_garb.png', slot: "armor", ch: 5, rarity: "common", emoji: "🧥", color: "#4A4A6A", desc: "Crude armor crafted from nightmare creature hide during the First Nightmare survival arc. It absorbed several fatal blows.", stat: "DEF +8 | Nightmare Resistance: Low"
             },
             {
-                id: "s13", name: "Mask of the Nameless",
-                image: 'assets/items/mask_of_nameless.png', slot: "accessory", ch: 30, rarity: "legendary", emoji: "🎭", color: "#2D0A3A", desc: "Sunny's most critical non-combat tool — a featureless dark mask worn to conceal his Awakened aura. Anyone looking at him through the mask sees only a Dormant with no power. His defining survival tool for hiding his true strength from allies and enemies alike.", stat: "Power Concealment: 100% | Rank Hidden | Aura: Dormant-level"
+                id: "s13", name: "Weaver's Mask",
+                image: 'assets/items/weavers_mask.png', slot: "accessory", ch: 30, rarity: "legendary", emoji: "👺", color: "#2D0A3A", desc: "Sunny's most critical non-combat tool — crafted from black lacquered wood resembling a ferocious demon with three twisted horns and four protruding fangs. Anyone looking at him through the mask sees only a Dormant with no power.", stat: "Power Concealment: 100% | Rank Hidden | Aura: Dormant-level"
             },
             {
                 id: "s4", name: "Iron Nightmare Blade",
