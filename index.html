@@ -2,6 +2,14 @@
 <html lang="en">
 
 <head>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YBEL6MM1NP"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-YBEL6MM1NP');
+    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>RIFT — The Ultimate Shadow Slave Companion App | Characters, Lore, Recaps</title>
@@ -40,6 +48,72 @@
         href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=Inter:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "RIFT — Shadow Slave Companion",
+        "url": "https://rift-shadowslave.netlify.app/",
+        "description": "The ultimate free companion app for Shadow Slave by Guiltythree. Track characters, explore lore, get AI recaps, manage inventory, and view the world map.",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://rift-shadowslave.netlify.app/characters.html?char={search_term_string}",
+            "query-input": "required name=search_term_string"
+        }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "RIFT",
+        "url": "https://rift-shadowslave.netlify.app/",
+        "applicationCategory": "EntertainmentApplication",
+        "operatingSystem": "Web",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "description": "AI-powered companion app for Shadow Slave web novel readers. Character profiles, chapter recaps, lore encyclopedia, RPG inventory system, and interactive world map."
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is Shadow Slave about?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Shadow Slave is a dark fantasy web novel by Guiltythree. It follows Sunny, a young man who survives the First Nightmare and gains the Shadow Aspect. He must navigate a world of Nightmare Creatures, ancient ruins, and deadly politics while hiding his true power behind a demonic mask." }
+            },
+            {
+                "@type": "Question",
+                "name": "Who are the main characters in Shadow Slave?",
+                "acceptedAnswer": { "@type": "Answer", "text": "The main characters include Sunny (The Dreamless, protagonist with Shadow Aspect), Nephis (Changing Star, wielder of the Undying Flame), Cassie (Blind Seer with prophetic visions), Effie (the powerful Hunt Aspect warrior), Kai (Arrow Clan archer), and Morgan (Blood Aspect user). Track all 300+ characters on RIFT." }
+            },
+            {
+                "@type": "Question",
+                "name": "What is the nightmare rank system in Shadow Slave?",
+                "acceptedAnswer": { "@type": "Answer", "text": "The rank system in Shadow Slave goes: Dormant → Awakened → Ascended → Master → Saint → Sovereign → Supreme. Each rank requires surviving increasingly dangerous Nightmare trials. Sunny currently holds the Saint rank." }
+            },
+            {
+                "@type": "Question",
+                "name": "Where can I read Shadow Slave?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Shadow Slave is available on Webnovel (webnovel.com) and Amazon Kindle. The novel has over 2400 chapters. Use RIFT to track your progress, get AI recaps, and never lose your place." }
+            },
+            {
+                "@type": "Question",
+                "name": "What is RIFT for Shadow Slave?",
+                "acceptedAnswer": { "@type": "Answer", "text": "RIFT is a free companion web app for Shadow Slave readers. It includes a character encyclopedia with 300+ profiles, AI-powered chapter recaps, lore guides, an RPG-style inventory tracker, interactive world map, and community discussions. It's the #1 tool for Shadow Slave fans." }
+            },
+            {
+                "@type": "Question",
+                "name": "How many chapters does Shadow Slave have?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Shadow Slave has over 2400 chapters as of 2026. RIFT tracks all chapters and provides AI-powered recaps so you can catch up quickly if you fall behind." }
+            }
+        ]
+    }
+    </script>
 </head>
 
 <body>
@@ -606,6 +680,43 @@
             <p class="support-sub">Love RIFT? Help us keep it running</p>
             <a href="https://ko-fi.com/rift1" target="_blank" rel="noopener noreferrer" id="donate-btn"
                 class="support-btn donate-btn">☕ Buy Me a Coffee</a>
+            <div class="share-buttons">
+                <a href="https://www.reddit.com/submit?url=https://rift-shadowslave.netlify.app&title=RIFT%20%E2%80%94%20The%20Ultimate%20Shadow%20Slave%20Companion%20App%20(Characters%2C%20Recaps%2C%20Lore%2C%20Map)" target="_blank" rel="noopener" class="share-btn reddit">🔴 Share on Reddit</a>
+                <a href="https://twitter.com/intent/tweet?text=Found%20this%20amazing%20free%20Shadow%20Slave%20companion%20app%20%E2%80%94%20characters%2C%20AI%20recaps%2C%20lore%2C%20inventory%20%26%20more!&url=https://rift-shadowslave.netlify.app" target="_blank" rel="noopener" class="share-btn twitter">🐦 Share on X</a>
+                <button class="share-btn copy-link" onclick="navigator.clipboard.writeText('https://rift-shadowslave.netlify.app');this.textContent='✅ Copied!';setTimeout(()=>this.textContent='🔗 Copy Link',2000)">🔗 Copy Link</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="faq-section" id="faq">
+        <div class="section-label">Common Questions</div>
+        <h2 class="section-title">Shadow Slave <span class="gradient-text">FAQ</span></h2>
+        <div class="faq-grid">
+            <details class="faq-item">
+                <summary class="faq-q">What is Shadow Slave about?</summary>
+                <p class="faq-a">Shadow Slave is a dark fantasy web novel by Guiltythree. It follows Sunny, a young man who survives the First Nightmare and gains the Shadow Aspect. He must navigate a world of Nightmare Creatures, ancient ruins, and deadly politics while hiding his true power behind a demonic mask. With over 2,400 chapters, it's one of the most popular progression fantasy novels.</p>
+            </details>
+            <details class="faq-item">
+                <summary class="faq-q">Who are the main characters?</summary>
+                <p class="faq-a">The main characters include <strong>Sunny</strong> (The Dreamless — Shadow Aspect protagonist), <strong>Nephis</strong> (Changing Star — Undying Flame), <strong>Cassie</strong> (Blind Seer — prophetic visions), <strong>Effie</strong> (Hunt Aspect warrior), <strong>Kai</strong> (Arrow Clan archer), and <strong>Morgan</strong> (Blood Aspect). RIFT tracks all 300+ characters with full profiles.</p>
+            </details>
+            <details class="faq-item">
+                <summary class="faq-q">What is the nightmare rank system?</summary>
+                <p class="faq-a">The rank system goes: <strong>Dormant → Awakened → Ascended → Master → Saint → Sovereign → Supreme</strong>. Each rank requires surviving increasingly dangerous Nightmare trials. Sunny currently holds the Saint rank. Explore the full system in our <a href="lore.html" style="color:var(--primary-light)">Lore section</a>.</p>
+            </details>
+            <details class="faq-item">
+                <summary class="faq-q">Where can I read Shadow Slave?</summary>
+                <p class="faq-a">Shadow Slave is available on <a href="https://www.webnovel.com/book/shadow-slave_22324648105553005" target="_blank" rel="noopener" style="color:var(--primary-light)">Webnovel</a> and <a href="https://www.amazon.com/s?k=shadow+slave+guiltythree" target="_blank" rel="noopener" style="color:var(--primary-light)">Amazon Kindle</a>. Please support the author Guiltythree!</p>
+            </details>
+            <details class="faq-item">
+                <summary class="faq-q">What is RIFT?</summary>
+                <p class="faq-a">RIFT is a <strong>free companion web app</strong> for Shadow Slave readers. It includes a character encyclopedia, AI chapter recaps, lore guides, RPG inventory tracker, world map, and community discussions. It's the #1 tool for Shadow Slave fans — built by a reader who was tired of forgetting who everyone was by chapter 800.</p>
+            </details>
+            <details class="faq-item">
+                <summary class="faq-q">How many chapters does Shadow Slave have?</summary>
+                <p class="faq-a">Shadow Slave has over <strong>2,400 chapters</strong> as of 2026 and is still ongoing. RIFT tracks all chapters and provides AI-powered recaps so you never fall behind.</p>
+            </details>
         </div>
     </section>
 
@@ -642,6 +753,85 @@
             <button class="pwa-dismiss-btn" id="pwa-dismiss-btn">✕</button>
         </div>
     </div>
+
+    <!-- Floating Donate Button -->
+    <a href="https://ko-fi.com/rift1" target="_blank" rel="noopener noreferrer" class="floating-donate" id="floating-donate" title="Support RIFT — Buy us a coffee!">
+        <span class="floating-donate-icon">☕</span>
+        <span class="floating-donate-text">Support RIFT</span>
+    </a>
+
+    <style>
+        .floating-donate {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 9990;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, #C41E3A, #8B1225);
+            color: #fff;
+            text-decoration: none;
+            padding: 0.7rem 1.2rem;
+            border-radius: 100px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            letter-spacing: 0.03em;
+            box-shadow: 0 4px 20px rgba(196, 30, 58, 0.4), 0 8px 32px rgba(0,0,0,0.3);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            animation: donateFloat 3s ease-in-out infinite;
+        }
+        .floating-donate:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 30px rgba(196, 30, 58, 0.6), 0 12px 40px rgba(0,0,0,0.4);
+        }
+        .floating-donate-icon {
+            font-size: 1.1rem;
+        }
+        @keyframes donateFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-4px); }
+        }
+        .floating-donate:hover { animation: none; }
+        @media (max-width: 600px) {
+            .floating-donate-text { display: none; }
+            .floating-donate { padding: 0.8rem; border-radius: 50%; }
+            .floating-donate-icon { font-size: 1.3rem; }
+        }
+
+        /* Share Buttons */
+        .share-buttons {
+            display: flex;
+            gap: 0.75rem;
+            justify-content: center;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+        .share-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-decoration: none;
+            color: #fff;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.25s ease;
+            letter-spacing: 0.03em;
+        }
+        .share-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+        .share-btn.reddit { background: rgba(255, 69, 0, 0.15); border-color: rgba(255, 69, 0, 0.3); }
+        .share-btn.reddit:hover { background: rgba(255, 69, 0, 0.3); }
+        .share-btn.twitter { background: rgba(29, 161, 242, 0.15); border-color: rgba(29, 161, 242, 0.3); }
+        .share-btn.twitter:hover { background: rgba(29, 161, 242, 0.3); }
+        .share-btn.copy-link { background: rgba(255,255,255,0.05); }
+        .share-btn.copy-link:hover { background: rgba(255,255,255,0.1); }
+    </style>
 
     <script src="app.js"></script>
     <script>
