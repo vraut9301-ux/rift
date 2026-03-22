@@ -14,6 +14,7 @@ const searchClear = document.getElementById('search-clear');
 // ---- RENDER CHARACTERS ----
 function renderCharacters() {
   let filtered = RIFT_DATA.characters.filter(char => {
+    const matchChapter = RiftEngine.isVisible(char.firstChapter);
     const matchRank = activeRankFilter === 'all' || char.rankLevel == activeRankFilter;
     const matchRole = activeRoleFilter === 'all' || char.role === activeRoleFilter;
     const q = searchQuery.toLowerCase();
@@ -23,7 +24,7 @@ function renderCharacters() {
       char.tags.some(t => t.toLowerCase().includes(q)) ||
       char.abilities.some(a => a.name.toLowerCase().includes(q)) ||
       char.rank.toLowerCase().includes(q);
-    return matchRank && matchRole && matchSearch;
+    return matchChapter && matchRank && matchRole && matchSearch;
   });
 
   resultsCount.textContent = `Showing ${filtered.length} character${filtered.length !== 1 ? 's' : ''}`;
@@ -239,3 +240,5 @@ renderCharacters();
     setTimeout(() => openModal(charId), 500);
   }
 })();
+
+window.addEventListener('rift-chapter-changed', renderCharacters);

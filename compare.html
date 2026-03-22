@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YBEL6MM1NP"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-YBEL6MM1NP');
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shadow Slave Power Comparison — Character vs Character | RIFT</title>
+    <meta name="description"
+        content="Compare Shadow Slave characters side by side! Sunny vs Nephis, Effie vs Jet — animated stat bars, abilities, ranks, and community votes. Who would win?" />
+    <meta name="keywords"
+        content="Shadow Slave comparison, Sunny vs Nephis, Shadow Slave power levels, character comparison, who would win Shadow Slave" />
+    <meta property="og:title" content="Shadow Slave Power Comparison — Who Would Win? | RIFT" />
+    <meta property="og:description" content="Compare Shadow Slave characters side by side. Animated stats, abilities, and community votes!" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://rift-shadowslave.netlify.app/compare.html" />
+    <meta property="og:image" content="https://rift-shadowslave.netlify.app/assets/icon-512.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Shadow Slave Power Comparison — Who Would Win? | RIFT" />
+    <meta name="twitter:description" content="Compare Shadow Slave characters side by side!" />
+    <meta name="twitter:image" content="https://rift-shadowslave.netlify.app/assets/icon-512.png" />
+    <link rel="canonical" href="https://rift-shadowslave.netlify.app/compare.html" />
+    <link rel="manifest" href="manifest.json" />
+    <meta name="theme-color" content="#C41E3A" />
+    <link rel="icon" type="image/png" href="assets/icon-192.png" />
+    <link rel="apple-touch-icon" href="assets/icon-192.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="inner.css">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "RIFT", "item": "https://rift-shadowslave.netlify.app/" },
+            { "@type": "ListItem", "position": 2, "name": "Compare", "item": "https://rift-shadowslave.netlify.app/compare.html" }
+        ]
+    }
+    </script>
+
+    <style>
+        .compare-page { max-width: 900px; margin: 0 auto; padding: 0 1.5rem 4rem; }
+        .compare-hero { text-align: center; padding: 3rem 0 2rem; }
+        .compare-badge {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            background: rgba(196, 30, 58, 0.1); border: 1px solid rgba(196, 30, 58, 0.25);
+            border-radius: 100px; padding: 0.3rem 1rem;
+            font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em;
+            text-transform: uppercase; color: var(--primary-light); margin-bottom: 1.2rem;
+        }
+        .compare-title {
+            font-family: 'Cinzel', serif; font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 900;
+            background: linear-gradient(135deg, #fff 30%, var(--primary-light));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+            margin-bottom: 0.75rem;
+        }
+        .compare-sub { color: var(--text-muted); font-size: 0.9rem; max-width: 500px; margin: 0 auto; }
+
+        /* Selector Row */
+        .compare-selector {
+            display: grid; grid-template-columns: 1fr auto 1fr;
+            gap: 1rem; align-items: center; margin-bottom: 2rem;
+        }
+        .compare-vs {
+            font-family: 'Cinzel', serif; font-size: 1.5rem; font-weight: 900;
+            color: var(--primary); text-shadow: 0 0 20px rgba(196,30,58,0.4);
+        }
+        .char-select-card {
+            background: var(--card-bg); border: 1px solid var(--card-border);
+            border-radius: var(--radius); padding: 1.25rem; text-align: center;
+            cursor: pointer; transition: all 0.3s; position: relative;
+        }
+        .char-select-card:hover { border-color: rgba(196,30,58,0.3); }
+        .char-select-card.active { border-color: var(--primary-light); box-shadow: 0 0 25px rgba(196,30,58,0.15); }
+        .char-select-symbol { font-size: 3rem; margin-bottom: 0.5rem; filter: drop-shadow(0 0 15px currentColor); }
+        .char-select-name { font-family: 'Cinzel', serif; font-size: 1.1rem; font-weight: 800; margin-bottom: 0.2rem; }
+        .char-select-rank { font-size: 0.65rem; font-weight: 600; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.1em; }
+        .char-dropdown {
+            width: 100%; margin-top: 0.75rem; background: rgba(0,0,0,0.5);
+            border: 1px solid rgba(255,255,255,0.1); border-radius: 8px;
+            color: #fff; padding: 0.5rem; font-size: 0.8rem; font-family: 'Inter', sans-serif;
+        }
+        .char-dropdown option { background: #0a0a14; color: #fff; }
+
+        /* Comparison Area */
+        .compare-result {
+            background: var(--card-bg); border: 1px solid var(--card-border);
+            border-radius: var(--radius); padding: 2rem; position: relative; overflow: hidden;
+        }
+        .compare-result::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+            background: linear-gradient(90deg, var(--char1-color, #C41E3A), #333, var(--char2-color, #F59E0B));
+        }
+        .compare-section-title {
+            font-size: 0.6rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase;
+            color: var(--text-dim); margin-bottom: 1rem; padding-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        /* Stat Row */
+        .stat-row { margin-bottom: 1.25rem; }
+        .stat-label { font-size: 0.72rem; font-weight: 600; color: var(--text-muted); margin-bottom: 0.4rem; }
+        .stat-bars { display: flex; gap: 4px; align-items: center; }
+        .stat-bar-left, .stat-bar-right { flex: 1; height: 10px; border-radius: 100px; overflow: hidden; position: relative; }
+        .stat-bar-left { direction: rtl; background: rgba(255,255,255,0.04); }
+        .stat-bar-right { background: rgba(255,255,255,0.04); }
+        .stat-fill-left {
+            height: 100%; border-radius: 100px; transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+            background: linear-gradient(90deg, var(--char1-color, #C41E3A), transparent);
+        }
+        .stat-fill-right {
+            height: 100%; border-radius: 100px; transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+            background: linear-gradient(270deg, var(--char2-color, #F59E0B), transparent);
+        }
+        .stat-vs-dot {
+            width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.15); flex-shrink: 0;
+        }
+        .stat-values { display: flex; justify-content: space-between; font-size: 0.65rem; font-weight: 700; margin-top: 0.25rem; }
+        .stat-val-left { color: var(--char1-color, #C41E3A); }
+        .stat-val-right { color: var(--char2-color, #F59E0B); }
+
+        /* Winner Badge */
+        .stat-winner {
+            position: absolute; top: 50%; transform: translateY(-50%);
+            font-size: 0.5rem; font-weight: 800; text-transform: uppercase;
+            letter-spacing: 0.1em; padding: 0.15rem 0.4rem; border-radius: 4px;
+        }
+
+        /* Vote Section */
+        .vote-section { margin-top: 2rem; text-align: center; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.06); }
+        .vote-title { font-family: 'Cinzel', serif; font-size: 1.2rem; font-weight: 800; margin-bottom: 1rem; }
+        .vote-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+        .vote-btn {
+            padding: 0.7rem 1.5rem; border-radius: 10px; font-size: 0.85rem; font-weight: 700;
+            cursor: pointer; transition: all 0.3s; border: 2px solid;
+            background: transparent; color: #fff; min-width: 140px;
+        }
+        .vote-btn:hover { transform: translateY(-3px); }
+        .vote-btn.voted { opacity: 0.6; cursor: default; }
+        .vote-bar-container { margin-top: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+        .vote-bar { flex: 1; height: 6px; border-radius: 100px; overflow: hidden; background: rgba(255,255,255,0.06); }
+        .vote-bar-fill { height: 100%; border-radius: 100px; transition: width 0.5s; }
+        .vote-pct { font-size: 0.7rem; font-weight: 700; min-width: 35px; }
+
+        /* Share */
+        .compare-share { margin-top: 1.5rem; display: flex; gap: 0.6rem; justify-content: center; flex-wrap: wrap; }
+        .share-btn {
+            display: inline-flex; align-items: center; gap: 0.4rem;
+            padding: 0.5rem 1rem; border-radius: 8px; font-size: 0.72rem;
+            font-weight: 700; text-decoration: none; color: #fff;
+            border: 1px solid rgba(255,255,255,0.1); transition: all 0.25s;
+            cursor: pointer; background: none;
+        }
+        .share-btn:hover { transform: translateY(-2px); }
+        .share-btn.reddit { background: rgba(255,69,0,0.15); border-color: rgba(255,69,0,0.3); }
+        .share-btn.twitter { background: rgba(29,161,242,0.15); border-color: rgba(29,161,242,0.3); }
+        .share-btn.copy-link { background: rgba(255,255,255,0.05); }
+
+        @media (max-width: 600px) {
+            .compare-selector { grid-template-columns: 1fr; }
+            .compare-vs { text-align: center; }
+        }
+        @keyframes fadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+    </style>
+</head>
+
+<body>
+    <canvas id="bg-canvas"></canvas>
+
+    <nav class="navbar scrolled" id="navbar">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo"><span class="logo-icon">⟁</span><span class="logo-text">RIFT</span></a>
+            <div class="nav-links">
+                <a href="characters.html">Characters</a>
+                <a href="recap.html">Recap</a>
+                <a href="lore.html">Lore</a>
+                <a href="inventory.html">Inventory</a>
+                <a href="map.html">World Map</a>
+                <a href="community.html">Community</a>
+                <a href="quiz.html">Quiz</a>
+                <a href="compare.html" class="active">Compare</a>
+            </div>
+            <a href="characters.html" class="nav-cta">Enter the Rift</a>
+            <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+        </div>
+        <div class="mobile-menu" id="mobile-menu">
+            <a href="characters.html">Characters</a>
+            <a href="recap.html">Recap</a>
+            <a href="lore.html">Lore</a>
+            <a href="inventory.html">Inventory</a>
+            <a href="map.html">World Map</a>
+            <a href="community.html">Community</a>
+            <a href="quiz.html">Quiz</a>
+            <a href="compare.html">Compare</a>
+        </div>
+    </nav>
+
+    <main class="inner-main">
+        <div class="page-header">
+            <div class="page-header-inner">
+                <div class="page-breadcrumb">
+                    <a href="index.html">RIFT</a> <span>›</span>
+                    <span class="novel-crumb">Shadow Slave</span> <span>›</span> Compare
+                </div>
+            </div>
+        </div>
+
+        <div class="compare-page">
+            <div class="compare-hero">
+                <div class="compare-badge">⚔ POWER COMPARISON</div>
+                <h1 class="compare-title">Who Would <span class="gradient-text">Win?</span></h1>
+                <p class="compare-sub">Select two Shadow Slave characters to compare their powers, ranks, and abilities side by side.</p>
+            </div>
+
+            <div class="compare-selector" id="compare-selector"></div>
+            <div id="compare-result-area"></div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-logo"><span class="logo-icon">⟁</span><span class="logo-text">RIFT</span></div>
+            <div class="footer-tagline">Step Into Every World.</div>
+            <div class="footer-links">
+                <a href="index.html">Home</a><a href="characters.html">Characters</a><a href="quiz.html">Quiz</a><a href="community.html">Community</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+    <script src="compare.js"></script>
+</body>
+
+</html>

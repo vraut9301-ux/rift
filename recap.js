@@ -411,16 +411,51 @@ window.loadBookmark = function (idx) {
 };
 
 // ── PROGRESS TRACKER ──────────────────────────────────────────────────────────
-const savedProgress = localStorage.getItem('rift-progress-shadow-slave');
-if (savedProgress) document.getElementById('current-chapter').value = savedProgress;
-
-document.getElementById('ptc-save').addEventListener('click', () => {
-    const val = document.getElementById('current-chapter').value;
-    if (val) {
-        localStorage.setItem('rift-progress-shadow-slave', val);
-        document.getElementById('ptc-saved').style.display = 'block';
-        setTimeout(() => document.getElementById('ptc-saved').style.display = 'none', 2000);
+function initRecapProgress() {
+    const ptcInput = document.getElementById('current-chapter');
+    
+    // Sync to global engine
+    if (window.RiftEngine) {
+        ptcInput.value = window.RiftEngine.getChapter();
+    } else {
+        const saved = localStorage.getItem('rift-progress-shadow-slave');
+        if (saved) ptcInput.value = saved;
     }
-});
 
+    // Listen for global changes from navbar
+    window.addEventListener('rift-chapter-changed', (e) => {
+        if(ptcInput) ptcInput.value = e.detail;
+    });
+
+    document.getElementById('ptc-save').addEventListener('click', () => {
+        const val = parseInt(ptcInput.value);
+        if (val) {
+            if (window.RiftEngine) {
+                window.RiftEngine.setChapter(val);
+            } else {
+                localStorage.setItem('rift-progress-shadow-slave', val);
+            }
+            document.getElementById('ptc-saved').style.display = 'block';
+            setTimeout(() => document.getElementById('ptc-saved').style.display = 'none', 2000);
+        }
+    });
+
+    // Smart autofill for recap range based on user's current progress
+    const autoFillBtn = document.createElement('button');
+    autoFillBtn.className = 'preset-btn';
+    autoFillBtn.style.color = 'var(--gold)';
+    autoFillBtn.style.borderColor = 'var(--gold)';
+    autoFillBtn.textContent = 'Up to My Progress';
+    autoFillBtn.addEventListener('click', () => {
+        const to = ptcInput.value || 100;
+        const from = Math.max(1, to - 50); // Get last 50 chapters
+        document.getElementById('ch-from').value = from;
+        document.getElementById('ch-to').value = to;
+        autoFillBtn.classList.add('active-preset');
+        setTimeout(() => autoFillBtn.classList.remove('active-preset'), 500);
+    });
+    document.querySelector('.rc-presets').appendChild(autoFillBtn);
+}
+
+initRecapProgress();
 renderBookmarks();

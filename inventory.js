@@ -2,9 +2,12 @@
 
 // ── STATE ────────────────────────────────────────────────────────────────────
 let activeCharId = 'sunny';
-let userChapter = 50;
 let equippedItems = {};
 let activeSlotFilter = 'all';
+
+function getUserChapter() {
+    return window.RiftEngine ? window.RiftEngine.getChapter() : 2868;
+}
 
 // ── CHARACTER MASTER CONFIG ──────────────────────────────────────────────────
 // Novel-accurate descriptions used for SVG art generation
@@ -673,11 +676,23 @@ function shadeColor(hex, amount) { return lightenColor(hex, amount); }
 
 // ── INIT ─────────────────────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
-    const saved = localStorage.getItem('rift-progress-shadow-slave');
-    if (saved) {
-        userChapter = parseInt(saved) || 50;
-        document.getElementById('user-chapter-input').value = userChapter;
+    // Sync UI with global engine state
+    const currentChapter = getUserChapter();
+    const chapterInput = document.getElementById('user-chapter-input');
+    if (chapterInput) {
+        chapterInput.value = currentChapter;
     }
+
+    // Listen to global chapter changes from navbar or anywhere else
+    window.addEventListener('rift-chapter-changed', (e) => {
+        if(chapterInput) chapterInput.value = e.detail;
+        renderInventoryGrid();
+        updateUnlockInfo();
+        validateEquipped();
+        renderHoloSlots();
+        renderEquippedSlots();
+        buildCharSelect(); // Update item counts in the side panel
+    });
 
     buildCharSelect();
     switchCharacter('sunny');
@@ -724,14 +739,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.getElementById('apply-chapter-btn').addEventListener('click', () => {
         const val = parseInt(document.getElementById('user-chapter-input').value);
-        if (val && val >= 1 && val <= 3000) {
-            userChapter = val;
-            localStorage.setItem('rift-progress-shadow-slave', val);
-            renderInventoryGrid();
-            updateUnlockInfo();
-            validateEquipped();
-            renderHoloSlots();
-            renderEquippedSlots();
+        if (val && window.RiftEngine) {
+            window.RiftEngine.setChapter(val);
         }
     });
 

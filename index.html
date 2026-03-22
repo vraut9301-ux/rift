@@ -49,6 +49,7 @@
         href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=Inter:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <script src="engine.js"></script>
 
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
@@ -136,6 +137,10 @@
                 <a href="inventory.html">Inventory</a>
                 <a href="map.html">World Map</a>
                 <a href="community.html">Community</a>
+            </div>
+            <div class="nav-sync" title="Spoiler-Free Sync: Hide content beyond this chapter" style="display:flex; align-items:center; gap:0.5rem; margin-right: 1rem;">
+                <span style="font-size:0.7rem; color:#a1a1aa; font-weight:600; text-transform:uppercase; letter-spacing:0.05em;">Chapter Sync:</span>
+                <input type="number" id="global-chapter-sync" placeholder="Max" style="width:65px; padding:0.4rem; background:rgba(0,0,0,0.5); border:1px solid rgba(255,255,255,0.1); border-radius:6px; color:white; font-family:monospace; font-size:0.85rem; outline:none; transition: border-color 0.3s;" />
             </div>
             <a href="characters.html" class="nav-cta">Enter the Rift</a>
             <button class="hamburger" id="hamburger">

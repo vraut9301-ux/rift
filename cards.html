@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YBEL6MM1NP"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-YBEL6MM1NP');
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shadow Slave Character Cards — Generate & Share | RIFT</title>
+    <meta name="description"
+        content="Generate beautiful Shadow Slave character stat cards! Download as PNG and share on Reddit, Twitter, and Discord. Featuring Sunny, Nephis, Cassie, Effie, Kai, Morgan, and Jet." />
+    <meta name="keywords"
+        content="Shadow Slave character cards, Shadow Slave stats, Sunny stats, Nephis stats, Shadow Slave fan art, character card generator" />
+    <meta property="og:title" content="Shadow Slave Character Cards — Generate & Share | RIFT" />
+    <meta property="og:description" content="Generate beautiful character stat cards and share them with the Shadow Slave community!" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://rift-shadowslave.netlify.app/cards.html" />
+    <meta property="og:image" content="https://rift-shadowslave.netlify.app/assets/icon-512.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Shadow Slave Character Cards — Generate & Share | RIFT" />
+    <meta name="twitter:description" content="Generate beautiful character stat cards and share them!" />
+    <meta name="twitter:image" content="https://rift-shadowslave.netlify.app/assets/icon-512.png" />
+    <link rel="canonical" href="https://rift-shadowslave.netlify.app/cards.html" />
+    <link rel="manifest" href="manifest.json" />
+    <meta name="theme-color" content="#C41E3A" />
+    <link rel="icon" type="image/png" href="assets/icon-192.png" />
+    <link rel="apple-touch-icon" href="assets/icon-192.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="inner.css">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "RIFT", "item": "https://rift-shadowslave.netlify.app/" },
+            { "@type": "ListItem", "position": 2, "name": "Character Cards", "item": "https://rift-shadowslave.netlify.app/cards.html" }
+        ]
+    }
+    </script>
+
+    <style>
+        .cards-page { max-width: 900px; margin: 0 auto; padding: 0 1.5rem 4rem; }
+        .cards-hero { text-align: center; padding: 3rem 0 2rem; }
+        .cards-badge {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            background: rgba(196, 30, 58, 0.1); border: 1px solid rgba(196, 30, 58, 0.25);
+            border-radius: 100px; padding: 0.3rem 1rem;
+            font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em;
+            text-transform: uppercase; color: var(--primary-light); margin-bottom: 1.2rem;
+        }
+        .cards-title {
+            font-family: 'Cinzel', serif; font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 900;
+            background: linear-gradient(135deg, #fff 30%, var(--primary-light));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+            margin-bottom: 0.75rem;
+        }
+        .cards-sub { color: var(--text-muted); font-size: 0.9rem; max-width: 520px; margin: 0 auto; }
+
+        /* Character Grid */
+        .char-grid {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 0.75rem; margin-bottom: 2rem;
+        }
+        .char-grid-item {
+            background: var(--card-bg); border: 1px solid var(--card-border);
+            border-radius: 12px; padding: 1rem; text-align: center;
+            cursor: pointer; transition: all 0.3s;
+        }
+        .char-grid-item:hover { border-color: rgba(196,30,58,0.3); transform: translateY(-3px); }
+        .char-grid-item.selected { border-color: var(--primary-light); box-shadow: 0 0 25px rgba(196,30,58,0.2); }
+        .char-grid-symbol { font-size: 2rem; margin-bottom: 0.4rem; }
+        .char-grid-name { font-size: 0.75rem; font-weight: 700; color: #fff; }
+        .char-grid-rank { font-size: 0.6rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.08em; }
+
+        /* Card Preview */
+        .card-preview-area {
+            display: flex; flex-direction: column; align-items: center; gap: 1.5rem;
+        }
+        .card-canvas-container {
+            position: relative; border-radius: 16px; overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 40px rgba(196,30,58,0.1);
+        }
+        #card-canvas { display: block; max-width: 100%; height: auto; }
+
+        /* Actions */
+        .card-actions { display: flex; gap: 0.75rem; flex-wrap: wrap; justify-content: center; }
+        .card-action-btn {
+            padding: 0.65rem 1.3rem; border-radius: 10px; font-size: 0.78rem;
+            font-weight: 700; text-decoration: none; transition: all 0.2s;
+            cursor: pointer; display: inline-flex; align-items: center; gap: 0.4rem;
+        }
+        .card-action-btn.primary {
+            background: var(--primary); color: #fff; border: 1px solid var(--primary);
+        }
+        .card-action-btn.primary:hover { background: #a51830; transform: translateY(-2px); }
+        .card-action-btn.ghost {
+            background: rgba(255,255,255,0.05); color: var(--text-muted);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .card-action-btn.ghost:hover { background: rgba(255,255,255,0.1); color: #fff; transform: translateY(-2px); }
+
+        .share-btn {
+            display: inline-flex; align-items: center; gap: 0.4rem;
+            padding: 0.5rem 1rem; border-radius: 8px; font-size: 0.72rem;
+            font-weight: 700; text-decoration: none; color: #fff;
+            border: 1px solid rgba(255,255,255,0.1); transition: all 0.25s;
+            cursor: pointer; background: none;
+        }
+        .share-btn:hover { transform: translateY(-2px); }
+        .share-btn.reddit { background: rgba(255,69,0,0.15); border-color: rgba(255,69,0,0.3); }
+        .share-btn.twitter { background: rgba(29,161,242,0.15); border-color: rgba(29,161,242,0.3); }
+
+        @keyframes fadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+    </style>
+</head>
+
+<body>
+    <canvas id="bg-canvas"></canvas>
+
+    <nav class="navbar scrolled" id="navbar">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo"><span class="logo-icon">⟁</span><span class="logo-text">RIFT</span></a>
+            <div class="nav-links">
+                <a href="characters.html">Characters</a>
+                <a href="recap.html">Recap</a>
+                <a href="lore.html">Lore</a>
+                <a href="inventory.html">Inventory</a>
+                <a href="map.html">World Map</a>
+                <a href="community.html">Community</a>
+                <a href="quiz.html">Quiz</a>
+                <a href="compare.html">Compare</a>
+                <a href="cards.html" class="active">Cards</a>
+            </div>
+            <a href="characters.html" class="nav-cta">Enter the Rift</a>
+            <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+        </div>
+        <div class="mobile-menu" id="mobile-menu">
+            <a href="characters.html">Characters</a>
+            <a href="recap.html">Recap</a>
+            <a href="lore.html">Lore</a>
+            <a href="inventory.html">Inventory</a>
+            <a href="map.html">World Map</a>
+            <a href="community.html">Community</a>
+            <a href="quiz.html">Quiz</a>
+            <a href="compare.html">Compare</a>
+            <a href="cards.html">Cards</a>
+        </div>
+    </nav>
+
+    <main class="inner-main">
+        <div class="page-header">
+            <div class="page-header-inner">
+                <div class="page-breadcrumb">
+                    <a href="index.html">RIFT</a> <span>›</span>
+                    <span class="novel-crumb">Shadow Slave</span> <span>›</span> Character Cards
+                </div>
+            </div>
+        </div>
+
+        <div class="cards-page">
+            <div class="cards-hero">
+                <div class="cards-badge">📊 CHARACTER CARDS</div>
+                <h1 class="cards-title">Generate & Share<br><span class="gradient-text">Character Cards</span></h1>
+                <p class="cards-sub">Select a character to generate a premium stat card. Download as PNG and share it on Reddit, Twitter, or Discord!</p>
+            </div>
+
+            <div class="char-grid" id="char-grid"></div>
+
+            <div class="card-preview-area" id="card-preview-area" style="display:none">
+                <div class="card-canvas-container">
+                    <canvas id="card-canvas" width="480" height="680"></canvas>
+                </div>
+                <div class="card-actions">
+                    <button class="card-action-btn primary" id="download-card-btn">⬇ Download as PNG</button>
+                    <a id="share-reddit-btn" class="share-btn reddit" target="_blank" rel="noopener">🔴 Reddit</a>
+                    <a id="share-twitter-btn" class="share-btn twitter" target="_blank" rel="noopener">🐦 X / Twitter</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-logo"><span class="logo-icon">⟁</span><span class="logo-text">RIFT</span></div>
+            <div class="footer-tagline">Step Into Every World.</div>
+            <div class="footer-links">
+                <a href="index.html">Home</a><a href="characters.html">Characters</a><a href="quiz.html">Quiz</a><a href="compare.html">Compare</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+    <script src="cards.js"></script>
+</body>
+
+</html>

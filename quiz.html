@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YBEL6MM1NP"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-YBEL6MM1NP');
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Which Shadow Slave Character Are You? — Personality Quiz | RIFT</title>
+    <meta name="description"
+        content="Take the ultimate Shadow Slave personality quiz! Are you Sunny, Nephis, Cassie, Effie, Kai, or Morgan? Find out which character matches your soul and share your result." />
+    <meta name="keywords"
+        content="Shadow Slave quiz, Shadow Slave personality test, which Shadow Slave character am I, Sunny quiz, Nephis quiz, Shadow Slave fan quiz" />
+    <meta property="og:title" content="Which Shadow Slave Character Are You? — Take the Quiz!" />
+    <meta property="og:description"
+        content="Take the ultimate Shadow Slave personality quiz. Find out which Awakened matches your soul!" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://rift-shadowslave.netlify.app/quiz.html" />
+    <meta property="og:image" content="https://rift-shadowslave.netlify.app/assets/icon-512.png" />
+    <meta property="og:site_name" content="RIFT" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Which Shadow Slave Character Are You? — Take the Quiz!" />
+    <meta name="twitter:description"
+        content="Take the ultimate Shadow Slave personality quiz. Find out which Awakened matches your soul!" />
+    <meta name="twitter:image" content="https://rift-shadowslave.netlify.app/assets/icon-512.png" />
+    <link rel="canonical" href="https://rift-shadowslave.netlify.app/quiz.html" />
+    <link rel="manifest" href="manifest.json" />
+    <meta name="theme-color" content="#C41E3A" />
+    <link rel="icon" type="image/png" href="assets/icon-192.png" />
+    <link rel="apple-touch-icon" href="assets/icon-192.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="inner.css">
+
+    <!-- JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Quiz",
+        "name": "Which Shadow Slave Character Are You?",
+        "description": "A personality quiz that matches you with a Shadow Slave character based on your answers.",
+        "url": "https://rift-shadowslave.netlify.app/quiz.html",
+        "provider": {
+            "@type": "WebApplication",
+            "name": "RIFT",
+            "url": "https://rift-shadowslave.netlify.app/"
+        }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "RIFT", "item": "https://rift-shadowslave.netlify.app/" },
+            { "@type": "ListItem", "position": 2, "name": "Quiz", "item": "https://rift-shadowslave.netlify.app/quiz.html" }
+        ]
+    }
+    </script>
+
+    <style>
+        /* ═══════════════════════════════════════════════════
+           QUIZ PAGE STYLES
+        ═══════════════════════════════════════════════════ */
+        .quiz-page { max-width: 720px; margin: 0 auto; padding: 0 1.5rem 4rem; }
+
+        /* Hero */
+        .quiz-hero { text-align: center; padding: 3rem 0 2rem; }
+        .quiz-badge {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            background: rgba(196, 30, 58, 0.1); border: 1px solid rgba(196, 30, 58, 0.25);
+            border-radius: 100px; padding: 0.3rem 1rem;
+            font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em;
+            text-transform: uppercase; color: var(--primary-light); margin-bottom: 1.2rem;
+        }
+        .quiz-badge-dot { width: 6px; height: 6px; background: #4ade80; border-radius: 50%; animation: blink 1.5s ease-in-out infinite; }
+        @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+        .quiz-title {
+            font-family: 'Cinzel', serif; font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 900;
+            background: linear-gradient(135deg, #fff 30%, var(--primary-light));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+            margin-bottom: 0.75rem; line-height: 1.15;
+        }
+        .quiz-sub { color: var(--text-muted); font-size: 0.9rem; line-height: 1.6; max-width: 500px; margin: 0 auto; }
+
+        /* Progress Bar */
+        .quiz-progress { margin-bottom: 2rem; }
+        .quiz-progress-bar {
+            height: 4px; background: rgba(255,255,255,0.06); border-radius: 100px; overflow: hidden;
+        }
+        .quiz-progress-fill {
+            height: 100%; background: linear-gradient(90deg, var(--primary), #F59E0B);
+            border-radius: 100px; transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1); width: 0%;
+        }
+        .quiz-progress-text {
+            display: flex; justify-content: space-between; margin-top: 0.5rem;
+            font-size: 0.7rem; color: var(--text-dim); font-weight: 600; letter-spacing: 0.05em;
+        }
+
+        /* Question Card */
+        .quiz-question-card {
+            background: var(--card-bg); border: 1px solid var(--card-border);
+            border-radius: var(--radius); padding: 2rem; margin-bottom: 1.5rem;
+            animation: fadeUp 0.5s ease; position: relative; overflow: hidden;
+        }
+        .quiz-question-card::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+            background: linear-gradient(90deg, var(--primary), #F59E0B, var(--primary));
+        }
+        .quiz-q-number {
+            font-size: 0.6rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase;
+            color: var(--primary-light); margin-bottom: 0.75rem;
+        }
+        .quiz-q-text {
+            font-family: 'Cinzel', serif; font-size: 1.15rem; font-weight: 700;
+            color: #fff; margin-bottom: 1.5rem; line-height: 1.5;
+        }
+        .quiz-options { display: flex; flex-direction: column; gap: 0.65rem; }
+        .quiz-option {
+            background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px; padding: 0.9rem 1.2rem; cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1); font-size: 0.85rem;
+            color: var(--text-muted); display: flex; align-items: center; gap: 0.75rem;
+        }
+        .quiz-option:hover {
+            background: rgba(196, 30, 58, 0.08); border-color: rgba(196, 30, 58, 0.3);
+            color: #fff; transform: translateX(6px);
+        }
+        .quiz-option.selected {
+            background: linear-gradient(135deg, rgba(196, 30, 58, 0.15), rgba(0,0,0,0.2));
+            border-color: var(--primary-light); color: #fff;
+            box-shadow: 0 4px 20px rgba(196, 30, 58, 0.15);
+        }
+        .quiz-option-letter {
+            width: 28px; height: 28px; border-radius: 8px; display: flex; align-items: center;
+            justify-content: center; font-size: 0.7rem; font-weight: 800;
+            background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+            flex-shrink: 0; transition: all 0.3s;
+        }
+        .quiz-option.selected .quiz-option-letter {
+            background: var(--primary); border-color: var(--primary); color: #fff;
+        }
+
+        /* Navigation */
+        .quiz-nav { display: flex; justify-content: flex-end; gap: 0.75rem; margin-top: 1rem; }
+        .quiz-nav-btn {
+            background: rgba(196, 30, 58, 0.1); border: 1px solid rgba(196, 30, 58, 0.3);
+            border-radius: 10px; padding: 0.7rem 1.5rem; color: var(--primary-light);
+            font-size: 0.8rem; font-weight: 700; cursor: pointer; transition: all 0.2s;
+            letter-spacing: 0.03em;
+        }
+        .quiz-nav-btn:hover { background: var(--primary); color: #fff; border-color: var(--primary); }
+        .quiz-nav-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+        .quiz-nav-btn.primary-btn {
+            background: var(--primary); color: #fff; border-color: var(--primary);
+        }
+        .quiz-nav-btn.primary-btn:hover { background: #a51830; }
+
+        /* Result Screen */
+        .quiz-result { display: none; text-align: center; animation: fadeUp 0.6s ease; }
+        .quiz-result.show { display: block; }
+        .result-card {
+            background: var(--card-bg); border: 1px solid var(--card-border);
+            border-radius: var(--radius); padding: 2.5rem 2rem; position: relative; overflow: hidden;
+        }
+        .result-card::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+            background: linear-gradient(90deg, var(--result-color, var(--primary)), #F59E0B, var(--result-color, var(--primary)));
+        }
+        .result-label {
+            font-size: 0.65rem; font-weight: 700; letter-spacing: 0.15em;
+            text-transform: uppercase; color: var(--text-dim); margin-bottom: 1.5rem;
+        }
+        .result-symbol {
+            font-size: 5rem; margin-bottom: 1rem;
+            filter: drop-shadow(0 0 30px var(--result-color, var(--primary)));
+            animation: float 4s ease-in-out infinite;
+        }
+        @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
+        .result-name {
+            font-family: 'Cinzel', serif; font-size: 2.2rem; font-weight: 900;
+            background: linear-gradient(135deg, #fff 30%, var(--result-color, var(--primary-light)));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+            margin-bottom: 0.3rem;
+        }
+        .result-epithet {
+            font-size: 0.85rem; color: var(--text-muted); font-style: italic; margin-bottom: 1.5rem;
+        }
+        .result-rank-badge {
+            display: inline-block; font-size: 0.65rem; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 0.1em; padding: 0.25rem 0.8rem; border-radius: 100px;
+            background: rgba(196, 30, 58, 0.12); border: 1px solid rgba(196, 30, 58, 0.3);
+            color: var(--primary-light); margin-bottom: 1.5rem;
+        }
+        .result-desc {
+            font-size: 0.88rem; color: var(--text-muted); line-height: 1.75;
+            max-width: 480px; margin: 0 auto 2rem;
+        }
+        .result-traits { display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2rem; }
+        .result-trait {
+            padding: 0.3rem 0.75rem; border-radius: 100px; font-size: 0.7rem; font-weight: 700;
+            background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: var(--text-muted);
+        }
+
+        /* Share Section */
+        .result-share { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.06); }
+        .result-share-title {
+            font-size: 0.65rem; font-weight: 700; letter-spacing: 0.15em;
+            text-transform: uppercase; color: var(--text-dim); margin-bottom: 1rem;
+        }
+        .result-share-btns { display: flex; gap: 0.6rem; justify-content: center; flex-wrap: wrap; }
+        .share-btn {
+            display: inline-flex; align-items: center; gap: 0.4rem;
+            padding: 0.55rem 1rem; border-radius: 8px; font-size: 0.75rem;
+            font-weight: 700; text-decoration: none; color: #fff;
+            border: 1px solid rgba(255,255,255,0.1); transition: all 0.25s ease;
+            letter-spacing: 0.03em; cursor: pointer; background: none;
+        }
+        .share-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
+        .share-btn.reddit { background: rgba(255, 69, 0, 0.15); border-color: rgba(255, 69, 0, 0.3); }
+        .share-btn.reddit:hover { background: rgba(255, 69, 0, 0.3); }
+        .share-btn.twitter { background: rgba(29, 161, 242, 0.15); border-color: rgba(29, 161, 242, 0.3); }
+        .share-btn.twitter:hover { background: rgba(29, 161, 242, 0.3); }
+        .share-btn.copy-link { background: rgba(255,255,255,0.05); }
+        .share-btn.copy-link:hover { background: rgba(255,255,255,0.1); }
+
+        .quiz-retake {
+            margin-top: 2rem; display: inline-flex; align-items: center; gap: 0.5rem;
+            color: var(--primary-light); font-size: 0.8rem; font-weight: 700;
+            cursor: pointer; background: none; border: none; transition: color 0.2s;
+        }
+        .quiz-retake:hover { color: #fff; }
+
+        /* CTA after result */
+        .result-cta {
+            margin-top: 2rem; display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap;
+        }
+        .result-cta a {
+            padding: 0.65rem 1.3rem; border-radius: 10px; font-size: 0.78rem;
+            font-weight: 700; text-decoration: none; transition: all 0.2s;
+        }
+        .result-cta .cta-primary {
+            background: var(--primary); color: #fff; border: 1px solid var(--primary);
+        }
+        .result-cta .cta-primary:hover { background: #a51830; }
+        .result-cta .cta-ghost {
+            background: rgba(255,255,255,0.05); color: var(--text-muted);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .result-cta .cta-ghost:hover { background: rgba(255,255,255,0.1); color: #fff; }
+
+        @keyframes fadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+    </style>
+</head>
+
+<body>
+    <canvas id="bg-canvas"></canvas>
+
+    <nav class="navbar scrolled" id="navbar">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo">
+                <span class="logo-icon">⟁</span><span class="logo-text">RIFT</span>
+            </a>
+            <div class="nav-links">
+                <a href="characters.html">Characters</a>
+                <a href="recap.html">Recap</a>
+                <a href="lore.html">Lore</a>
+                <a href="inventory.html">Inventory</a>
+                <a href="map.html">World Map</a>
+                <a href="community.html">Community</a>
+                <a href="quiz.html" class="active">Quiz</a>
+                <a href="compare.html">Compare</a>
+            </div>
+            <a href="characters.html" class="nav-cta">Enter the Rift</a>
+            <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+        </div>
+        <div class="mobile-menu" id="mobile-menu">
+            <a href="characters.html">Characters</a>
+            <a href="recap.html">Recap</a>
+            <a href="lore.html">Lore</a>
+            <a href="inventory.html">Inventory</a>
+            <a href="map.html">World Map</a>
+            <a href="community.html">Community</a>
+            <a href="quiz.html">Quiz</a>
+            <a href="compare.html">Compare</a>
+        </div>
+    </nav>
+
+    <main class="inner-main">
+        <div class="page-header">
+            <div class="page-header-inner">
+                <div class="page-breadcrumb">
+                    <a href="index.html">RIFT</a> <span>›</span>
+                    <span class="novel-crumb">Shadow Slave</span> <span>›</span> Quiz
+                </div>
+            </div>
+        </div>
+
+        <div class="quiz-page">
+            <!-- Hero -->
+            <div class="quiz-hero" id="quiz-hero">
+                <div class="quiz-badge"><div class="quiz-badge-dot"></div> PERSONALITY QUIZ</div>
+                <h1 class="quiz-title">Which Shadow Slave<br>Character Are <span class="gradient-text">You?</span></h1>
+                <p class="quiz-sub">Answer 10 questions to discover which Awakened matches your soul. Are you the cunning Dreamless, the blazing Changing Star, or something darker?</p>
+                <br>
+                <button class="quiz-nav-btn primary-btn" id="quiz-start-btn" style="font-size:0.9rem;padding:0.8rem 2rem">
+                    ⟁ Begin the Trial
+                </button>
+            </div>
+
+            <!-- Quiz Area -->
+            <div id="quiz-area" style="display:none">
+                <!-- Progress -->
+                <div class="quiz-progress">
+                    <div class="quiz-progress-bar"><div class="quiz-progress-fill" id="quiz-progress-fill"></div></div>
+                    <div class="quiz-progress-text">
+                        <span id="quiz-progress-label">Question 1 of 10</span>
+                        <span id="quiz-progress-pct">0%</span>
+                    </div>
+                </div>
+
+                <!-- Question -->
+                <div id="quiz-question-container"></div>
+
+                <!-- Nav -->
+                <div class="quiz-nav">
+                    <button class="quiz-nav-btn" id="quiz-prev" disabled>← Back</button>
+                    <button class="quiz-nav-btn primary-btn" id="quiz-next" disabled>Next →</button>
+                </div>
+            </div>
+
+            <!-- Result -->
+            <div class="quiz-result" id="quiz-result"></div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-logo"><span class="logo-icon">⟁</span><span class="logo-text">RIFT</span></div>
+            <div class="footer-tagline">Step Into Every World.</div>
+            <div class="footer-links">
+                <a href="index.html">Home</a><a href="characters.html">Characters</a><a href="recap.html">Recap</a><a href="community.html">Community</a><a href="quiz.html">Quiz</a><a href="compare.html">Compare</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+    <script src="quiz.js"></script>
+</body>
+
+</html>
