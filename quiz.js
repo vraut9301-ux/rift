@@ -294,7 +294,7 @@ function showResult(charId) {
     const resultEl = document.getElementById('quiz-result');
     resultEl.style.setProperty('--result-color', result.color);
 
-    const shareUrl = encodeURIComponent(`https://vraut9301-ux.github.io/rift/quiz.html#${charId}`);
+    const shareUrl = encodeURIComponent(`https://rift-shadowslave.github.io/quiz.html#${charId}`);
     const shareText = encodeURIComponent(result.shareText);
 
     resultEl.innerHTML = `
