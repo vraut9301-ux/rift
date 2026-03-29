@@ -297,7 +297,7 @@ function downloadCard() {
 
 function updateShareLinks(charId) {
     const char = RIFT_DATA.characters.find(c => c.id === charId);
-    const url = encodeURIComponent(`https://rift-shadowslave.netlify.app/cards.html#${charId}`);
+    const url = encodeURIComponent(`https://vraut9301-ux.github.io/rift/cards.html#${charId}`);
     const text = encodeURIComponent(`Check out ${char.name}'s character stat card from Shadow Slave! ⚔ Made with RIFT`);
 
     document.getElementById('share-reddit-btn').href = `https://www.reddit.com/submit?url=${url}&title=${text}`;

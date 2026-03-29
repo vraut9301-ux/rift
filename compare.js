@@ -110,7 +110,7 @@ function renderComparison() {
         stats.push({ name, val1: a1 ? a1.level : 0, val2: a2 ? a2.level : 0, max: 100 });
     });
 
-    const shareUrl = encodeURIComponent(`https://rift-shadowslave.netlify.app/compare.html#${char1Id}-vs-${char2Id}`);
+    const shareUrl = encodeURIComponent(`https://vraut9301-ux.github.io/rift/compare.html#${char1Id}-vs-${char2Id}`);
     const shareText = encodeURIComponent(`${c1.name} vs ${c2.name} — who would win? ⚔️ Compare Shadow Slave characters on RIFT!`);
 
     // Votes

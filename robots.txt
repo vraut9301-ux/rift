@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://rift-shadowslave.netlify.app/sitemap.xml
+Sitemap: https://vraut9301-ux.github.io/rift/sitemap.xml
