@@ -67,9 +67,9 @@ const RIFT_DATA = {
             portraitGlow: "gold",
             role: "Main Female Lead",
             status: "Alive",
-            faction: "Memory faction",
+            faction: "Immortal Flame clan",
             firstChapter: 5,
-            tags: ["Flame Aspect", "Amnesia Arc", "Memory Lost", "Transcendent"],
+            tags: ["Flame Aspect", "Amnesia Arc", "Transcendent"],
             abilities: [
                 { name: "Flame Aspect", level: 99, color: "gold" },
                 { name: "Soul Strength", level: 92, color: "gold" },
@@ -77,13 +77,13 @@ const RIFT_DATA = {
             ],
             echoes: [],
             soulAspects: 5,
-            background: "A member of the powerful Memory clan, Nephis is one of the most gifted Awakened in history. Her Flame aspect burns without limit. She reunited with Sunny on a giant turtle in the Nightmare Desert, where they trained and sparred for a month. She journeyed through Wind Flower Island and the Great River with the cohort. After Sunny transcended the Spell, she lost all memory of him — both from the Moonless Seal and from the transcendence effect.",
+            background: "A member of the powerful Immortal Flame clan, Nephis is one of the most gifted Awakened in history. Her Flame aspect burns without limit. She reunited with Sunny on a giant turtle in the Great River, where they trained and sparred for a month. She journeyed through Wind Flower Island and the Great River with the cohort. After Sunny transcended the Spell, she lost all memory of him due to the transcendence effect.",
             keyMoments: [
                 "Led the group through the First Nightmare",
                 "Reached Transcendent rank",
-                "Memory loss arc begins (Moonless Seal)",
+                "Memory loss arc begins (Transcendence)",
                 "Peak flame manifestation — entire sky ignited",
-                "Reunited with Sunny on a giant turtle in the Nightmare Desert",
+                "Reunited with Sunny on a giant turtle in the Great River",
                 "Survived the Wind Flower Island time loop",
                 "Journeyed through the Great River to the Estuary",
                 "Lost all memory of Sunny after his transcendence"
@@ -298,14 +298,10 @@ const RIFT_DATA = {
             desc: "Monsters that inhabit the Nightmare Realm. Ranked like Awakened: Dormant to Ascended. The higher the rank, the more catastrophic the threat.",
             category: "World"
         },
-        {
-            name: "Moonless Seal",
-            desc: "A mysterious curse/blessing placed on certain Awakened. Has dramatic effects on memory and power — responsible for Nephis's memory loss.",
-            category: "Lore"
-        },
+
         {
             name: "Great Clans",
-            desc: "Powerful human factions — Memory Clan, Arrow Clan, Blood Faction, etc. — that control resources, knowledge, and political power in the Awakened world.",
+            desc: "Powerful human factions — Immortal Flame Clan, Arrow Clan, Blood Faction, etc. — that control resources, knowledge, and political power in the Awakened world.",
             category: "Factions"
         },
         {
@@ -963,6 +959,32 @@ const RIFT_DATA = {
             characters: ["sunny", "effie"],
             chapters: "Ch. 1600–1800",
             connections: ["nightmare-incursion-zone"]
+        },
+        {
+            id: "forgotten-shore",
+            name: "Forgotten Shore",
+            type: "zone",
+            x: 80, y: 70,
+            color: "#2DD4BF",
+            icon: "🌊",
+            rank: "Sleeper → Awakened",
+            desc: "A cursed, dried-up ocean of black sand. The Sun never truly rises here. Features the Dark City and the Crimson Spires. This is where Sunny spent his time as a Sleeper.",
+            characters: ["sunny", "nephis", "cassie", "effie", "kai"],
+            chapters: "Ch. 10-350",
+            connections: ["nightmare-realm"]
+        },
+        {
+            id: "broken-island",
+            name: "Broken Island",
+            type: "zone",
+            x: 40, y: 55,
+            color: "#6366F1",
+            icon: "🏝️",
+            rank: "Awakened → Master",
+            desc: "Also known as the Chained Isles. A series of shattered islands floating in the sky, bound by massive chains. Contains various nightmarish entities and dimensional rifts.",
+            characters: ["sunny", "cassie", "kai"],
+            chapters: "Ch. 400-600",
+            connections: ["nightmare-realm"]
         }
     ]
 };
