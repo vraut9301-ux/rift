@@ -61,7 +61,7 @@ const portraitExtras = {
         desc: 'Kai never wastes an arrow. A strategist who fights from invisibility, his Arrow Aspect threads through impossible angles. He is always exactly where no one expects.'
     },
     morgans: {
-        label: 'The Pallid Bloodmage',
+        label: 'Princess of Valor',
         glowIntensity: 'high',
         ringCount: 3,
         desc: 'Morgan twists blood as weapon and ritual. A Master-rank manipulator who operates in the shadow of Awakened society, pursuing goals that leave nothing but ruin in their wake.'

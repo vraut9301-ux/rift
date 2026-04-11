@@ -128,13 +128,13 @@ const QUIZ_RESULTS = {
     },
     effie: {
         name: "Effie",
-        epithet: "The Beastmaster · Iron-Armed Hunter",
+        epithet: "Raised by Wolves · Iron-Armed Hunter",
         rank: "Master",
         symbol: "⚔",
         color: "#2DD4BF",
         traits: ["Fearless", "Loyal", "Physical", "Straightforward", "Unstoppable"],
         desc: "You are Effie — the Iron-Armed Hunter. You don't overcomplicate things. When something needs to be done, you do it — with more force than anyone thought possible. Your loyalty to those you love is absolute, your courage is inhuman, and your sense of humor keeps the darkness at bay. You are the rock that others lean on, even when the world is breaking.",
-        shareText: "I got Effie — The Beastmaster! ⚔ Fearless, unstoppable, built different. Take the Shadow Slave quiz!"
+        shareText: "I got Effie — Raised by Wolves! ⚔ Fearless, unstoppable, built different. Take the Shadow Slave quiz!"
     },
     kai: {
         name: "Kai",
@@ -148,13 +148,13 @@ const QUIZ_RESULTS = {
     },
     morgans: {
         name: "Morgan",
-        epithet: "The Pallid Bloodmage",
+        epithet: "Princess of Valor",
         rank: "Master",
         symbol: "⛧",
         color: "#DC2626",
         traits: ["Ruthless", "Ambitious", "Pragmatic", "Powerful", "Unapologetic"],
-        desc: "You are Morgan — the Pallid Bloodmage. You see the world as it truly is: a contest of power, and you refuse to lose. Your ambition knows no bounds, your methods are extreme, and you make no apologies. Some call you a villain — you call yourself a survivor. In a world of polite lies, you are the brutal truth that everyone fears but secretly respects.",
-        shareText: "I got Morgan — The Pallid Bloodmage! ⛧ Ruthless, unapologetic, powerful. Take the Shadow Slave quiz!"
+        desc: "You are Morgan — the Princess of Valor. You see the world as it truly is: a contest of power, and you refuse to lose. Your ambition knows no bounds, your methods are extreme, and you make no apologies. Some call you a villain — you call yourself a survivor. In a world of polite lies, you are the brutal truth that everyone fears but secretly respects.",
+        shareText: "I got Morgan — Princess of Valor! ⛧ Ruthless, unapologetic, powerful. Take the Shadow Slave quiz!"
     },
     jet: {
         name: "Jet",

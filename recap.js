@@ -145,7 +145,7 @@ function getArcName(from, to) {
     if (mid <= 400) return 'Tomb of Ariel Arc';
     if (mid <= 600) return 'Post-Tomb Ascension Arc';
     if (mid <= 900) return 'Nameless Threat & Master Rank Arc';
-    if (mid <= 1100) return 'Moonless Seal & Memory Loss Arc';
+    if (mid <= 1100) return 'Fateless Arc';
     if (mid <= 1260) return 'Saint Rank Threshold Arc';
     if (mid <= 1400) return 'Nightmare Desert & Fallen Grace Arc';
     if (mid <= 1480) return 'Wind Flower Island — Time Loop Arc';

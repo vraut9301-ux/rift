@@ -63,7 +63,7 @@ const RIFT_DATA = {
             status: "Alive",
             faction: "Memory faction",
             firstChapter: 5,
-            tags: ["Flame Aspect", "Amnesia Arc", "Memory Lost", "Transcendent"],
+            tags: ["Flame Aspect", "Fateless Arc", "Transcendent"],
             abilities: [
                 { name: "Flame Aspect", level: 99, color: "gold" },
                 { name: "Soul Strength", level: 92, color: "gold" },
@@ -71,11 +71,11 @@ const RIFT_DATA = {
             ],
             echoes: [],
             soulAspects: 5,
-            background: "A member of the powerful Memory clan, Nephis is one of the most gifted Awakened in history. Her Flame aspect burns without limit. A critical arc involves her losing her memories — including those of Sunny — due to the Moonless Seal.",
+            background: "A member of the powerful Memory clan, Nephis is one of the most gifted Awakened in history. Her Flame aspect burns without limit. A critical arc involves her losing her memories of Sunny along with the rest of the world.",
             keyMoments: [
                 "Led the group through the First Nightmare",
                 "Reached Transcendent rank",
-                "Memory loss arc begins",
+                "Fateless arc begins",
                 "Peak flame manifestation — entire sky ignited"
             ],
             relationships: [
@@ -119,7 +119,7 @@ const RIFT_DATA = {
             id: "effie",
             novel: "shadow-slave",
             name: "Effie",
-            epithet: "The Beastmaster · Iron-Armed Hunter",
+            epithet: "Raised by Wolves · Iron-Armed Hunter",
             rank: "Master",
             rankLevel: 3,
             portraitSymbol: "⚔",
@@ -183,28 +183,28 @@ const RIFT_DATA = {
             id: "morgans",
             novel: "shadow-slave",
             name: "Morgan",
-            epithet: "The Pallid Bloodmage",
-            rank: "Master",
-            rankLevel: 3,
-            portraitSymbol: "⛧",
+            epithet: "Princess of Valor",
+            rank: "Transcendent",
+            rankLevel: 5,
+            portraitSymbol: "⚔",
             portraitGlow: "red",
             role: "Antagonist",
-            status: "Unknown",
-            faction: "Blood faction",
+            status: "Alive",
+            faction: "Valor Clan",
             firstChapter: 120,
-            tags: ["Bloodmage", "Villain", "Blood Aspect", "Dangerous"],
+            tags: ["War Maiden", "Valor", "Destruction Aspect", "Dangerous"],
             abilities: [
-                { name: "Blood Aspect", level: 85, color: "red" },
-                { name: "Blood Ritual", level: 78, color: "red" },
-                { name: "Soul Corruption", level: 80, color: "red" }
+                { name: "Destruction Aspect", level: 95, color: "red" },
+                { name: "Sword Mastery", level: 90, color: "red" },
+                { name: "Flawless Body", level: 85, color: "red" }
             ],
             echoes: [],
             soulAspects: 4,
-            background: "A Master-rank Awakened who commands blood as a weapon and ritual tool. Morgan operates in the shadows of Awakened society, pursuing goals that clash violently with Sunny's group.",
+            background: "The terrifying Princess of Valor, Morgan commands the Destruction aspect. She is a powerhouse who cuts through anything in her path and operates as the blade of the Valor Clan.",
             keyMoments: [
-                "First blood ritual scene — shocked readers",
-                "Confrontation with Sunny at Saint Gate",
-                "Unleashed the Blood Tide ability"
+                "First battle with Sunny",
+                "Confrontation at the Saint Gate",
+                "Unleashed the Destruction ability"
             ],
             relationships: [
                 { name: "Sunny", type: "enemy", note: "Directly opposed multiple times" }
@@ -249,8 +249,8 @@ const RIFT_DATA = {
             category: "World"
         },
         {
-            name: "Moonless Seal",
-            desc: "A mysterious curse/blessing placed on certain Awakened. Has dramatic effects on memory and power — responsible for Nephis's memory loss.",
+            name: "Fateless",
+            desc: "A consequence of losing one's fate. The world loses all record and memory of the individual.",
             category: "Lore"
         },
         {
@@ -292,12 +292,12 @@ const RIFT_DATA = {
             id: 3,
             chapter: "Character Analysis",
             badge: "trending",
-            title: "Nephis's memory loss isn't accidental — the author foreshadowed this in chapter 3",
+            title: "Sunny's fateless arc wasn't accidental — the author foreshadowed this early on",
             user: "@rift_analyst",
             comments: 1200,
             likes: 5400,
-            content: "Re-reading from the start with fresh eyes after the amnesia arc hits different. In chapter 3, there's a throwaway line: 'some flames burn so bright they consume even the memories of those who lit them.' This was it. This was the setup.",
-            tags: ["Foreshadowing", "Nephis", "Deep Dive"]
+            content: "Re-reading from the start with fresh eyes after he became fateless hits different. Everyone forgetting about Sunny makes his lonely nature from the beginning feel like a tragic setup.",
+            tags: ["Foreshadowing", "Fateless", "Deep Dive"]
         },
         {
             id: 4,
@@ -314,12 +314,12 @@ const RIFT_DATA = {
             id: 5,
             chapter: "Lore Discussion",
             badge: "trending",
-            title: "Complete breakdown of the Moonless Seal — what we actually know",
+            title: "Complete breakdown of the Fateless status — what we actually know",
             user: "@lore_master",
             comments: 988,
             likes: 4100,
-            content: "I've compiled every mention of the Moonless Seal across all 1248 chapters. Here's what the data shows: It appears 47 times, always in connection to memory, always in connection to a sacrifice being made. The pattern...",
-            tags: ["Moonless Seal", "Lore", "Research"]
+            content: "I've compiled every consequence of the Fateless status across all recent chapters. Here's what the data shows: It erases existence from all memories, physical records, and fate itself. The pattern...",
+            tags: ["Fateless", "Lore", "Research"]
         },
         {
             id: 6,
@@ -341,9 +341,9 @@ const RIFT_DATA = {
         "51-100": "The group integrates into Awakened society. Sunny builds his echo army in secret. Political tensions emerge. Sunny encounters his first Saint-rank nightmare.",
         "101-200": "Great Clan politics escalate. The Blood Faction emerges as antagonist. Effie achieves Refined rank.",
         "201-400": "Tomb of Ariel arc. Legendary dungeon discovered. Sunny's echo army expands. Kai reveals Arrow Clan secrets.",
-        "401-600": "Deep in the Tomb. Nephis's flame aspect manifests at city-scale. Sunny reaches Refined rank. Moonless Seal begins affecting Nephis.",
+        "401-600": "Deep in the Tomb. Nephis's flame aspect manifests at city-scale. Sunny reaches Refined rank.",
         "601-900": "Post-Tomb. New nightmare zones open globally. Sunny reaches 50+ echoes. The Nameless threat is introduced.",
-        "901-1100": "Sunny reaches Master rank. Moonless Seal fully activates — Nephis loses memory of Sunny. Sovereign mystery deepens.",
+        "901-1100": "Sunny reaches Master rank. Sovereign mystery deepens.",
         "1101-1250": "Sunny pushes to Saint rank. Effie reaches Master. Cassie's prophecy from Ch.1102 fulfills in Ch.1245. Last Nightmare arc horizon opens."
     },
 
