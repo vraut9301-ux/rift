@@ -104,9 +104,9 @@ const RIFT_DATA = {
             portraitGlow: "purple",
             role: "Supporting Lead",
             status: "Alive",
-            faction: "Arrow clan",
+            faction: "Independent",
             firstChapter: 3,
-            tags: ["Seer", "Prophetic Vision", "Blind", "Arrow Clan"],
+            tags: ["Seer", "Prophetic Vision", "Blind"],
             abilities: [
                 { name: "Prophecy Aspect", level: 75, color: "purple" },
                 { name: "Soul Perception", level: 85, color: "purple" },
@@ -152,7 +152,7 @@ const RIFT_DATA = {
             background: "A towering warrior with an iron will and near-limitless physical endurance, Effie fights with raw power and relentless aggression. Her Hunt Aspect amplifies her tracking and combat instincts to inhuman levels. She rejoined the cohort at Fallen Grace and journeyed with them through the Great River. After Sunny's transcendence, Effie lost all memory of him. She now has a son, Little Ling — a child born as a Saint rank with Transcendent-level power, causing chaos on her farm.",
             keyMoments: [
                 "Defeated a Master-rank nightmare solo",
-                "Hunt Aspect breakthrough to early Master rank",
+                "Hunt Aspect breakthrough — reached Saint rank",
                 "Protected the group during the Tomb of Ariel arc",
                 "Rejoined cohort at Fallen Grace",
                 "Gave birth to Little Ling — a child born as a Saint",
