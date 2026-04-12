@@ -104,9 +104,9 @@ const RIFT_DATA = {
             portraitGlow: "purple",
             role: "Supporting Lead",
             status: "Alive",
-            faction: "Independent",
+            faction: "Clan Valor",
             firstChapter: 3,
-            tags: ["Seer", "Prophetic Vision", "Blind"],
+            tags: ["Seer", "Prophetic Vision", "Blind", "Seneschal"],
             abilities: [
                 { name: "Prophecy Aspect", level: 75, color: "purple" },
                 { name: "Soul Perception", level: 85, color: "purple" },
@@ -262,11 +262,11 @@ const RIFT_DATA = {
     ],
 
     ranks: [
-        { level: 1, name: "Dormant (Sleeper)", desc: "Has survived the First Nightmare and formed a Dormant soul core. Will be pulled into the Dream Realm on the Winter Solstice.", color: "#2DD4BF" },
-        { level: 2, name: "Awakened", desc: "Has survived the Dream Realm and returned to the waking world.", color: "#60A5FA" },
-        { level: 3, name: "Ascended (Master)", desc: "Cleared the Second Nightmare. Elite warriors capable of commanding lesser nightmares.", color: "#A855F7" },
-        { level: 4, name: "Transcendent (Saint)", desc: "Cleared the Third Nightmare. Beings that transcend mortal limits. Near-mythical.", color: "#C41E3A" },
-        { level: 5, name: "Supreme (Sovereign)", desc: "Cleared the Fourth Nightmare. Rulers of domains who dictate humanity's survival.", color: "#F59E0B" },
+        { level: 1, name: "Dormant (Sleeper)", desc: "Infected by the Nightmare Spell. Has not yet completed their First Nightmare. Pulled into Dream Realm on Winter Solstice.", color: "#2DD4BF" },
+        { level: 2, name: "Awakened", desc: "Survived the First Nightmare and returned to the waking world with an Aspect and Flaw.", color: "#60A5FA" },
+        { level: 3, name: "Ascended (Master)", desc: "Cleared the Second Nightmare. Can travel freely between Dream Realm and waking world.", color: "#A855F7" },
+        { level: 4, name: "Transcendent (Saint)", desc: "Cleared the Third Nightmare. Transcends mortal limits. Gains Transformation ability.", color: "#C41E3A" },
+        { level: 5, name: "Supreme (Sovereign)", desc: "Cleared the Fourth Nightmare. Establishes a Domain — near-absolute authority over their territory.", color: "#F59E0B" },
         { level: 6, name: "Sacred", desc: "Cleared the Fifth Nightmare. Closer to gods than humans.", color: "#6366F1" },
         { level: 7, name: "Divine", desc: "Cleared the Sixth Nightmare. True divinity.", color: "#8B5CF6" }
     ],
