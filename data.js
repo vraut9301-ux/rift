@@ -262,8 +262,7 @@ const RIFT_DATA = {
     ],
 
     ranks: [
-        { level: 0, name: "Dormant", desc: "Before awakening. No formal aspects, though some powers may manifest weakly.", color: "#3A3A58" },
-        { level: 1, name: "Sleeper", desc: "Has entered the Dream Realm on the Winter Solstice and formed a soul core.", color: "#2DD4BF" },
+        { level: 1, name: "Dormant (Sleeper)", desc: "Has survived the First Nightmare and formed a Dormant soul core. Will be pulled into the Dream Realm on the Winter Solstice.", color: "#2DD4BF" },
         { level: 2, name: "Awakened", desc: "Has survived the Dream Realm and returned to the waking world.", color: "#60A5FA" },
         { level: 3, name: "Ascended (Master)", desc: "Cleared the Second Nightmare. Elite warriors capable of commanding lesser nightmares.", color: "#A855F7" },
         { level: 4, name: "Transcendent (Saint)", desc: "Cleared the Third Nightmare. Beings that transcend mortal limits. Near-mythical.", color: "#C41E3A" },
