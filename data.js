@@ -203,26 +203,26 @@ const RIFT_DATA = {
             rankLevel: 4,
             portraitSymbol: "⚔",
             portraitGlow: "red",
-            role: "Antagonist",
+            role: "Rival / Ally",
             status: "Alive",
-            faction: "Valor Clan",
-            firstChapter: 120,
-            tags: ["War Maiden", "Valor", "Destruction Aspect", "Dangerous"],
+            faction: "Clan Valor",
+            firstChapter: 400,
+            tags: ["Blade Aspect", "Valor", "Princess", "Lethal"],
             abilities: [
-                { name: "Destruction Aspect", level: 95, color: "red" },
+                { name: "Blade Aspect", level: 95, color: "red" },
                 { name: "Sword Mastery", level: 90, color: "red" },
                 { name: "Flawless Body", level: 85, color: "red" }
             ],
             echoes: [],
             soulAspects: 4,
-            background: "The terrifying Princess of Valor, Morgan commands the Destruction aspect. She is a powerhouse who cuts through anything in her path and operates as the blade of the Valor Clan.",
+            background: "Morgan is a princess of Clan Valor — daughter of the Sovereign, Anvil of Valor. She is a formidable Master whose Aspect allows her to act as a living blade, capable of cutting through immensely durable materials. Cold and austere, she is both feared and respected. She appears in the Chained Isles arc and later becomes a significant figure in clan politics.",
             keyMoments: [
-                "First battle with Sunny",
-                "Confrontation at the Saint Gate",
-                "Unleashed the Destruction ability"
+                "First appearance in the Chained Isles arc",
+                "Demonstrated her lethal Blade Aspect",
+                "Played a key role in Clan Valor's political maneuvers"
             ],
             relationships: [
-                { name: "Sunny", type: "enemy", note: "Directly opposed multiple times" }
+                { name: "Sunny", type: "complex", note: "Rival turned uneasy ally" }
             ]
         },
         {
@@ -373,12 +373,12 @@ const RIFT_DATA = {
             id: 4,
             chapter: "Ch. 1200-1250",
             badge: "hot",
-            title: "Effie's Hunt Aspect breakthrough animation in my head is absolutely CINEMATIC",
+            title: "Effie's Saint rank breakthrough and Little Ling's power — absolutely CINEMATIC",
             user: "@rift_fan",
             comments: 623,
             likes: 3200,
-            content: "Someone needs to animate this arc. The moment Effie pushes through to early Master rank, with the Hunt constellation forming above the battlefield — I've read this 4 times and it hits harder every time.",
-            tags: ["Effie", "Hype", "Animation Needed"]
+            content: "Someone needs to animate this arc. The moment Effie reveals she has a son born as a Saint with Transcendent-level power — and he's just causing chaos on her farm — I've read this 4 times and it hits harder every time.",
+            tags: ["Effie", "Little Ling", "Hype"]
         },
         {
             id: 5,
@@ -395,30 +395,30 @@ const RIFT_DATA = {
             id: 6,
             chapter: "Ch. 1100-1150",
             badge: "new",
-            title: "Cassie's prophecy from Ch. 1102 literally just came true in Ch. 1245",
+            title: "The Forgotten Shore to Crimson Spire — the journey that made us fall in love with the cohort",
             user: "@prophecy_watch",
             comments: 445,
             likes: 2800,
-            content: "'The blind shall see what the sighted cannot — a throne built of broken chains.' I spent 143 chapters wondering what this meant. Chapter 1245. THAT ending. The chain motif. The empty throne. I'm losing my mind.",
-            tags: ["Cassie", "Prophecy", "Confirmed"]
+            content: "Re-reading the Forgotten Shore arc after knowing what happens later hits completely different. Gunlaug's tyranny, the Dark City politics, and then that desperate march to the Crimson Spire where so many people died... this is where the story became legendary.",
+            tags: ["Forgotten Shore", "Crimson Spire", "Deep Dive"]
         }
     ],
 
 
     // Legacy recaps kept for fallback
     recaps: {
-        "1-50": "Sunny awakens in the First Nightmare with the Temple Slave role. He meets Nephis and Cassie. The trio survives the grueling nightmare trial on the mountain and escapes.",
-        "51-100": "The group enters the Nightmare Realm proper as Sleepers, arriving at the deadly Forgotten Shore. They must survive the monsters and the Black Sea. Sunny encounters Effie in the Dark City.",
-        "101-200": "Great Clan politics escalate. The Blood Faction emerges as antagonist. Effie achieves Awakened rank.",
-        "201-400": "Tomb of Ariel arc. Legendary dungeon discovered. Sunny's echo army expands. Kai reveals Arrow Clan secrets.",
-        "401-600": "Deep in the Tomb. Nephis's flame aspect manifests at city-scale. Sunny reaches Awakened rank.",
-        "601-900": "Post-Tomb. New nightmare zones open globally. Sunny reaches 50+ echoes.",
-        "901-1100": "Sunny reaches Master rank.",
-        "1101-1250": "Sunny pushes to Saint rank. Cassie's prophecy from early chapters fulfills.",
-        "1251-1400": "Sunny and Nephis reunite on a giant black turtle in the Nightmare Desert. They spend a month training and sparring.",
-        "1401-1480": "On Wind Flower Island (Aletheia's Island), Cassie becomes aware of the time loop. They discover the Seeker's tower and the truth about Wind Flower — a Saint trapped in eternal slumber by a seed of corruption. The Mad Prince lore deepens. The cohort breaks free from the time loop (Ch. 1466) and departs the island (Ch. 1480). Jet and Effie rejoin the group at Fallen Grace.",
-        "1481-1600": "The cohort boards the Chain Breaker and navigates the Great River — a river flowing from the future into the past, existing outside of time. They reach Verge, an ancient Seeker city. Sunny ventures into the Estuary (Ch. 1570) and discovers the truth: there were SEVEN gods, not six. The Forgotten God was imprisoned by the other six to contain the Void. The daemons are born from his fractured soul. This revelation shatters Sunny's understanding of the world. Around Ch. 1600, Sunny transcends the Nightmare Spell — and everyone forgets he ever existed.",
-        "1601-1800": "Post-transcendence, Sunny exists outside the Spell. His citizenship is revoked, his records erased, and his closest companions no longer remember him. He lives in Bastion, opening a café while observing his former friends from afar. Effie's son Little Ling is revealed — born as a Saint with Transcendent-level power. Sunny revisits the Black Mountain and a ruined temple from his First Nightmare, confronting his origins. He begins laying the groundwork for the Shadow Clan."
+        "1-50": "Sunny is infected by the Nightmare Spell and enters the First Nightmare. He meets Cassie (a blind seer) and Nephis (wielder of a blinding flame). The trio survives deadly trials together. Sunny receives his True Name 'Lost from Light' and the Shadow Slave Aspect — with the Flaw that he cannot lie.",
+        "51-100": "After clearing the First Nightmare as Sleepers, the trio is pulled into the Dream Realm and arrives at the Forgotten Shore — a cursed, nightmare-infested wasteland. They reach the Dark City, ruled by the tyrant King Gunlaug from the Bright Castle. Sunny meets Effie and Kai among the survivors.",
+        "101-200": "Life in the Dark City under Gunlaug's oppressive rule. Sunny secretly trains his shadow abilities and begins building his first echoes. Political tensions rise between factions within the city. The group learns the only escape lies far across the Forgotten Shore at the Crimson Spire.",
+        "201-350": "The cohort leads an expedition to the Crimson Spire to find the gateway home. They fight through the horrors of the Forgotten Shore, including a Fallen Terror guarding the Spire. After immense sacrifice, the group activates the gateway and returns to the waking world as Awakened.",
+        "351-600": "Back in the real world, Sunny navigates Awakened society and Great Clan politics (Valor, Song, House of Night). He enters the Chained Isles — floating islands connected by massive chains — seeking exile from clan influence. Morgan (Princess of Valor) appears. Sunny grows his echo army and prepares for the Second Nightmare.",
+        "601-900": "Sunny enters the Second Nightmare, facing the Red Colosseum (Ch. 602), Temple of the Chalice (Ch. 666), and the Ivory City siege (Ch. 710). He clears it and achieves Ascended (Master) rank. The clan war between Valor and Song escalates. Nephis rises rapidly through the ranks.",
+        "901-1100": "The Antarctica Campaign and the Siege of Falcon Scott. Sunny and the cohort face massive nightmare incursions in the real world. Sunny pushes toward Saint rank through grueling combat. Clan politics reach breaking point.",
+        "1101-1250": "Sunny clears the Third Nightmare and achieves Transcendent (Saint) rank. The cohort prepares for the next phase of the journey.",
+        "1251-1400": "Sunny and Nephis reunite on a giant black turtle drifting through the Nightmare Desert. They spend a month training and sparring. The cohort regroups at Fallen Grace — a crumbling city-ship on the Great River.",
+        "1401-1480": "On Wind Flower Island (Aletheia's Island), the cohort is trapped in a time loop. Sunny experiences 60+ repetitions. Cassie becomes aware of the loops. They discover Wind Flower — a Saint trapped in eternal slumber. The cohort breaks free and departs.",
+        "1481-1600": "The cohort navigates the Great River — flowing from future to past. They reach Verge, an ancient Seeker city. At the Estuary, Sunny discovers there were SEVEN gods, not six. The Forgotten God was imprisoned to contain the Void. Around Ch. 1600, Sunny transcends the Nightmare Spell — everyone forgets he existed.",
+        "1601-1800": "Post-transcendence. Sunny is erased from all memories and records. He lives in Bastion, opens a café. Effie's son Little Ling is revealed — born as a Saint. Sunny begins laying the groundwork for the Shadow Clan."
     },
 
     // ── GRANULAR CHAPTER EVENTS DATABASE ──────────────────────────────────────
@@ -445,92 +445,65 @@ const RIFT_DATA = {
         { ch: 28, type: "event", spoiler: 2, chars: ["sunny", "nephis", "cassie"], text: "A massive nightmare creature ambushes the group. The trio cooperates in a desperate defensive stand to survive the winter." },
         { ch: 35, type: "event", spoiler: 2, chars: ["sunny", "nephis"], text: "Sunny uses his wits to handle a nightmare threat while concealing his true nature from Nephis. Their dynamic tension deepens." },
         { ch: 40, type: "romance", spoiler: 3, chars: ["sunny", "nephis"], text: "A quiet moment between Sunny and Nephis during a rest period — a flicker of personal connection amidst the deadly mountain." },
-        { ch: 50, type: "event", spoiler: 1, chars: ["sunny", "nephis", "cassie"], text: "The trio clears the First Nightmare successfully and return to the waking world as Sleepers.", },
-        { ch: 50, type: "powerup", spoiler: 1, chars: ["sunny", "nephis", "cassie"], text: "Full group advancement: Sunny, Cassie, and Nephis officially become Sleepers and enter the Nightmare Spell's system.", powerDetail: "First Nightmare cleared. Next destination: Academy and the Dream Realm." },
+        { ch: 50, type: "event", spoiler: 1, chars: ["sunny", "nephis", "cassie"], text: "The trio clears the First Nightmare and enters the Dream Realm as Sleepers. They arrive at the Forgotten Shore — a cursed wasteland from which no one has ever returned." },
+        { ch: 50, type: "powerup", spoiler: 1, chars: ["sunny", "nephis", "cassie"], text: "All three gain their Aspects and Flaws. Sunny's Shadow Aspect and his Flaw (cannot lie) are now active.", powerDetail: "First Nightmare cleared. Sleeper status achieved. Destination: Dream Realm — Forgotten Shore." },
 
-        // ── CHAPTERS 51-100: OUTSIDE WORLD ──
-        { ch: 55, type: "event", spoiler: 1, chars: ["sunny", "nephis", "cassie", "effie", "kai"], text: "The group enters the real-world Awakened society — a complex political landscape of clans, factions, and nightmare management organizations." },
-        { ch: 60, type: "lore", spoiler: 1, chars: [], text: "The full Great Clan structure is revealed: Memory Clan, Arrow Clan, Blood Faction, Valor Clan. Each controls different aspects of the Awakened world's political economy.", loreDetail: "Great Clans: Memory, Arrow, Blood Faction, Valor. Their roles in Awakened society." },
-        { ch: 65, type: "event", spoiler: 2, chars: ["sunny"], text: "Sunny begins disguising his power level using his shadow aspect — appearing weaker than he is while quietly growing his echo army in secret missions." },
-        { ch: 75, type: "event", spoiler: 2, chars: ["sunny"], text: "Sunny encounters a Master-rank nightmare solo and barely survives by using his echo army and cunning rather than direct power — his first truly independent combat test." },
-        { ch: 80, type: "powerup", spoiler: 2, chars: ["sunny"], text: "Sunny's shadow army expands to 7 echoes. His combat capability far exceeds what his apparent rank suggests.", powerDetail: "Sunny — Echo army: 7 shadows. Shadow aspect begins developing offensive techniques." },
-        { ch: 85, type: "event", spoiler: 2, chars: ["nephis"], text: "Nephis's Memory Clan heritage becomes a source of political complication — clan elders attempt to control her next move, setting up future conflict." },
-        { ch: 88, type: "lore", spoiler: 2, chars: [], text: "Soul Aspects are explained in depth: secondary abilities that grow alongside the primary Aspect. The more Soul Aspects, the more versatile an Awakened.", loreDetail: "Soul Aspects: secondary abilities. Most gain 1-2. Sunny's Cursed Aspect is growing an unusual number." },
-        { ch: 95, type: "event", spoiler: 2, chars: ["sunny", "cassie"], text: "Cassie delivers a prophecy directly to Sunny — cryptic but clearly personal. Sunny dismisses it, but the words lodge in his mind." },
-        { ch: 100, type: "powerup", spoiler: 2, chars: ["nephis"], text: "Nephis's flame intensity doubles following a near-death nightmare encounter — the first sign that her aspect is growing at an unnatural rate.", powerDetail: "Nephis — Flame Aspect: abnormal growth spike. Clan elders alarmed." },
+        // ── CHAPTERS 51-200: FORGOTTEN SHORE — DARK CITY ARC ──
+        { ch: 55, type: "event", spoiler: 1, chars: ["sunny", "nephis", "cassie"], text: "The trio arrives at the Dark City — a crumbling settlement built on the edge of a massive crater on the Forgotten Shore. They discover a society of survivors ruled by King Gunlaug from the Bright Castle." },
+        { ch: 60, type: "event", spoiler: 2, chars: ["sunny", "effie"], text: "Sunny meets Effie — a towering warrior with an iron will and near-limitless endurance. She becomes one of his most reliable combat companions." },
+        { ch: 65, type: "lore", spoiler: 1, chars: [], text: "The Dark City's structure is revealed: King Gunlaug maintains order through fear and control of resources. Survivors are trapped with no way back to the waking world.", loreDetail: "Dark City: ruled by King Gunlaug. Bright Castle is the seat of power. No escape route known except the Crimson Spire." },
+        { ch: 75, type: "event", spoiler: 2, chars: ["sunny"], text: "Sunny begins secretly training his Shadow Aspect and acquiring his first echoes — shadow copies of defeated nightmare creatures that only he can summon." },
+        { ch: 80, type: "powerup", spoiler: 2, chars: ["sunny"], text: "Sunny acquires his first Echo — confirming his Cursed Aspect's unique army-building ability.", powerDetail: "Sunny — First Echo acquired. Echo System: shadow-bound copies of nightmare creatures." },
+        { ch: 85, type: "event", spoiler: 2, chars: ["sunny", "kai"], text: "Sunny encounters Kai — a calm, calculating former idol turned archer. Kai's tactical mind makes him an invaluable addition to the group." },
+        { ch: 100, type: "lore", spoiler: 2, chars: [], text: "The cohort learns about the Crimson Spire — a colossal tower at the far edge of the Forgotten Shore rumored to house a gateway back to the waking world.", loreDetail: "Crimson Spire: only known exit from the Forgotten Shore. Guarded by a Fallen Terror." },
+        { ch: 120, type: "event", spoiler: 2, chars: ["sunny", "nephis"], text: "Tensions rise in the Dark City. Sunny navigates the brutal politics between Gunlaug's loyalists and the growing resistance, while secretly growing his shadow army." },
+        { ch: 150, type: "event", spoiler: 2, chars: ["sunny", "nephis", "cassie", "effie", "kai"], text: "The cohort solidifies — Sunny, Nephis, Cassie, Effie, and Kai form a core group united by survival. They begin planning the expedition to the Crimson Spire." },
+        { ch: 180, type: "powerup", spoiler: 2, chars: ["sunny"], text: "Sunny's echo army grows in the shadows of the Dark City. He trains relentlessly while hiding his true power level.", powerDetail: "Sunny — Echo army expanding. Shadow Aspect developing offensive capabilities." },
 
-        // ── CHAPTERS 101-200: BLOOD FACTION & CLAN POLITICS ──
-        { ch: 110, type: "event", spoiler: 2, chars: ["sunny", "kai"], text: "Kai begins subtly feeding Sunny intelligence about Arrow Clan's internal politics — the first break in the clan's disciplined secrecy." },
-        { ch: 120, type: "event", spoiler: 2, chars: ["morgans"], text: "Morgan of the Blood Faction makes his first significant appearance — a pale, unsettling Master-rank Awakened with blood manipulation abilities and clearly hostile intentions.", },
-        { ch: 120, type: "lore", spoiler: 2, chars: ["morgans"], text: "The Blood Faction's true nature is revealed: not merely a clan, but an extremist ideology using nightmare-derived blood rituals to enhance power beyond normal limits.", loreDetail: "Blood Faction: blood ritual power enhancement, anti-clan ideology, Morgan as enforcer." },
-        { ch: 130, type: "event", spoiler: 2, chars: ["sunny", "morgans"], text: "Sunny and Morgan clash indirectly for the first time — Morgan attempts to intimidate Sunny, not knowing his true power level. Sunny plays dumb." },
-        { ch: 145, type: "lore", spoiler: 2, chars: [], text: "First mention of the Moonless Seal — a mysterious curse-blessing older than the clans. Details are vague, but it is connected to memory and sacrifice.", loreDetail: "Moonless Seal: first mention. Connected to: memory loss, power amplification, sacrifice. Origin: pre-clan era." },
-        { ch: 150, type: "powerup", spoiler: 2, chars: ["effie"], text: "Effie breaks through to Awakened rank — the first of the main group after Sunny (who has been concealing level).", powerDetail: "Effie — Awakened rank achieved. Hunt Aspect: physical parameters now exceed peak human by factor of 5." },
-        { ch: 150, type: "event", spoiler: 2, chars: ["effie", "sunny"], text: "Effie's rank breakthrough happens mid-battle against a cluster of Awakened-rank nightmares. Her combat style shifts to aggressive dominance. Sunny observes with quiet jealousy concealed." },
-        { ch: 165, type: "event", spoiler: 2, chars: ["kai"], text: "Kai reveals he has been reporting to Arrow Clan about the group's movements — a partial betrayal, though motivated by clan obligation rather than malice." },
-        { ch: 180, type: "powerup", spoiler: 2, chars: ["sunny"], text: "Sunny's echo army reaches 12 members. He acquires a particularly powerful shadow — a former Master-rank nightmare creature — which he names secretly.", powerDetail: "Sunny — Echo army: 12 shadows. First Master-rank echo acquired." },
-        { ch: 190, type: "death", spoiler: 3, chars: [], text: "Several unnamed secondary Awakened ally characters are killed during a coordinated Blood Faction ambush — establishing the Blood Faction as a genuine lethal threat.", deathDetail: "Minor named allies — killed in Blood Faction ambush. First major casualties in Sunny's extended circle." },
-        { ch: 200, type: "event", spoiler: 2, chars: ["sunny", "nephis", "cassie", "effie", "kai"], text: "A massive nightmare dungeon is discovered near the edge of the known world — later identified as the Tomb of Ariel. Multiple Great Clans mobilize their best to claim it." },
+        // ── CHAPTERS 201-350: CRIMSON SPIRE EXPEDITION ──
+        { ch: 210, type: "event", spoiler: 2, chars: ["sunny", "nephis", "cassie", "effie", "kai"], text: "The cohort leads an expedition from the Dark City toward the Crimson Spire. They traverse the most dangerous stretches of the Forgotten Shore." },
+        { ch: 250, type: "event", spoiler: 2, chars: ["sunny"], text: "The expedition faces nightmare creatures of escalating power. Multiple survivors fall during the journey. Sunny uses his echo army strategically to protect the group." },
+        { ch: 280, type: "death", spoiler: 3, chars: [], text: "Several members of the expedition are killed by nightmare creatures during the march toward the Crimson Spire.", deathDetail: "Multiple survivors lost during the Crimson Spire expedition." },
+        { ch: 300, type: "event", spoiler: 2, chars: ["nephis"], text: "Nephis's flame Aspect grows stronger as the group faces more dangerous threats. Her leadership holds the expedition together during the darkest moments." },
+        { ch: 330, type: "event", spoiler: 3, chars: ["sunny", "nephis", "cassie", "effie", "kai"], text: "The cohort reaches the Crimson Spire and confronts a Fallen Terror guarding the gateway. After a devastating battle with immense sacrifices, they activate the gateway." },
+        { ch: 350, type: "event", spoiler: 1, chars: ["sunny", "nephis", "cassie", "effie", "kai"], text: "The survivors pass through the gateway and return to the waking world as Awakened. The Forgotten Shore arc ends." },
+        { ch: 350, type: "powerup", spoiler: 1, chars: ["sunny", "nephis", "cassie", "effie", "kai"], text: "The entire cohort achieves Awakened rank upon returning to the real world.", powerDetail: "Awakened rank achieved. Aspects fully activated. Access to the waking world restored." },
 
-        // ── CHAPTERS 201-400: TOMB OF ARIEL ARC ──
-        { ch: 200, type: "lore", spoiler: 2, chars: [], text: "The Tomb of Ariel is unveiled: a legendary nightmare dungeon said to contain the soul legacy of Ariel, a Transcendent-rank being from history. Its interior defies normal nightmare rules.", loreDetail: "Tomb of Ariel: Ariel = Transcendent-rank historical figure. Tomb rewards scale with Awakened rank. Contains Ariel's memory legacies." },
-        { ch: 220, type: "event", spoiler: 2, chars: ["sunny", "nephis", "morgans"], text: "Three-faction race into the Tomb of Ariel begins: Sunny's group, Memory Clan forces, and Morgan's Blood Faction agents all enter simultaneously, each pursuing the legacy." },
-        { ch: 250, type: "powerup", spoiler: 2, chars: ["nephis"], text: "Nephis's flame aspect undergoes a qualitative shift deep in the Tomb — the flame turns from orange-white to pure white, burning cold and absolute.", powerDetail: "Nephis — Flame Aspect: qualitative shift. Cold white flame, burns absolutely without fuel or oxygen." },
-        { ch: 280, type: "event", spoiler: 3, chars: ["sunny", "morgans"], text: "Sunny and Morgan face off directly for the first time inside the Tomb. Sunny reveals a portion of his shadow army capability — enough to drive Morgan off without exposing his true depth.", },
-        { ch: 300, type: "powerup", spoiler: 2, chars: ["sunny"], text: "Sunny reaches 25 echoes — his army is now large enough to function as a genuine tactical force rather than just personal guards.", powerDetail: "Sunny — Echo army: 25 shadows. First emergence of coordinated shadow tactics." },
-        { ch: 320, type: "lore", spoiler: 2, chars: [], text: "Ariel's memory is partially accessed: she was a Transcendent who chose to seal herself in the Tomb rather than Ascend, leaving her legacy for future generations.", loreDetail: "Ariel's sacrifice: chose containment over Ascension. Left behind memory-based power legacies." },
-        { ch: 350, type: "powerup", spoiler: 2, chars: ["kai"], text: "Kai achieves Awakened rank inside the Tomb. His Arrow Aspect evolves to allow mid-air course correction of arrows after release.", powerDetail: "Kai — Awakened rank achieved. Arrow Aspect: post-release trajectory control unlocked." },
-        { ch: 380, type: "event", spoiler: 3, chars: ["nephis"], text: "Nephis manifests her flame across an entire underground chamber — the scale stuns both allies and enemies. It is the first confirmed city-scale manifestation.", },
-        { ch: 400, type: "event", spoiler: 2, chars: ["sunny", "nephis", "cassie", "effie", "kai"], text: "The group emerges from the Tomb of Ariel with Ariel's memory legacies secured. Major casualties on all other faction teams. The Tomb closes permanently." },
-        { ch: 400, type: "lore", spoiler: 2, chars: [], text: "The Moonless Seal is confirmed to be directly linked to the Memory Clan's bloodline — and specifically to Nephis. Its activation conditions become clearer but still cryptic.", loreDetail: "Moonless Seal confirmed: Memory Clan bloodline specific. Nephis is a primary vessel. Activation: tied to extreme emotional/power states." },
+        // ── CHAPTERS 351-600: WAKING WORLD & CHAINED ISLES ──
+        { ch: 360, type: "lore", spoiler: 1, chars: [], text: "Awakened society is revealed — dominated by the Great Clans: Clan Valor (War God lineage), Clan Song (Beast God lineage), House of Night (Storm God lineage), and Immortal Flame Clan (Sun God lineage).", loreDetail: "Great Clans: Valor, Song, House of Night, Immortal Flame. Each tied to a divine lineage." },
+        { ch: 380, type: "event", spoiler: 2, chars: ["sunny"], text: "Sunny struggles to fit into Awakened society. Seeking freedom from clan politics, he takes refuge in the Chained Isles — floating islands connected by massive chains at the edge of the Dream Realm." },
+        { ch: 400, type: "event", spoiler: 2, chars: ["morgans"], text: "Morgan, Princess of Clan Valor, makes her first significant appearance in the Chained Isles. Her Blade Aspect makes her a lethal combatant — capable of cutting through almost anything." },
+        { ch: 420, type: "lore", spoiler: 2, chars: [], text: "The Chained Isles' dangers are explored: the 'Crushing' phenomenon creates intense pressure as islands ascend. Powerful nightmare creatures inhabit the upper reaches.", loreDetail: "Chained Isles: floating islands, connected by chains. Crushing phenomenon. Under Clan Valor's nominal protection." },
+        { ch: 450, type: "powerup", spoiler: 2, chars: ["sunny"], text: "Sunny's echo army grows significantly during his time in the Chained Isles. His Shadow Aspect develops new offensive capabilities.", powerDetail: "Sunny — Echo army expanding. Shadow combat techniques evolving." },
+        { ch: 500, type: "event", spoiler: 2, chars: ["sunny", "nephis"], text: "Nephis continues her rapid rise through the ranks. The tension between Clan Valor and Clan Song begins to escalate, drawing all Awakened into the growing conflict." },
+        { ch: 550, type: "event", spoiler: 2, chars: ["sunny"], text: "Sunny prepares for the Second Nightmare — the trial required to advance from Awakened to Ascended (Master) rank. The stakes are life or death." },
+        { ch: 580, type: "lore", spoiler: 2, chars: [], text: "The Second Nightmare's structure is explored: unlike the First Nightmare which is universal, the Second Nightmare is personalized — each Awakened faces unique trials based on their Aspect.", loreDetail: "Second Nightmare: personalized trial. Survival = Master rank. Death = permanent." },
 
-        // ── CHAPTERS 401-600: POST-TOMB & RANK CLIMBING ──
-        { ch: 420, type: "powerup", spoiler: 2, chars: ["sunny"], text: "Sunny advances to Awakened rank — he can no longer hide his growth from close allies. Nephis and Effie notice the shift.", powerDetail: "Sunny — Awakened rank achieved. Shadow Aspect: shadow mass can now manifest physically. Echo army: 35 shadows." },
-        { ch: 450, type: "event", spoiler: 2, chars: ["sunny", "nephis"], text: "Sunny's closest-to-honest conversation with Nephis — he admits he has been hiding his true strength, though not the full extent. She accepts this without anger, which unnerves him." },
-        { ch: 470, type: "romance", spoiler: 3, chars: ["sunny", "nephis"], text: "A single charged scene: Nephis acknowledges Sunny as an equal for the first time — not as a useful member, but as a person she specifically chose to protect.", romanceDetail: "Sunny/Nephis — first mutual acknowledgement as equals. Not romantic explicitly, but emotionally the clearest moment of connection." },
-        { ch: 490, type: "lore", spoiler: 2, chars: [], text: "New nightmare zones open globally — not just dedicated dungeons, but nightmare incursions into the real world. Awakened society shifts to emergency footing.", loreDetail: "Global Incursion: nightmare zones merge with real-world geography. Cities at risk. Awakened now operate as emergency responders." },
-        { ch: 500, type: "powerup", spoiler: 2, chars: ["nephis"], text: "Nephis achieves Awakened rank — her advance is abnormally fast. The Memory Clan leadership panics.", powerDetail: "Nephis — Awakened rank achieved. Flame Aspect: now generates flame that persists without her active attention." },
-        { ch: 510, type: "event", spoiler: 2, chars: ["sunny"], text: "Sunny begins operating independently between missions — running solo deep-exploration runs through dangerous nightmare zones to accelerate echo acquisition." },
-        { ch: 540, type: "powerup", spoiler: 2, chars: ["cassie"], text: "Cassie's prophecy aspect evolves — she begins experiencing temporal displacement, seeing 'threads' several days into the future rather than impressionistic flashes.", powerDetail: "Cassie — Prophecy Aspect: temporal range expanded. Futures now arrive as multi-day clear visions rather than symbolic impressions." },
-        { ch: 560, type: "lore", spoiler: 2, chars: ["nephis"], text: "The Moonless Seal begins manifesting physically — Nephis reports fragments of memory going 'cold', as if coated in frost. She does not yet understand what this means.", loreDetail: "Moonless Seal: first physical symptom in Nephis. Memory degradation begins. Estimated timeline to full activation: unknown." },
-        { ch: 580, type: "death", spoiler: 3, chars: [], text: "A named secondary character — an ally Awakened who had been supporting the group since chapter 70 — is killed in a Blood Faction ambush. The group mourns but cannot pause.", deathDetail: "Named supporting ally — killed, Blood Faction ambush. Establishes Blood Faction's willingness to escalate." },
-        { ch: 600, type: "powerup", spoiler: 2, chars: ["sunny"], text: "Sunny's echo army crosses 50 members. His shadow aspect has developed 3 distinct soul aspects — all hidden from public knowledge.", powerDetail: "Sunny — Echo army: 50+ shadows. Soul Aspects: 3 confirmed, 2 suspected. One shadow has achieved independent tactical reasoning." },
+        // ── CHAPTERS 601-900: SECOND NIGHTMARE & MASTER RANK ──
+        { ch: 602, type: "event", spoiler: 2, chars: ["sunny"], text: "Sunny enters the Second Nightmare. His first trial is the Red Colosseum — a brutal gladiatorial arena where he must fight increasingly powerful opponents." },
+        { ch: 624, type: "event", spoiler: 2, chars: ["sunny"], text: "Sunny survives the Red Colosseum through a combination of shadow army tactics and cunning strategy rather than brute force." },
+        { ch: 666, type: "event", spoiler: 2, chars: ["sunny"], text: "The Temple of the Chalice — a mid-Nightmare trial that tests Sunny's resolve and understanding of his Aspect's true nature." },
+        { ch: 677, type: "event", spoiler: 2, chars: ["sunny"], text: "Sunny emerges from the Temple of the Chalice having gained deeper insight into his Shadow Aspect. His control over his echoes becomes more refined." },
+        { ch: 710, type: "event", spoiler: 2, chars: ["sunny"], text: "The Ivory City siege begins — the final phase of Sunny's Second Nightmare. He must survive a massive conflict within a crumbling ancient city." },
+        { ch: 742, type: "event", spoiler: 2, chars: ["sunny"], text: "Sunny clears the Second Nightmare and achieves Ascended (Master) rank. He can now travel freely between the Dream Realm and the waking world." },
+        { ch: 742, type: "powerup", spoiler: 1, chars: ["sunny"], text: "Sunny achieves Master rank. His Shadow Aspect undergoes a significant evolution.", powerDetail: "Sunny — Ascended (Master) rank achieved. Second Nightmare cleared. Free travel between Dream Realm and waking world unlocked." },
+        { ch: 800, type: "event", spoiler: 2, chars: ["nephis", "cassie", "effie", "kai"], text: "The cohort members advance through their own paths. The clan war between Valor and Song intensifies, threatening to engulf all of Awakened humanity." },
+        { ch: 850, type: "lore", spoiler: 2, chars: [], text: "The political landscape is explored: Clan Valor (led by Anvil of Valor) and Clan Song (led by Ki Song) prepare for an inevitable confrontation. Neutral parties scramble to survive.", loreDetail: "Clan War approaching: Valor vs Song. Both Sovereigns are preparing forces." },
+        { ch: 900, type: "event", spoiler: 2, chars: ["sunny"], text: "As a Master, Sunny operates with greater freedom. His echo army has grown substantially, and his true combat capability far exceeds his apparent rank." },
 
-        // ── CHAPTERS 601-900: THE NAMELESS & MASTER RANK ARC ──
-        { ch: 620, type: "lore", spoiler: 2, chars: [], text: "The Nameless are introduced: a category of nightmare creature that moves without pattern, leaves no trace, and cannot be tracked by conventional Awakened means.", loreDetail: "Nameless: non-categorizable nightmare type. No echo acquisition possible. Appear to have purpose rather than instinct." },
-        { ch: 650, type: "powerup", spoiler: 2, chars: ["effie"], text: "Effie achieves Master rank — the first of the core group to reach it. The transformation is visible: she grows several centimeters and her physical parameters double.", powerDetail: "Effie — Master rank achieved. Hunt Aspect: now commands lesser nightmare creatures passively during combat. Physical parameters: doubles previous Awakened baseline." },
-        { ch: 650, type: "event", spoiler: 2, chars: ["effie"], text: "Effie's Master rank breakthrough happens during a solo encounter with a Awakened-rank nightmare — she exceeds her limits through pure willpower, not technique. The scene is widely regarded as one of the most dramatic rank-up moments in the story." },
-        { ch: 680, type: "event", spoiler: 2, chars: ["kai"], text: "Kai reveals the Arrow Clan's true hidden agenda: they have been tracking the Moonless Seal's progression in Nephis for decades, waiting for a specific activation condition." },
-        { ch: 700, type: "lore", spoiler: 2, chars: ["nephis"], text: "The Moonless Seal's origin is traced to a pre-clan compact: certain Memory bloodlines agreed to carry a 'sealing burden' in exchange for amplified flame aspect from birth.", loreDetail: "Moonless Seal origin: Memory Clan compact. Carrier gains amplified aspect at birth; pays with progressive memory loss in adulthood." },
-        { ch: 730, type: "romance", spoiler: 3, chars: ["sunny", "nephis"], text: "Nephis tells Sunny she has been noticing memories 'becoming unreliable' — she doesn't name what she fears losing. Sunny, who understands, says nothing. The scene is devastating in subtext.", romanceDetail: "Sunny/Nephis — Nephis hints at memory fear without naming Sunny. He says nothing to protect her. First active sacrifice of connection." },
-        { ch: 750, type: "powerup", spoiler: 2, chars: ["sunny"], text: "Sunny reaches the edge of Master rank. His shadow army now contains 2 truly exceptional echoes capable of independent strategic decision-making.", powerDetail: "Sunny — approaching Master rank threshold. Echo army: 73 members. 2 'general-tier' shadows with strategic reasoning." },
-        { ch: 780, type: "lore", spoiler: 3, chars: [], text: "The Sovereign — a mysterious figure controlling nightmare zone fluctuations from the shadows — is first referenced by name. No identity is given, only that they exist above clan authority.", loreDetail: "The Sovereign: referenced for first time. Described as operating above the Great Clans. Connections to nightmare geography." },
-        { ch: 820, type: "powerup", spoiler: 2, chars: ["kai"], text: "Kai achieves Master rank. His Arrow Aspect now generates 'phantom arrows' — trajectories that exist only in his perception until they strike.", powerDetail: "Kai — Master rank achieved. Arrow Aspect: Phantom Arrow technique. Arrows travel through perceptual space before materializing." },
-        { ch: 860, type: "event", spoiler: 3, chars: ["sunny", "nephis"], text: "The Moonless Seal's first major activation: Nephis loses a block of memories covering approximately two weeks. She wakes disoriented, with gaps she cannot account for. Sunny is among the people she questions." },
-        { ch: 900, type: "powerup", spoiler: 2, chars: ["sunny"], text: "Sunny achieves Master rank. The achievement is deliberately hidden from public record — he operates at two apparent rank levels below actual.", powerDetail: "Sunny — Master rank achieved. Shadow Aspect: can now generate autonomous shadow territory. Echo army: 73. True rank concealed." },
+        // ── CHAPTERS 901-1100: ANTARCTICA CAMPAIGN ──
+        { ch: 920, type: "event", spoiler: 2, chars: ["sunny", "cassie", "effie", "jet"], text: "The Antarctica Campaign begins — a massive military operation against nightmare creature incursions in the real world. Sunny and the cohort are deployed to the frontlines." },
+        { ch: 950, type: "event", spoiler: 2, chars: ["sunny"], text: "The Siege of Falcon Scott — a desperate defense against overwhelming nightmare creature forces in Antarctica. Sunny pushes his Shadow Aspect to its limits evacuating civilians." },
+        { ch: 980, type: "death", spoiler: 3, chars: [], text: "Heavy casualties during the Antarctica Campaign. The nightmare incursions prove more devastating than anticipated.", deathDetail: "Significant losses during the Antarctica Campaign and Siege of Falcon Scott." },
+        { ch: 1000, type: "event", spoiler: 2, chars: ["sunny"], text: "Sunny's performance during the Antarctica Campaign draws attention from both Clan Valor and Clan Song. His hidden power becomes harder to conceal." },
+        { ch: 1050, type: "lore", spoiler: 2, chars: [], text: "The clan conflict between Valor and Song reaches breaking point. The Antarctica Campaign reveals the fragility of human civilization against nightmare threats.", loreDetail: "Clan War escalation: Valor vs Song. Antarctica Campaign exposed humanity's vulnerability." },
+        { ch: 1100, type: "event", spoiler: 2, chars: ["sunny"], text: "The Antarctica Campaign concludes. Sunny emerges hardened and ready for the next threshold — the Third Nightmare, which will push him to Saint rank." },
 
-        // ── CHAPTERS 901-1100: MEMORY LOSS ARC ──
-        { ch: 920, type: "event", spoiler: 3, chars: ["nephis", "sunny"], text: "Nephis undergoes the second major Moonless Seal activation. This time she loses over a month of memories — including all memories of several interactions with Sunny. He is still present but she treats him as a stranger she has been briefed about.", },
-        { ch: 920, type: "lore", spoiler: 2, chars: ["nephis"], text: "The Moonless Seal's mechanism is now fully understood: it does not delete memories but 'seals' them behind a membrane that appears as genuine absence. The sealed memories still exist — they cannot be accessed.", loreDetail: "Moonless Seal mechanism: memories are sealed, not deleted. Accessible through the Seal's rupture — which requires conditions unknown to most." },
-        { ch: 950, type: "event", spoiler: 3, chars: ["sunny"], text: "Sunny makes the decision not to tell Nephis what she has lost — protecting her from the grief of knowing while carrying the weight of it alone. This becomes his defining character choice of the arc." },
-        { ch: 980, type: "powerup", spoiler: 2, chars: ["nephis"], text: "Despite memory loss, Nephis's flame aspect has not diminished — it has grown. The Seal's activation paradoxically amplifies her power while consuming her past.", powerDetail: "Nephis — Master rank achieved (confirmed). Flame Aspect: city-scale now sustainable without strain. Paradox: power grows as memory shrinks." },
-        { ch: 1000, type: "lore", spoiler: 3, chars: [], text: "The Sovereign's shadow operations are confirmed: they have been deliberately engineering nightmare zone fluctuations to stress-test the Awakened world's limits — potentially to force a specific future outcome.", loreDetail: "Sovereign: confirmed as active manipulator. Motive: unknown. Method: nightmare zone engineering. Scale: global." },
-        { ch: 1050, type: "event", spoiler: 2, chars: ["sunny", "morgans"], text: "Morgan and Sunny meet for the second major confrontation. Morgan has grown substantially since the Tomb. Sunny reveals more of his true power than intended, necessitating Morgan's 'disappearance' to maintain secrecy." },
-        { ch: 1080, type: "powerup", spoiler: 2, chars: ["sunny"], text: "Sunny acquires his 7th Soul Aspect — an unprecedented number. The shadow army has grown to 80 echoes. He is now objectively Saint-rank capable, though officially Master.", powerDetail: "Sunny — Soul Aspects: 7 (unprecedented). Echo army: 80 shadows. Effective combat rank: Saint-level, official rank: Master." },
-        { ch: 1100, type: "event", spoiler: 3, chars: ["nephis", "sunny"], text: "The Moonless Seal fully activates — Nephis loses all memories of Sunny from their shared history. She retains knowledge he exists (briefed by others) but has no emotional memory of their bond.", },
-
-        // ── CHAPTERS 1101-1250: SAINT RANK THRESHOLD ──
-        { ch: 1102, type: "lore", spoiler: 2, chars: ["cassie"], text: "Cassie delivers the prophecy: 'The blind shall see what the sighted cannot — a throne built of broken chains.' The context is unclear but its weight is unmistakable.", loreDetail: "Cassie's Ch.1102 Prophecy — key phrase: 'throne of broken chains'. Fulfillment: Chapter 1245." },
-        { ch: 1110, type: "event", spoiler: 2, chars: ["sunny"], text: "Sunny enters his Saint rank breakthrough attempt — a grueling process requiring sustained combat against Transcendent-level nightmare creatures." },
-        { ch: 1150, type: "powerup", spoiler: 2, chars: ["sunny"], text: "Sunny achieves Saint rank. His shadow aspect undergoes a fundamental transformation — the shadows become semi-real, able to affect the physical world directly.", powerDetail: "Sunny — Saint rank achieved. Shadow Aspect: shadows gain physical mass and density. Echo army: 87 shadows. Soul Aspects: 7." },
-        { ch: 1180, type: "event", spoiler: 3, chars: ["sunny", "nephis"], text: "Nephis and Sunny work together on a nightmare incursion — she has no memory of their history but her instincts still route her toward him. He finds this more painful than her absence would be." },
-        { ch: 1200, type: "powerup", spoiler: 2, chars: ["effie"], text: "Effie achieves a Master rank refinement breakthrough — her Hunt Aspect evolves to command Awakened-rank creatures willingly, not just nightmare creatures.", powerDetail: "Effie — Master rank: second evolution. Hunt Aspect: range extends to Awakened-class creatures. Physical parameters: tripled from Awakened baseline." },
-        { ch: 1220, type: "lore", spoiler: 3, chars: [], text: "The 'Last Nightmare' is mentioned by name for the first time — a theoretical state where the Nightmare Realm and the real world fully merge. The Sovereign is implied to be working toward it.", loreDetail: "Last Nightmare: first named reference. Theoretical merger of Nightmare Realm and real world. Sovereign implied as orchestrator. Timeline: unknown." },
-        { ch: 1230, type: "event", spoiler: 3, chars: ["sunny"], text: "Sunny confronts a Transcendent-rank nightmare near the sealed Tomb of Ariel in what becomes the longest single combat in the story. He survives through accumulated shadow army coordination, not individual power." },
-        { ch: 1240, type: "death", spoiler: 3, chars: [], text: "A Saint-rank ally from the Valor Clan — Aldric, who had been a recurring background figure — is killed in the Sovereign's first direct offensive action. It is the first Saint-rank death in the story.", deathDetail: "Aldric (Valor Clan, Saint rank) — killed. First Saint-rank death. Confirms Sovereign can threaten even Saint-rank Awakened directly." },
-        { ch: 1245, type: "event", spoiler: 3, chars: ["cassie", "sunny"], text: "Cassie's prophecy from Ch.1102 fulfills: the 'throne of broken chains' appears as Sunny stands in the ruins of a shattered chain-seal structure within a nightmare zone. Cassie's reaction: 'I thought it would take longer.'", },
-        { ch: 1248, type: "lore", spoiler: 3, chars: [], text: "New Sovereign identity hints dropped: a shadow sigil is left at the aftermath of Ch.1240's battle — matching no known clan. Closest match: a pre-clan symbol associated with Sunny's unrevealed origin.", loreDetail: "Sovereign identity: shadow sigil hint. Pre-clan symbol. Connection to Sunny's origin: unconfirmed but strongly implied." },
-        { ch: 1250, type: "event", spoiler: 2, chars: ["sunny"], text: "Sunny's echo army approaches 100 members. He begins planning his next move knowing the Last Nightmare arc is coming — and that Nephis will face it without her memories of him.", },
+        // ── CHAPTERS 1101-1250: THIRD NIGHTMARE & SAINT RANK ──
+        { ch: 1110, type: "event", spoiler: 2, chars: ["sunny"], text: "Sunny enters the Third Nightmare — the trial required to advance from Master to Transcendent (Saint) rank. The challenges eclipse anything he has faced before." },
+        { ch: 1150, type: "powerup", spoiler: 2, chars: ["sunny"], text: "Sunny achieves Transcendent (Saint) rank. His Shadow Aspect undergoes a fundamental transformation — the shadows become semi-real, able to affect the physical world directly.", powerDetail: "Sunny — Transcendent (Saint) rank achieved. Third Nightmare cleared. Shadow Aspect: shadows gain physical mass." },
+        { ch: 1200, type: "event", spoiler: 2, chars: ["sunny", "nephis", "cassie", "effie"], text: "As Saints, the cohort operates at near-mythical levels. The political tension between Valor and Song continues to dominate the landscape." },
+        { ch: 1250, type: "event", spoiler: 2, chars: ["sunny"], text: "Sunny's echo army continues to grow. He begins preparing for the next phase of the journey, knowing danger lies ahead." },
 
         // ── CHAPTERS 1251-1400: NIGHTMARE DESERT & FALLEN GRACE ──
         { ch: 1251, type: "event", spoiler: 2, chars: ["sunny", "nephis"], text: "Sunny and Nephis reunite on the shell of a giant black turtle drifting through the Nightmare Desert. After months of separation, their meeting is tense but quickly settles into familiar patterns." },

@@ -138,15 +138,14 @@ function buildNarrativeFallback(from, to, spoilerLevel, toggles) {
  */
 function getArcName(from, to) {
     const mid = Math.floor((from + to) / 2);
-    if (mid <= 10) return 'Awakening — Sunny enters the Nightmare Realm';
+    if (mid <= 10) return 'Awakening — Sunny enters the First Nightmare';
     if (mid <= 50) return 'First Nightmare Survival Arc';
-    if (mid <= 100) return 'Return to the Waking World Arc';
-    if (mid <= 200) return 'Great Clan Politics Arc';
-    if (mid <= 400) return 'Tomb of Ariel Arc';
-    if (mid <= 600) return 'Post-Tomb Ascension Arc';
-    if (mid <= 900) return 'Nameless Threat & Master Rank Arc';
-    if (mid <= 1100) return 'Fateless Arc';
-    if (mid <= 1260) return 'Saint Rank Threshold Arc';
+    if (mid <= 200) return 'Forgotten Shore — Dark City Arc';
+    if (mid <= 350) return 'Forgotten Shore — Crimson Spire Expedition';
+    if (mid <= 600) return 'Waking World & Chained Isles Arc';
+    if (mid <= 900) return 'Second Nightmare & Master Rank Arc';
+    if (mid <= 1100) return 'Antarctica Campaign Arc';
+    if (mid <= 1260) return 'Third Nightmare & Saint Rank Arc';
     if (mid <= 1400) return 'Nightmare Desert & Fallen Grace Arc';
     if (mid <= 1480) return 'Wind Flower Island — Time Loop Arc';
     if (mid <= 1590) return 'Great River & Estuary Arc';
