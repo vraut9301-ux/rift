@@ -18,7 +18,7 @@
     "id": "s9",
     "name": "Shadow Aspect Armor",
     "slot": "armor",
-    "desc": "Armor that does not exist in the waking world G현 manifested fully from shadow mass upon reaching Refined rank. Absorbs non-light damage."
+    "desc": "Armor that does not exist in the waking world G현 manifested fully from shadow mass upon reaching Awakened rank. Absorbs non-light damage."
   },
   {
     "char": "nephis",
@@ -74,7 +74,7 @@
     "id": "n9",
     "name": "Memory Clan Champion Blade",
     "slot": "weapon",
-    "desc": "The Memory Clan's champion-grade weapon, formally granted to Nephis after her Refined rank advancement. Holds clan memories as power."
+    "desc": "The Memory Clan's champion-grade weapon, formally granted to Nephis after her Awakened rank advancement. Holds clan memories as power."
   },
   {
     "char": "cassie",
@@ -207,7 +207,7 @@
     "id": "k4",
     "name": "Phantom Arrow Quiver",
     "slot": "offhand",
-    "desc": "After Refined rank G현 his arrows no longer need to follow physics. The quiver holds arrows that exist in perceptual space until they strike."
+    "desc": "After Awakened rank G현 his arrows no longer need to follow physics. The quiver holds arrows that exist in perceptual space until they strike."
   },
   {
     "char": "kai",

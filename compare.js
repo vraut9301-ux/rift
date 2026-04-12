@@ -93,7 +93,7 @@ function renderComparison() {
     c2.abilities.forEach(a => allAbilities.add(a.name));
 
     // Rank comparison
-    const rankNames = ['Dormant','Awakened','Refined','Master','Saint','Transcendent','Ascended'];
+    const rankNames = ['Dormant','Awakened','Awakened','Master','Saint','Transcendent','Ascended'];
     const r1 = c1.rankLevel;
     const r2 = c2.rankLevel;
 

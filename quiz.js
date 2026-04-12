@@ -119,7 +119,7 @@ const QUIZ_RESULTS = {
     cassie: {
         name: "Cassie",
         epithet: "The Blind Seer · Prophet of Doom",
-        rank: "Awakened",
+        rank: "Transcendent",
         symbol: "◈",
         color: "#8B5CF6",
         traits: ["Intuitive", "Perceptive", "Mysterious", "Wise", "Empathetic"],
@@ -129,7 +129,7 @@ const QUIZ_RESULTS = {
     effie: {
         name: "Effie",
         epithet: "Raised by Wolves · Iron-Armed Hunter",
-        rank: "Master",
+        rank: "Transcendent",
         symbol: "⚔",
         color: "#2DD4BF",
         traits: ["Fearless", "Loyal", "Physical", "Straightforward", "Unstoppable"],
@@ -139,7 +139,7 @@ const QUIZ_RESULTS = {
     kai: {
         name: "Kai",
         epithet: "The Sly Arrow · Whispering Shadow",
-        rank: "Refined",
+        rank: "Transcendent",
         symbol: "⬡",
         color: "#60A5FA",
         traits: ["Calculated", "Patient", "Precise", "Reserved", "Strategic"],
@@ -149,7 +149,7 @@ const QUIZ_RESULTS = {
     morgans: {
         name: "Morgan",
         epithet: "Princess of Valor",
-        rank: "Master",
+        rank: "Transcendent",
         symbol: "⛧",
         color: "#DC2626",
         traits: ["Ruthless", "Ambitious", "Pragmatic", "Powerful", "Unapologetic"],
@@ -159,7 +159,7 @@ const QUIZ_RESULTS = {
     jet: {
         name: "Jet",
         epithet: "The Soul Reaper · Colonel",
-        rank: "Ascended",
+        rank: "Transcendent",
         symbol: "⚔",
         color: "#6366F1",
         traits: ["Disciplined", "Duty-bound", "Terrifying", "Protective", "Resilient"],

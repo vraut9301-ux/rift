@@ -238,7 +238,7 @@ function renderCard(charId) {
     ctx.textAlign = 'center';
     ctx.font = '600 9px Inter, sans-serif';
     ctx.fillStyle = 'rgba(255,255,255,0.15)';
-    ctx.fillText('rift-shadowslave.netlify.app', W / 2, H - 16);
+    ctx.fillText('rift-shadowslave.github.io', W / 2, H - 16);
 }
 
 function drawDivider(ctx, x, y, w, color) {
