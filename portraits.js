@@ -2,7 +2,7 @@
 
 const rankColors = {
     Dormant: '#3A3A58',
-    Awakened: '#2DD4BF',
+    Sleeper: '#2DD4BF',
     Awakened: '#60A5FA',
     Master: '#A855F7',
     Saint: '#C41E3A',
