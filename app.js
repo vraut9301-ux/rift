@@ -93,22 +93,15 @@ if (navbar) {
     }, { passive: true });
 }
 
-// ---- HAMBURGER MENU ----
-const hamburger = document.getElementById('hamburger');
+// ---- HAMBURGER MENU (toggle handled by inline onclick in HTML) ----
 const mobileMenu = document.getElementById('mobile-menu');
-if (hamburger && mobileMenu) {
-    function toggleMenu(e) {
-        e.preventDefault();
-        e.stopPropagation();
-        mobileMenu.classList.toggle('open');
-    }
-    hamburger.addEventListener('click', toggleMenu);
-    hamburger.addEventListener('touchend', toggleMenu);
+if (mobileMenu) {
     document.querySelectorAll('.mobile-menu a').forEach(a => {
         a.addEventListener('click', () => mobileMenu.classList.remove('open'));
     });
     document.addEventListener('click', (e) => {
-        if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
+        const hamburger = document.getElementById('hamburger');
+        if (hamburger && !hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
             mobileMenu.classList.remove('open');
         }
     });
