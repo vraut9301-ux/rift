@@ -97,11 +97,20 @@ if (navbar) {
 const hamburger = document.getElementById('hamburger');
 const mobileMenu = document.getElementById('mobile-menu');
 if (hamburger && mobileMenu) {
-    hamburger.addEventListener('click', () => {
+    function toggleMenu(e) {
+        e.preventDefault();
+        e.stopPropagation();
         mobileMenu.classList.toggle('open');
-    });
+    }
+    hamburger.addEventListener('click', toggleMenu);
+    hamburger.addEventListener('touchend', toggleMenu);
     document.querySelectorAll('.mobile-menu a').forEach(a => {
         a.addEventListener('click', () => mobileMenu.classList.remove('open'));
+    });
+    document.addEventListener('click', (e) => {
+        if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
+            mobileMenu.classList.remove('open');
+        }
     });
 }
 
